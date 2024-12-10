@@ -1,4 +1,5 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
+
 import { UsersService } from './users.service';
 import { User } from './entities';
 import { CreateUserDto, UpdateUserDto } from './dto';
@@ -8,23 +9,24 @@ export class UsersController {
   constructor(private readonly userService: UsersService) {};
 
   @Get()
-  getUsers(): User[] {
+  getUsers(): Promise<User[]> {
     return this.userService.getUsers();
   }
   @Get(":id")
-  getUser(@Param("id") id: string): User {
+  getUser(@Param("id") id: number): Promise<User> {
     return this.userService.getUser(id);
   }
   @Post()
-  createUser(@Body() body: CreateUserDto): User { //TODO add protection
+  createUser(@Body() body: CreateUserDto): Promise<User> { //TODO add protection
+    console.log(body)
     return this.userService.createUser(body);
   }
   @Patch(":id")
-  updateUser(@Param("id") id: string, @Body() body: UpdateUserDto): User { //TODO add protection
+  updateUser(@Param("id") id: number, @Body() body: UpdateUserDto): Promise<User> { //TODO add protection
     return this.userService.updateUser(id, body);
   }
   @Delete(":id")
-  deleteUser(@Param("id") id: string): JSON { //TODO add protection
+  deleteUser(@Param("id") id: number): Promise<JSON> { //TODO add protection
     return this.userService.deleteUser(id);
   }
 }

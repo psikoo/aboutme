@@ -19,4 +19,6 @@ export class UpdateUserDto {
   readonly intro: string;
   @IsString()
   readonly mood: string;
+  @IsString()
+  readonly mainLink: string;
 }

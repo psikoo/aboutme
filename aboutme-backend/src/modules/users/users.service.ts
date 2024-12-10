@@ -1,34 +1,24 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { User } from './entities';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+
 import { CreateUserDto, UpdateUserDto } from './dto';
+import { User } from './entities';
 
 @Injectable()
 export class UsersService {
-  private users: User[] = [{
-    id: "1",
-    name: "psikoo/Caitlyn",
-    age: 19,
-    birthday: "oct 2005",
-    gender: "Gender fluid",
-    pronouns: "He/She/It",
-    orientation: "Finsexual",
-    quote: "Despite everything, it's still you.",
-    intro: "hewoo! I'm a dev that loves the scene aesthetic (as you can see x3). I love gaming and hanging out in VC >.<",
-    mood: "Silly"
-  }];
+  constructor(@InjectRepository(User) private readonly userRepository: Repository<User>) {}
 
-  getUsers(): User[] {
-    return this.users;
+  async getUsers(): Promise<User[]> {
+    return await this.userRepository.find();
   }
-  getUser(id: string): User {
-    const user: User = this.users.find((item) => item.id === id);
+  async getUser(id: number): Promise<User> {
+    const user: User = await this.userRepository.findOneBy({id});
     if(!user) throw new NotFoundException();
     else return user;
   }
-  createUser(body: CreateUserDto): User { //TODO add protection
-    const id: string = (Math.floor(Math.random()*200)+1).toString();
-    this.users.push({
-      id: id,
+  async createUser(body: CreateUserDto): Promise<User> { //TODO add protection
+    const user: User = await this.userRepository.create({
       name: body.name,
       age: body.age,
       birthday: body.birthday,
@@ -37,31 +27,32 @@ export class UsersService {
       orientation: body.orientation,
       quote: body.quote,
       intro: body.intro,
-      mood: body.mood
+      mood: body.mood,
     })
-    return this.getUser(id);
+    return this.userRepository.save(user);
   }
-  updateUser(id: string, body: UpdateUserDto): User { //TODO add protection
-    const user = this.getUser(id);
-    if(!user) throw new NotFoundException();
+  async updateUser(id: number, body: UpdateUserDto): Promise<User> { //TODO add protection
+    const user: User = await this.userRepository.preload({
+      id,
+      name: body.name,
+      age: body.age,
+      birthday: body.birthday,
+      gender: body.gender,
+      pronouns: body.pronouns,
+      orientation: body.orientation,
+      quote: body.quote,
+      intro: body.intro,
+      mood: body.mood,
+    })
+    if(!user) throw new NotFoundException("Resource not found");
+    else this.userRepository.save(user);
+    return user;
+  }
+  async deleteUser(id: number): Promise<JSON> { //TODO add protection
+    const user: User = await this.userRepository.findOneBy({id});
+    if(!user) throw new NotFoundException("Resource not found");
     else {
-      user.name = body.name;
-      user.age = body.age;
-      user.birthday = body.birthday;
-      user.gender = body.gender;
-      user.pronouns = body.pronouns;
-      user.orientation = body.orientation;
-      user.quote = body.quote;
-      user.intro = body.intro;
-      user.mood = body.mood;
-      return user;
-    }
-  }
-  deleteUser(id: string): JSON { //TODO add protection
-    const index = this.users.findIndex((user) => user.id === id);
-    if(!index) throw new NotFoundException();
-    else if(index >= 0) {
-      this.users.splice(index+1, 1);
+      this.userRepository.remove(user);
       return JSON.parse(`{"deletedUser": "${id}"}`);
     }
   }
