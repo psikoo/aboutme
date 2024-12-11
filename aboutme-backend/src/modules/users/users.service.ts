@@ -1,9 +1,10 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
 import { CreateUserDto, UpdateUserDto } from './dto';
 import { User } from './entities';
+import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class UsersService {
@@ -17,7 +18,7 @@ export class UsersService {
     if(!user) throw new NotFoundException();
     else return user;
   }
-  async createUser(body: CreateUserDto): Promise<User> { //TODO add protection
+  async createUser(body: CreateUserDto): Promise<User> {
     const user: User = await this.userRepository.create({
       name: body.name,
       age: body.age,
@@ -28,10 +29,12 @@ export class UsersService {
       quote: body.quote,
       intro: body.intro,
       mood: body.mood,
+      linkName: body.linkName,
+      urlString: body.urlString
     })
     return this.userRepository.save(user);
   }
-  async updateUser(id: number, body: UpdateUserDto): Promise<User> { //TODO add protection
+  async updateUser(id: number, body: UpdateUserDto): Promise<User> {
     const user: User = await this.userRepository.preload({
       id,
       name: body.name,
@@ -43,12 +46,14 @@ export class UsersService {
       quote: body.quote,
       intro: body.intro,
       mood: body.mood,
+      linkName: body.linkName,
+      urlString: body.urlString
     })
     if(!user) throw new NotFoundException("Resource not found");
     else this.userRepository.save(user);
     return user;
   }
-  async deleteUser(id: number): Promise<JSON> { //TODO add protection
+  async deleteUser(id: number): Promise<JSON> {
     const user: User = await this.userRepository.findOneBy({id});
     if(!user) throw new NotFoundException("Resource not found");
     else {

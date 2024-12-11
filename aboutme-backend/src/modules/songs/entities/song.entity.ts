@@ -2,7 +2,9 @@ import { Column, Entity, ManyToOne, OneToMany, OneToOne, PrimaryColumn, PrimaryG
 
 @Entity()
 export class Song {
-    @PrimaryColumn()
+    @PrimaryGeneratedColumn("increment")
+    id: number;
+    @Column({nullable:false})
     url: string;
     @Column({nullable:false})
     tag: string;
