@@ -1,2 +1,2 @@
-import { CreateBlogDto } from "./create-blog.dto";
-import { UpdateBlogDto } from "./update-blog.dto";
+export { CreateBlogDto } from "./create-blog.dto";
+export { UpdateBlogDto } from "./update-blog.dto";

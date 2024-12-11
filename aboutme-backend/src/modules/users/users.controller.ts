@@ -18,15 +18,17 @@ export class UsersController {
   }
   @Post()
   createUser(@Body() body: CreateUserDto): Promise<User> { //TODO add protection
-    console.log(body)
+    console.log("[Users] create - "+body.name.toString());
     return this.userService.createUser(body);
   }
   @Patch(":id")
   updateUser(@Param("id") id: number, @Body() body: UpdateUserDto): Promise<User> { //TODO add protection
+    console.log("[Users] update - "+body.name.toString());
     return this.userService.updateUser(id, body);
   }
   @Delete(":id")
   deleteUser(@Param("id") id: number): Promise<JSON> { //TODO add protection
+    console.log("[Users] delete - "+id);
     return this.userService.deleteUser(id);
   }
 }

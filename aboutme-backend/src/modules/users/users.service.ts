@@ -53,7 +53,7 @@ export class UsersService {
     if(!user) throw new NotFoundException("Resource not found");
     else {
       this.userRepository.remove(user);
-      return JSON.parse(`{"deletedUser": "${id}"}`);
+      return JSON.parse(`{"deletedId": "${id}"}`);
     }
   }
 }

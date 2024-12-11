@@ -1,1 +1,1 @@
-import { Project } from "./project.entity";
+export { Project } from "./project.entity";

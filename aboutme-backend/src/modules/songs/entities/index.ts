@@ -1,1 +1,1 @@
-import { Song } from "./song.entity";
+export { Song } from "./song.entity";

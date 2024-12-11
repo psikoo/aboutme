@@ -1,1 +1,1 @@
-import { Blog } from "./blog.entity"
+export { Blog } from "./blog.entity";

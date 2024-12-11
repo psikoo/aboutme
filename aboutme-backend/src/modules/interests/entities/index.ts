@@ -1,1 +1,1 @@
-import { Interest } from "./interest.entity";
+export { Interest } from "./interest.entity";

@@ -1,2 +1,2 @@
-import { CreateSongDto } from "./create-song.dto";
-import { UpdateSongDto } from "./update-song.dto";
+export { CreateSongDto } from "./create-song.dto";
+export { UpdateSongDto } from "./update-song.dto";
