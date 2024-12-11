@@ -20,5 +20,7 @@ export class UpdateUserDto {
   @IsString()
   readonly mood: string;
   @IsString()
-  readonly mainLink: string;
+  readonly linkName: string;
+  @IsString()
+  readonly urlString: string;
 }

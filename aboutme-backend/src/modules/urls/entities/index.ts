@@ -1,1 +1,1 @@
-export { Url } from "./ulr.entity";
+import { Url } from "./url.entity";

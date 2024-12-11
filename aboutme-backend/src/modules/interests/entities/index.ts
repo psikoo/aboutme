@@ -1,0 +1,1 @@
+import { Interest } from "./interest.entity";

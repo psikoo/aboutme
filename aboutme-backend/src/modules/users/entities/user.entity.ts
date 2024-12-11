@@ -1,4 +1,3 @@
-import { Url } from "src/modules/urls/entities";
 import { Column, Entity, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
@@ -23,16 +22,8 @@ export class User {
     intro: string;
     @Column({nullable:false})
     mood: string
-    @OneToOne(type => Url, (url) => url.user)
-    mainLink: Url;
-    // @OneToMany(type => Url, url.user)
-    // links: Url[];
-    // @OneToMany(type => Url, url.user)
-    // songs: Url[];
-    // @OneToMany(type => Url, url.user)
-    // photos: Url[];
-
-    // projects: Url[];
-
-    // blog: Url[];
+    @Column({nullable:false})
+    linkName: string;
+    @Column({nullable:false})
+    urlString: string;
 }
