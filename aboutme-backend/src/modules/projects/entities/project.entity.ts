@@ -2,7 +2,9 @@ import { Column, Entity, ManyToOne, OneToMany, OneToOne, PrimaryColumn, PrimaryG
 
 @Entity()
 export class Project {
-    @PrimaryColumn()
+    @PrimaryGeneratedColumn("increment")
+    id: number;
+    @Column({nullable:false})
     url: string;
     @Column({nullable:false})
     tag: string;
@@ -12,6 +14,6 @@ export class Project {
     name: string;
     @Column({nullable:false})
     description: string;
-    @Column({nullable:false}) // TODO check if this is right maybe change to string
+    @Column({nullable:false})
     date: Date;
 }

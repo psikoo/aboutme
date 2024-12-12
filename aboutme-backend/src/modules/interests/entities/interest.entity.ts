@@ -2,7 +2,9 @@ import { Column, Entity, ManyToOne, OneToMany, OneToOne, PrimaryColumn, PrimaryG
 
 @Entity()
 export class Interest {
-    @PrimaryColumn()
+    @PrimaryGeneratedColumn("increment")
+    id: number;
+    @Column({nullable:false})
     name: string;
     @Column({nullable:false})
     tag: string;

@@ -1,3 +1,4 @@
+import { Body } from "@nestjs/common";
 import { IsBoolean, IsDate, IsString } from "class-validator";
 
 export class UpdateProjectDto {
