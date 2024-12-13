@@ -18,23 +18,14 @@ export class BlogsController {
   }
   @Post()
   createBlog(@Headers('apiKey') apiKey: string, @Body() body: CreateBlogDto): Promise<Blog> {
-    if(apiKey === this.configService.get("API_KEY")) {
-      console.log("[Blogs] create - "+body.name.toString());
-      return this.blogService.createBlog(body);
-    } else throw new UnauthorizedException("Invalid apiKey");
+    return this.blogService.createBlog(body);
   }
   @Patch(":id")
   updateBlog(@Headers('apiKey') apiKey: string, @Param("id") id: number, @Body() body: UpdateBlogDto): Promise<Blog> {
-    if(apiKey === this.configService.get("API_KEY")) {
-      console.log("[Blogs] update - "+body.name.toString());
-      return this.blogService.updateBlog(id, body);
-    } else throw new UnauthorizedException("Invalid apiKey");
+    return this.blogService.updateBlog(id, body);
   }
   @Delete(":id")
   deleteBlog(@Headers('apiKey') apiKey: string, @Param("id") id: number): Promise<JSON> {
-    if(apiKey === this.configService.get("API_KEY")) {
-      console.log("[Blogs] delete - "+id);
-      return this.blogService.deleteBlog(id);
-    } else throw new UnauthorizedException("Invalid apiKey");
+    return this.blogService.deleteBlog(id);
   }
 }

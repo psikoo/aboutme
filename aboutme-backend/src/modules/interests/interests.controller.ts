@@ -18,23 +18,14 @@ export class InterestsController {
   }
   @Post()
   createInterest(@Headers('apiKey') apiKey: string, @Body() body: CreateInterestDto): Promise<Interest> {
-    if(apiKey === this.configService.get("API_KEY")) {
-      console.log("[Interests] create - "+body.name.toString());
-      return this.interestService.createInterest(body);
-    } else throw new UnauthorizedException("Invalid apiKey");
+    return this.interestService.createInterest(body);
   }
   @Patch(":id")
   updateInterest(@Headers('apiKey') apiKey: string, @Param("id") id: number, @Body() body: UpdateInterestDto): Promise<Interest> {
-    if(apiKey === this.configService.get("API_KEY")) {
-      console.log("[Interests] update - "+body.name.toString());
-      return this.interestService.updateInterest(id, body);
-    } else throw new UnauthorizedException("Invalid apiKey");
+    return this.interestService.updateInterest(id, body);
   }
   @Delete(":id")
   deleteInterest(@Headers('apiKey') apiKey: string, @Param("id") id: number): Promise<JSON> {
-    if(apiKey === this.configService.get("API_KEY")) {
-      console.log("[Interests] delete - "+id);
-      return this.interestService.deleteInterest(id);
-    } else throw new UnauthorizedException("Invalid apiKey");
+    return this.interestService.deleteInterest(id);
   }
 }

@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule, RequestMethod } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './modules/users/users.module';
@@ -10,6 +10,7 @@ import { ProjectsModule } from './modules/projects/projects.module';
 import { BlogsModule } from './modules/blogs/blogs.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { DatabaseModule } from './database/database.module';
+import { BasicPasswordMiddleware, LoggerMiddleware } from './middleware';
 
 @Module({
   imports: [ConfigModule.forRoot({ isGlobal: true }), DatabaseModule,
@@ -17,9 +18,15 @@ import { DatabaseModule } from './database/database.module';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {
+export class AppModule implements NestModule {
   static port: number;
   constructor(private readonly configService: ConfigService) {
     AppModule.port = this.configService.get("PORT");
+  }
+  // Middleware
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(LoggerMiddleware, BasicPasswordMiddleware)
+      .exclude({ path: "favicon.ico", method: RequestMethod.GET })
+      .forRoutes({ path:"*", method:RequestMethod.ALL});
   }
 }

@@ -10,31 +10,22 @@ export class UrlsController {
 
     @Get()
     getUsers(): Promise<Url[]> {
-      return this.userService.getUsers();
+    return this.userService.getUsers();
     }
     @Get(":id")
     getUser(@Param("id") id: number): Promise<Url> {
-      return this.userService.getUser(id);
+    return this.userService.getUser(id);
     }
     @Post()
     createUser(@Headers('apiKey') apiKey: string, @Body() body: CreateUrlDto): Promise<Url> {
-      if(apiKey === this.configService.get("API_KEY")) {
-        console.log("[Urls] create - "+body.name.toString());
-        return this.userService.createUser(body);
-      } else throw new UnauthorizedException("Invalid apiKey");
+      return this.userService.createUser(body);
     }
     @Patch(":id")
     updateUser(@Headers('apiKey') apiKey: string, @Param("id") id: number, @Body() body: UpdateUrlDto): Promise<Url> {
-      if(apiKey === this.configService.get("API_KEY")) {
-        console.log("[Urls] update - "+body.name.toString());
-        return this.userService.updateUser(id, body);
-      } else throw new UnauthorizedException("Invalid apiKey");
+      return this.userService.updateUser(id, body);
     }
     @Delete(":id")
     deleteUser(@Headers('apiKey') apiKey: string, @Param("id") id: number): Promise<JSON> {
-      if(apiKey === this.configService.get("API_KEY")) {
-        console.log("[Urls] delete - "+id);
-        return this.userService.deleteUser(id);
-      } else throw new UnauthorizedException("Invalid apiKey");
+      return this.userService.deleteUser(id);
     }
 }

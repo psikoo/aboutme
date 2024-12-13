@@ -18,23 +18,14 @@ export class PhotosController {
   }
   @Post()
   createPhoto(@Headers('apiKey') apiKey: string, @Body() body: CreatePhotoDto): Promise<Photo> {
-    if(apiKey === this.configService.get("API_KEY")) {
-      console.log("[Photos] create - "+body.name.toString());
-      return this.photoService.createPhoto(body);
-    } else throw new UnauthorizedException("Invalid apiKey");
+    return this.photoService.createPhoto(body);
   }
   @Patch(":id")
   updatePhoto(@Headers('apiKey') apiKey: string, @Param("id") id: number, @Body() body: UpdatePhotoDto): Promise<Photo> {
-    if(apiKey === this.configService.get("API_KEY")) {
-      console.log("[Photos] update - "+body.name.toString());
-      return this.photoService.updatePhoto(id, body);
-    } else throw new UnauthorizedException("Invalid apiKey");
+    return this.photoService.updatePhoto(id, body);
   }
   @Delete(":id")
   deletePhoto(@Headers('apiKey') apiKey: string, @Param("id") id: number): Promise<JSON> {
-    if(apiKey === this.configService.get("API_KEY")) {
-      console.log("[Photos] delete - "+id);
-      return this.photoService.deletePhoto(id);
-    } else throw new UnauthorizedException("Invalid apiKey");
+    return this.photoService.deletePhoto(id);
   }
 }

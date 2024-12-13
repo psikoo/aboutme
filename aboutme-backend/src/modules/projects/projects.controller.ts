@@ -18,23 +18,14 @@ export class ProjectsController {
   }
   @Post()
   createProject(@Headers('apiKey') apiKey: string, @Body() body: CreateProjectDto): Promise<Project> {
-    if(apiKey === this.configService.get("API_KEY")) {
-      console.log("[Users] create - "+body.name.toString());
-      return this.projectsService.createProject(body);
-    } else throw new UnauthorizedException("Invalid apiKey");
+    return this.projectsService.createProject(body);
   }
   @Patch(":id")
   updateProject(@Headers('apiKey') apiKey: string, @Param("id") id: number, @Body() body: UpdateProjectDto): Promise<Project> {
-    if(apiKey === this.configService.get("API_KEY")) {
-      console.log("[Users] update - "+body.name.toString());
-      return this.projectsService.updateProject(id, body);
-    } else throw new UnauthorizedException("Invalid apiKey");
+    return this.projectsService.updateProject(id, body);
   }
   @Delete(":id")
   deleteProject(@Headers('apiKey') apiKey: string, @Param("id") id: number): Promise<JSON> {
-    if(apiKey === this.configService.get("API_KEY")) {
-      console.log("[Users] delete - "+id);
-      return this.projectsService.deleteProject(id);
-    } else throw new UnauthorizedException("Invalid apiKey");
+    return this.projectsService.deleteProject(id);
   }
 }
