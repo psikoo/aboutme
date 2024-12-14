@@ -13,8 +13,7 @@ import { DatabaseModule } from './database/database.module';
 import { BasicPasswordMiddleware, LoggerMiddleware } from './middleware';
 
 @Module({
-  imports: [ConfigModule.forRoot({ isGlobal: true }), DatabaseModule,
-            UsersModule, InterestsModule, SongsModule, UrlsModule, PhotosModule, ProjectsModule, BlogsModule],
+  imports: [ConfigModule.forRoot({ isGlobal: true }), DatabaseModule, UsersModule, InterestsModule, SongsModule, UrlsModule, PhotosModule, ProjectsModule, BlogsModule],
   controllers: [AppController],
   providers: [AppService],
 })

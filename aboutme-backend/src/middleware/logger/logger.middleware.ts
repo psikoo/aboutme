@@ -1,8 +1,8 @@
-import { Injectable, NestMiddleware, UnauthorizedException } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
+import { Logger } from '@nestjs/common';
 import { NextFunction, Request, Response } from 'express';
 
 export function LoggerMiddleware(req: Request, res: Response, next: NextFunction) {
-  console.log(`[${req.ip} > ${req.headers['user-agent']}] ${req.method} "${req.originalUrl}" > ${JSON.stringify(req.body)}`);
+  const logger: Logger = new Logger(req.method);
+  logger.log(`[${req.ip}] "${req.originalUrl}": ${JSON.stringify(req.body)} (${req.headers["user-agent"]})`);
   next();
 }
