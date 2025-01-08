@@ -30,7 +30,6 @@ function isInList(path: string, availableRoutes: [{ path: string, methods: strin
 
 function getMethods(path: string, router: Router): string[] {
   let methods: string[] = [];
-  console.log(path)
   for(let i=0; i<router.stack.length; i++) {
     if(router.stack[i].route?.path === path) {
       methods.push(router.stack[i].route?.stack[0].method)
