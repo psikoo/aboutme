@@ -64,7 +64,7 @@ async function getURL(url) {
         method: "GET",
         headers: headersList
     });
-       
+
     let data = await response.text();
     return data;
 }
@@ -80,7 +80,7 @@ async function postURL(url, body) {
         body: bodyContent,
         headers: headersList
     });
-       
+
     let data = await response.text();
     return data;
 }

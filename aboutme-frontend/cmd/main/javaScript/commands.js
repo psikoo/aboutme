@@ -18,9 +18,9 @@ export async function processCommand(command) {
     else if(command[0] == "cat") {
         addToOld(command[0], catString);}
     else if(command[0] == "tamagotchi" || command[0] == "tama") {
-        window.location.href = window.location + "sub/tamagotchi/"; }
+        window.location.href = window.location + "tamagotchi/"; }
     else if(command[0] == "morse") {
-        window.location.href = window.location + "sub/morse/"; }
+        window.location.href = window.location + "morse/"; }
     //Github
     else if(command[0] == "repo" || command[0] == "about") {
         addToOld(command[0], repoString);}
@@ -29,13 +29,11 @@ export async function processCommand(command) {
         let data = JSON.parse(await getURL("https://api.github.com/users/psikoo/repos"));
         for(let i = 0; i < data.length; i++) {
             console.log(data[i].full_name);
-            projectsString += "<a href=\"https://github.com/"+data[i].full_name+"\" target=\"_blank\">&gt"+data[i].full_name+"</a><br>";
+            projectsString += "<a href=\"https://github.com/"+data[i].full_name+"\" target=\"_blank\">&gt "+data[i].full_name+"</a><br>";
         }
         addToOld(command[0], projectsString);}
     else if(command[0] == "pages") {
         addToOld(command[0], pagesString);}
-    else if(command[0] == "aboutMe") {
-        addToOld(command[0], aboutMeString);}
     //Other
     else if(command[0] == "admin") {
         window.location.href = "https://quenecesitas.net:9090/"; }
@@ -132,7 +130,5 @@ let pagesString= `<pre class="customFont">
     > <a href=\"https://cmd.quenecesitas.net/morse\" target=\"_blank\">/morse</a>
 > <a href=\"https://league.quenecesitas.net\" target=\"_blank\">league.quenecesitas.net</a>
 </pre>`;
-
-let aboutMeString = `<a href=\"${window.location.href}sub/aboutMe/aboutMe.html\" target=\"_blank\">&gtwebsite/sub/aboutMe</a>`;
 
 let commandNotFoundString = "The given command doesn't exist, to see list of available commands, type \"help\".";

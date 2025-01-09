@@ -44,7 +44,7 @@ let helpString = `<pre class="customFont">
 </pre>`;
 
 let bannerString = `<pre class="customFont">
-                                             
+                                            
 ███╗   ███╗ ██████╗ ██████╗ ███████╗███████╗     
 ████╗ ████║██╔═══██╗██╔══██╗██╔════╝██╔════╝     
 ██╔████╔██║██║   ██║██████╔╝███████╗█████╗       
