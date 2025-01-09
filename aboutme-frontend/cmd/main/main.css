@@ -1,0 +1,100 @@
+:root {
+    --bgColor: #010307;
+    --fgColor: #0A0E12;
+    --border: #ffffff;
+    --primaryColor: #ffffff;
+    --secondaryColor: #000000;
+    --accentColor: #0D4FAF;
+
+    --height: 90vh;
+}
+/* TODO  add colors to text */
+
+.customFont {
+    font-family: "Source Code Pro", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    margin: 0px;
+    overflow: hidden;
+    color: var(--primaryColor);
+    background: var(--bgColor);
+}
+
+pre {
+    margin: 0px;
+    display: block;
+}
+
+a:link {/* unvisited link */
+    color: var(--primaryColor);
+} a:visited { /* visited link */
+    color: var(--primaryColor);
+} a:hover { /* mouse over link */
+    color: var(--accentColor);
+} a:active { /* selected link */
+    color: var(--accentColor);
+} 
+
+::selection {
+    color: var(--secondaryColor);
+    background: var(--primaryColor);
+} ::-moz-selection { /* Code for Firefox */
+    color: var(--secondaryColor);
+    background: var(--primaryColor);
+}
+
+.mainWindow{
+    height: var(--height);
+    aspect-ratio: 16 / 9; /* does not work for other resolutions fix*/
+    margin-top: calc((100vh - var(--height))/2);
+    margin-right: auto;
+    margin-left: auto;
+    
+    border: 2px solid var(--border);
+    border-radius: 10px;
+
+    background: var(--fgColor);
+}
+
+.commandLine{
+    margin: 20px;
+    /* border: 1px solid red; */
+
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width:thin;
+    scrollbar-color: var(--fgColor) var(--fgColor);
+
+    max-height: calc(100% - 40px);
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.blink {
+    width: max-content;
+}
+.blink::after {
+  content: "_";
+  background-color: var(--primaryColor);
+  vertical-align: top;
+  width: 10px;
+  height: 20px;
+  -webkit-animation: blink 1s step-end infinite;
+  animation: blink 1s step-end infinite;
+}
+
+@-webkit-keyframes blink {
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+  
+@keyframes blink {
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
