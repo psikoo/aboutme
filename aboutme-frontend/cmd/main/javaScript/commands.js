@@ -67,12 +67,12 @@ async function getURL(url) {
         "Accept": "*/*",
         "Authorization": "token "+apiToken
     }
-       
+
     let response = await fetch(url, { 
         method: "GET",
         headers: headersList
     });
-       
+
     let data = await response.text();
     return data;
 }
