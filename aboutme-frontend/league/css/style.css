@@ -1,0 +1,99 @@
+body{
+    overflow: hidden;
+    margin: 0px;
+    color: white;
+}
+p{
+    margin: 0px;
+}
+
+.page{
+    position: relative;
+}
+
+.bg{
+    position:absolute;
+    top:0;
+    left:0;
+    height: 100vh;
+    width: 99vw;
+    display: grid;
+    grid-template-columns: 1fr 166.6vh;
+    z-index:-1;
+}
+.bg>.sidebar{
+    background-color: #020020;
+    height: 100vh;
+    z-index:-1;
+}
+.bg>.rightSide{
+    background: linear-gradient(90deg, rgba(2,0,32,1) 0%, rgba(0,0,255,0) 90%);
+}
+.bg>.rightSide>img{
+    position: absolute;
+    height: 102vh;
+    z-index:-2;
+    display: block;
+    transform: translate(-30px);
+    margin-left: auto;
+}
+
+.fg{
+    position:absolute;
+    top:0;
+    left:0;
+    height: 100vh;
+    width: 99vw;
+    display: grid;
+    grid-template-columns: 1fr 166.6vh;
+    z-index:1;
+}
+.fg>.sidebar{
+    overflow: hidden;
+    height: 100vh;
+    z-index: 1;
+}
+
+.fg>.sidebar>.summoner{
+    background-color: #1f2260;
+    color: white;
+    border-bottom-right-radius: 30px;
+    text-align: center;
+    height: auto;
+    width: 100%;
+}
+.fg>.sidebar>.summoner>.pfp{
+    position: relative;
+    width: 100%;
+}
+.fg>.sidebar>.summoner>.pfp>.icon{
+    position: relative;
+    padding-top: 32px;
+
+}
+.fg>.sidebar>.summoner>.pfp>.icon>img{
+    display: block;
+    border: 5px solid #f2bf43;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+    height: 128px;
+    width: 128px;
+}
+.fg>.sidebar>.summoner>hr{
+    width: 30%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.fg>.sidebar>.summoner>.level{
+    padding-bottom: 5px;
+}
+.fg>.sidebar>.summoner>.username{
+    padding-bottom: 20px;
+}
+
+.fg>.rightSide>img{
+    position: absolute;
+    height: 100vh;
+    z-index:2;
+}
