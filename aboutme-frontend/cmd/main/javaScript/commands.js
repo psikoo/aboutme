@@ -72,24 +72,10 @@ async function getURL(url) {
         method: "GET",
         headers: headersList
     });
-
+    
     let data = await response.text();
     return data;
 }
-
-let repoString = "<a href=\"https://github.com/psikoo/website\" target=\"_blank\">&gtgithub.com/psikoo/website</a>\nThis project was made with pure HTML, CSS and JS. To see how it was made use the command \"repo\". To see other projects of mine use the command \"projects\", or use the \"aboutMe\" command for more information on me.";
-let aboutMeString = `<a href=\"${window.location.href}sub/aboutMe/aboutMe.html\" target=\"_blank\">&gtwebsite/sub/aboutMe</a>`;
-
-let pagesString= `<pre class="customFont">
-> github.io
-    > <a href=\"https://psikoo.github.io/website/\" target=\"_blank\">/website</a>
-    > <a href=\"https://psikoo.github.io/website/sub/aboutMe/index.html\" target=\"_blank\">/website/sub/aboutMe</a>
-    > <a href=\"https://psikoo.github.io/website/sub/tamagotchi/index.html\" target=\"_blank\">/website/sub/tamagotchi</a>
-    > <a href=\"https://psikoo.github.io/website/sub/morse/index.html\" target=\"_blank\">/website/sub/morse</a>
-    > <a href=\"https://psikoo.github.io/LeagueClientStats/\" target=\"_blank\">/LeagueClientStats</a>
-> self-hosted
-    > <a href=\"https://quenecesitas.net\" target=\"_blank\">quenecesitas.net (mirror of github site)</a>
-</pre>`;
 
 let helpString = `<pre class="customFont">
 > Utility commands
@@ -98,14 +84,26 @@ let helpString = `<pre class="customFont">
     > banner
     > echo
     > cat
+> Sub pages
     > tamagotchi
     > morse
 > Github
-    > about
+    > repo
     > projects
     > pages
     > aboutMe
 </pre>`;
+
+let bannerString = `<pre class="customFont">
+                                                                            
+██████╗ ███████╗██╗██╗  ██╗ ██████╗  ██████╗ ██╗    ██╗███████╗██████╗      
+██╔══██╗██╔════╝██║██║ ██╔╝██╔═══██╗██╔═══██╗██║    ██║██╔════╝██╔══██╗     
+██████╔╝███████╗██║█████╔╝ ██║   ██║██║   ██║██║ █╗ ██║█████╗  ██████╔╝     
+██╔═══╝ ╚════██║██║██╔═██╗ ██║   ██║██║   ██║██║███╗██║██╔══╝  ██╔══██╗     
+██║     ███████║██║██║  ██╗╚██████╔╝╚██████╔╝╚███╔███╔╝███████╗██████╔╝     
+╚═╝     ╚══════╝╚═╝╚═╝  ╚═╝ ╚═════╝  ╚═════╝  ╚══╝╚══╝ ╚══════╝╚═════╝  v1.0
+For a list of available commands, type "help".                              
+                                                                            </pre>`;
 
 let catString = `<pre class="customFont">
 
@@ -124,15 +122,17 @@ let catString = `<pre class="customFont">
 
 </pre>`;
 
-let bannerString = `<pre class="customFont">
-                                                                            
-██████╗ ███████╗██╗██╗  ██╗ ██████╗  ██████╗ ██╗    ██╗███████╗██████╗      
-██╔══██╗██╔════╝██║██║ ██╔╝██╔═══██╗██╔═══██╗██║    ██║██╔════╝██╔══██╗     
-██████╔╝███████╗██║█████╔╝ ██║   ██║██║   ██║██║ █╗ ██║█████╗  ██████╔╝     
-██╔═══╝ ╚════██║██║██╔═██╗ ██║   ██║██║   ██║██║███╗██║██╔══╝  ██╔══██╗     
-██║     ███████║██║██║  ██╗╚██████╔╝╚██████╔╝╚███╔███╔╝███████╗██████╔╝     
-╚═╝     ╚══════╝╚═╝╚═╝  ╚═╝ ╚═════╝  ╚═════╝  ╚══╝╚══╝ ╚══════╝╚═════╝  v1.0
-For a list of available commands, type "help".                              
-                                                                            </pre>`;
+let repoString = "<a href=\"https://github.com/psikoo/website\" target=\"_blank\">&gtgithub.com/psikoo/website</a>\nThis project was made with pure HTML, CSS and JS. To see how it was made use the command \"repo\". To see other projects of mine use the command \"projects\", or use the \"aboutMe\" command for more information on me.";
+
+let pagesString= `<pre class="customFont">
+> <a href=\"https://quenecesitas.net\" target=\"_blank\">quenecesitas.net</a>
+> <a href=\"https://y2k.quenecesitas.net\" target=\"_blank\">y2k.quenecesitas.net</a>
+> <a href=\"https://cmd.quenecesitas.net\" target=\"_blank\">cmd.quenecesitas.net</a>
+    > <a href=\"https://cmd.quenecesitas.net/tamagotchi\" target=\"_blank\">/tamagotchi</a>
+    > <a href=\"https://cmd.quenecesitas.net/morse\" target=\"_blank\">/morse</a>
+> <a href=\"https://league.quenecesitas.net\" target=\"_blank\">league.quenecesitas.net</a>
+</pre>`;
+
+let aboutMeString = `<a href=\"${window.location.href}sub/aboutMe/aboutMe.html\" target=\"_blank\">&gtwebsite/sub/aboutMe</a>`;
 
 let commandNotFoundString = "The given command doesn't exist, to see list of available commands, type \"help\".";
