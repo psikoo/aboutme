@@ -7,13 +7,20 @@ import { ref,reactive,computed } from "vue";
   //update
   sec2.value = "premium";
   //reactive()
-  const rep1 = reactive({
+  type Item = {
+  id: number,
+  nombre: string,
+  precio: number,
+  bool: boolean
+};
+
+  const rep1: Item = reactive({
     id:1,
     nombre:"aa",
     precio:150,
     bool:true
   });
-  const rep2 = reactive({
+  const rep2: Item = reactive({
     id:2,
     nombre:"ac",
     precio:10,
@@ -22,7 +29,7 @@ import { ref,reactive,computed } from "vue";
   //update
   rep1.nombre = "bb"
   //propirdad computada
-  const evalDiscount = function(item) {
+  const evalDiscount = function(item: Item) {
     return (item.precio < 150) ? "cheap" : "not cheap";
   }
 
