@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import HeaderComponent from './components/HeaderComponent.vue';
 import FooterComponent from './components/FooterComponent.vue';
+import CrtEffect from './components/CrtEffect.vue';
 
 </script>
 
 <template>
+  <CrtEffect/>
   <div class="app">
     <HeaderComponent/>
     <h1>- ⚠ Site under construction -</h1>
@@ -17,6 +19,5 @@ import FooterComponent from './components/FooterComponent.vue';
   .app {
     width: 50vw;
     margin: 2vh auto;
-    background-color: red;
   }
 </style>

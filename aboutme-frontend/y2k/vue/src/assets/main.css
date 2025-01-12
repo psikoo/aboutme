@@ -15,7 +15,8 @@
 }
 
 body {
-  background-color: var(--bg-color);
+  background-color: white;
+  /* background-color: var(--bg-color); */
   background-image: url("../components/assets/img/BlingeeBG.gif");
   color: var(--text-color);
 }
@@ -28,4 +29,29 @@ h1,h2,h3,h4,h5 {
 
 #app {
   margin: 0 auto;
+  animation: textShadow 1.5s infinite;
+}
+
+@keyframes textShadow {
+  0%   {text-shadow: 0.92134px 0 1px rgba(0,30,255,0.5), -0.75632px 0 1px rgba(255,0,80,0.3), 0 0 3px; }
+  5%   {text-shadow: 1.32687px 0 1px rgba(0,30,255,0.5), -0.97876px 0 1px rgba(255,0,80,0.3), 0 0 3px; }
+  10%  {text-shadow: 0.45291px 0 1px rgba(0,30,255,0.5), -0.61176px 0 1px rgba(255,0,80,0.3), 0 0 3px; }
+  15%  {text-shadow: 1.25857px 0 1px rgba(0,30,255,0.5), -0.73259px 0 1px rgba(255,0,80,0.3), 0 0 3px; }
+  20%  {text-shadow: 1.00156px 0 1px rgba(0,30,255,0.5), -0.57403px 0 1px rgba(255,0,80,0.3), 0 0 3px; }
+  25%  {text-shadow: 0.36792px 0 1px rgba(0,30,255,0.5), -0.48767px 0 1px rgba(255,0,80,0.3), 0 0 3px; }
+  30%  {text-shadow: 0.83344px 0 1px rgba(0,30,255,0.5), -0.61219px 0 1px rgba(255,0,80,0.3), 0 0 3px; }
+  35%  {text-shadow: 1.30486px 0 1px rgba(0,30,255,0.5), -1.11277px 0 1px rgba(255,0,80,0.3), 0 0 3px; }
+  40%  {text-shadow: 1.05823px 0 1px rgba(0,30,255,0.5), -0.95410px 0 1px rgba(255,0,80,0.3), 0 0 3px; }
+  45%  {text-shadow: 1.18477px 0 1px rgba(0,30,255,0.5), -1.03382px 0 1px rgba(255,0,80,0.3), 0 0 3px; }
+  50%  {text-shadow: 0.51934px 0 1px rgba(0,30,255,0.5), -0.35208px 0 1px rgba(255,0,80,0.3), 0 0 3px; }
+  55%  {text-shadow: 1.20475px 0 1px rgba(0,30,255,0.5), -0.70152px 0 1px rgba(255,0,80,0.3), 0 0 3px; }
+  60%  {text-shadow: 1.03582px 0 1px rgba(0,30,255,0.5), -0.63412px 0 1px rgba(255,0,80,0.3), 0 0 3px; }
+  65%  {text-shadow: 1.41731px 0 1px rgba(0,30,255,0.5), -0.98063px 0 1px rgba(255,0,80,0.3), 0 0 3px; }
+  70%  {text-shadow: 0.52384px 0 1px rgba(0,30,255,0.5), -0.89762px 0 1px rgba(255,0,80,0.3), 0 0 3px; }
+  75%  {text-shadow: 0.87921px 0 1px rgba(0,30,255,0.5), -0.36213px 0 1px rgba(255,0,80,0.3), 0 0 3px; }
+  80%  {text-shadow: 1.08796px 0 1px rgba(0,30,255,0.5), -0.57521px 0 1px rgba(255,0,80,0.3), 0 0 3px; }
+  85%  {text-shadow: 0.93634px 0 1px rgba(0,30,255,0.5), -0.71299px 0 1px rgba(255,0,80,0.3), 0 0 3px; }
+  90%  {text-shadow: 0.61594px 0 1px rgba(0,30,255,0.5), -0.46926px 0 1px rgba(255,0,80,0.3), 0 0 3px; }
+  95%  {text-shadow: 1.27685px 0 1px rgba(0,30,255,0.5), -0.99172px 0 1px rgba(255,0,80,0.3), 0 0 3px; }
+  100% {text-shadow: 0.57919px 0 1px rgba(0,30,255,0.5), -0.23423px 0 1px rgba(255,0,80,0.3), 0 0 3px; }
 }
