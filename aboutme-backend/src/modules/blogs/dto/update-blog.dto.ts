@@ -1,4 +1,4 @@
-import { IsBoolean, IsDate, IsNumber, IsString } from "class-validator";
+import { IsBoolean, IsString } from "class-validator";
 
 export class UpdateBlogDto {
     @IsString()
@@ -9,6 +9,6 @@ export class UpdateBlogDto {
     sfw: boolean;
     @IsString()
     description: string;
-    @IsDate() // TODO check if this is right maybe change to string
-    date: Date;
+    @IsString()
+    date:string;
 }

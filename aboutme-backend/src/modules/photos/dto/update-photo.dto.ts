@@ -1,4 +1,4 @@
-import { IsBoolean, IsDate, IsNumber, IsString } from "class-validator";
+import { IsBoolean, IsString } from "class-validator";
 
 export class UpdatePhotoDto {
     @IsString()
@@ -11,6 +11,6 @@ export class UpdatePhotoDto {
     name: string;
     @IsString()
     description: string;
-    @IsDate()
-    date: Date;
+    @IsString()
+    date:string;
 }

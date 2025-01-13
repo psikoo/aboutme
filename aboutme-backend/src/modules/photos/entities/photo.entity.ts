@@ -1,4 +1,4 @@
-import { Column, Entity, ManyToOne, OneToMany, OneToOne, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Photo {
@@ -15,5 +15,5 @@ export class Photo {
     @Column({nullable:false})
     description: string;
     @Column({nullable:false}) // TODO check if this is right maybe change to string
-    date: Date;
+    date:string;
 }

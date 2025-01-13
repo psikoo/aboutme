@@ -1,5 +1,5 @@
 import { Body } from "@nestjs/common";
-import { IsBoolean, IsDate, IsString } from "class-validator";
+import { IsBoolean, IsString } from "class-validator";
 
 export class UpdateProjectDto {
     @IsString()
@@ -12,6 +12,6 @@ export class UpdateProjectDto {
     name: string;
     @IsString()
     description: string;
-    @IsDate()
-    date: Date;
+    @IsString()
+    date:string;
 }

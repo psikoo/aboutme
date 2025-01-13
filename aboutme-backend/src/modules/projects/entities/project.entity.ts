@@ -1,4 +1,4 @@
-import { Column, Entity, ManyToOne, OneToMany, OneToOne, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Project {
@@ -15,5 +15,5 @@ export class Project {
     @Column({nullable:false})
     description: string;
     @Column({nullable:false})
-    date: Date;
+    date:string;
 }
