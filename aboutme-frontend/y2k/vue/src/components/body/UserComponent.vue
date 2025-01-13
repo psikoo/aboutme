@@ -55,7 +55,8 @@
 
   .sideImage {
     height: 20vh;
-    padding: 10px 10px 10px 0px;
+    margin: 10px 8px 10px 0px;
+    border: 2px solid var(--border-color);
   }
 
   .emoji {
