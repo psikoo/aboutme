@@ -16,5 +16,5 @@ RUN npm run build
 EXPOSE 3000
 # Start the server using the production build
 CMD ["npm", "run", "start:prod"]
-# docker build -t aboutme-backend .
-# docker-compose up
+# sudo docker build -t aboutme-backend .
+# sudo docker-compose up

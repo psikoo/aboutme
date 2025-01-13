@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import HeaderComponent from './components/HeaderComponent.vue';
+import UserComponent from './components/UserComponent.vue';
 import FooterComponent from './components/FooterComponent.vue';
 import CrtEffect from './components/CrtEffect.vue';
 
@@ -11,6 +12,7 @@ import CrtEffect from './components/CrtEffect.vue';
     <HeaderComponent/>
     <h1>- ⚠ Site under construction -</h1>
     <h3>Learning how to use vue 😭</h3>
+    <UserComponent/>
     <FooterComponent/>
   </div>
 </template>

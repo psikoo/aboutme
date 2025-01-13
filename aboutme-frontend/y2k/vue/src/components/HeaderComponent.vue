@@ -7,7 +7,7 @@
   <div class="main">
     <nav>
       <div class="left">
-        <a :href="'https://y2k.'+url"><img src="./assets/img/PFP.jpg" alt="profile picture image" class="pfp"></a>
+        <a :href="'https://y2k.'+url"><img src="https://avatars.githubusercontent.com/psikoo" alt="profile picture image" class="pfp"></a>
       </div>
       <div class="right">
         <div class="top">

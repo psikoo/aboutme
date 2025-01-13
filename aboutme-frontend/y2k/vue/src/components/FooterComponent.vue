@@ -4,7 +4,7 @@
 
 <template>
   <div class="main">
-    <H1>Footer</H1>
+    <h1>Footer</h1>
   </div>
 </template>
 
