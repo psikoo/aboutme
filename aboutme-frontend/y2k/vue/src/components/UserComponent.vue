@@ -1,23 +1,28 @@
-<script setup lang="ts">
+<script async  setup lang="ts">
+  import { onMounted, ref } from "vue";
+  const user = ref("Loading");
   async function getURL(url) {
-    let headersList = {
+      try {
+      const headersList = {
         "Accept": "*/*",
-    }
-    let response = await fetch(url, { 
+        "Access-Control-Allow-Origin": "*"
+      }
+      const res = await fetch(url, { 
         method: "GET",
-        // mode: "no-cors",
         headers: headersList 
-    });
-
-    let data = await response;
-    console.log(data)
-    return data;
+      });
+      const data = await res.json();
+      user.value = data;
+    } catch(e) {
+      console.log(e);
+    }
   }
+  getURL("https://quenecesitas.net:3000/users/1");
 </script>
 
 <template>
   <div class="main">
-    <p>{{ getURL("https://quenecesitas.net:3000/users/1") }}</p>
+    {{ user }}
   </div>
 </template>
 

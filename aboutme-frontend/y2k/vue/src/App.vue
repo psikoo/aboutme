@@ -10,8 +10,6 @@ import CrtEffect from './components/CrtEffect.vue';
   <CrtEffect/>
   <div class="app">
     <HeaderComponent/>
-    <h1>- ⚠ Site under construction -</h1>
-    <h3>Learning how to use vue 😭</h3>
     <UserComponent/>
     <FooterComponent/>
   </div>
