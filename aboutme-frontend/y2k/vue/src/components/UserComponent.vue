@@ -1,7 +1,7 @@
 <script async  setup lang="ts">
   import { onMounted, ref } from "vue";
   const user = ref("Loading");
-  async function getURL(url) {
+  async function getURL(url: string) {
       try {
       const headersList = {
         "Accept": "*/*",
