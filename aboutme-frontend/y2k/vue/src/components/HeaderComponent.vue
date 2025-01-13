@@ -6,10 +6,8 @@
 <template>
   <div class="main">
     <nav>
-      <div class="left">
-        <a :href="'https://y2k.'+url"><img src="https://avatars.githubusercontent.com/psikoo" alt="profile picture image" class="pfp"></a>
-      </div>
-      <div class="right">
+      <a :href="'https://y2k.'+url"><img src="https://avatars.githubusercontent.com/psikoo" alt="profile picture image" class="smallImage"></a>
+      <div class="center">
         <div class="top">
           <h1 class="navText">Welcome to my y2k themed about me site!</h1>
         </div>
@@ -21,44 +19,55 @@
           </div>
         </div>
       </div>
+      <a href="https://github.com/psikoo"><img src="../assets/resources/img/GithubLogo.png" alt="github" class="smallImage"></a>
     </nav>
   </div>
 </template>
 
 <style scoped>
   .main {
-    width: 100%;
-    background-color: var(--fg-color);
+    width: calc(100% -12px);
+    background-color: var(--bg-color);
+    border: 6px double var(--border-color);
   }
 
   nav {
+    width: 100%;
     display: flex;
-    overflow: hidden;
-    align-items: center;
   }
 
-  nav>div {
-    float: left;
+  .center {
+    flex: auto;
+    display: flex;
+    flex-direction: column;
   }
 
+  .top{
+    flex: 1;
+    display: flex;
+    align-items: end;
+  }
   .bottom{
+    flex: 1;
     display: inline-flex;
+    align-items: start;
   }
 
   .bottom>div>a {
     text-decoration: none;
+    text-decoration-color: rgb(255, 255, 255);
   }
 
-  .pfp {
+  .smallImage {
     padding: 0px;
     margin: 15px;
-    height: 64px;
+    height: 5vh;
     border-radius: 50%;
     display:block;
   }
 
   .navText {
-    padding: 5px;
+    padding: 2px;
     display: inline-block;
     font-size: small;
     color: var(--text-color);
@@ -66,7 +75,7 @@
   }
 
   a>.navText:hover {
-    background-color: var(--highlight-color);
+    background-color: var(--hover-color);
     border-radius: 15%;
     text-decoration: underline;
   }

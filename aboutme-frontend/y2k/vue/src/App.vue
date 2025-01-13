@@ -1,16 +1,15 @@
 <script setup lang="ts">
-import HeaderComponent from './components/HeaderComponent.vue';
-import UserComponent from './components/UserComponent.vue';
-import FooterComponent from './components/FooterComponent.vue';
 import CrtEffect from './components/CrtEffect.vue';
-
+import HeaderComponent from './components/HeaderComponent.vue';
+import BodyComponent from './components/BodyComponent.vue';
+import FooterComponent from './components/FooterComponent.vue';
 </script>
 
 <template>
   <CrtEffect/>
   <div class="app">
     <HeaderComponent/>
-    <UserComponent/>
+    <BodyComponent/>
     <FooterComponent/>
   </div>
 </template>
@@ -19,5 +18,8 @@ import CrtEffect from './components/CrtEffect.vue';
   .app {
     width: 50vw;
     margin: 2vh auto;
+  }
+  .app>div {
+    margin-top: 5px;
   }
 </style>

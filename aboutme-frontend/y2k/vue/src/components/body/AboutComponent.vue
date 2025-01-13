@@ -1,6 +1,6 @@
-<script async  setup lang="ts">
+<script setup lang="ts">
   import { onMounted, ref } from "vue";
-  const user = ref("Loading");
+  const user: any = ref("Loading");
   async function getURL(url: string) {
       try {
       const headersList = {
@@ -22,13 +22,20 @@
 
 <template>
   <div class="main">
-    {{ user }}
+    <h1 class="intro">{{ user.intro }}</h1>
   </div>
 </template>
 
 <style scoped>
   .main {
-    width: 100%;
-    background-color: red;
+    padding: 15px;
+    contain: content;
+    background-color: var(--bg-color);
+    border: 6px double var(--border-color);
+  }
+
+  .intro {
+    font-size: smaller;
+    text-align: center;
   }
 </style>
