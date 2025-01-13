@@ -9,7 +9,9 @@ const httpsOptions = {
   cert: fs.readFileSync("/etc/letsencrypt/live/"+process.env.URL+"/cert.pem"),
 };
 async function bootstrap() {
-  app = await NestFactory.create(AppModule);
+  app = await NestFactory.create(AppModule, {
+    httpsOptions,
+  });
   app.useGlobalPipes(new ValidationPipe({
     transform: true,
     whitelist: true
