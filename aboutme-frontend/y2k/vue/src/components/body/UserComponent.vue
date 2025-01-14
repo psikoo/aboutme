@@ -24,7 +24,7 @@
   <div class="main">
     <div v-if="typeof user == 'string'">Loading...</div>
     <div v-else>
-      <h1 >{{ user.name }}</h1>
+      <h1 class="underline">{{ user.name }}</h1>
       <img src="/img/SideImage.png" alt="Silly pic x3" class="left sideImage">
       <div class="right">
         <p><img src="/img/emoji/Cake.png" alt="win10 cake emoji" class="emoji"> {{ user.birthday }} ({{ user.age }})</p>
@@ -33,7 +33,9 @@
         <p><img src="/img/emoji/Rainbow.png" alt="win10 rainbow emoji" class="emoji"> Sexuality: {{ user.orientation }}</p>
         <p><img src="/img/emoji/Alien.png" alt="win10 alien emoji" class="emoji"> Mood: {{ user.mood }}</p>
       </div>
-      <p class="left">"{{ user.quote }}"</p>
+      <div class="left">
+        <p>"{{ user.quote }}"</p>
+      </div>
     </div>
   </div>
 </template>

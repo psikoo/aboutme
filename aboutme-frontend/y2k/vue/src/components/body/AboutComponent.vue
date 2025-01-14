@@ -42,8 +42,10 @@
     <div v-if="typeof user == 'string'">Loading...</div>
     <div v-else>
       <h1 class="intro">About Me!</h1> 
-      <h1 class="introText">{{ user.intro }}</h1> 
-      <img v-for="(stamp, index)  in stamps" :src="base+stamp" class="stamp"/>
+      <h1 class="introText">{{ user.intro }}</h1>
+      <div class="stamps">
+        <img v-for="(stamp, index)  in stamps" :src="base+stamp" class="stamp"/>
+      </div>
     </div>
   </div>
 </template>
@@ -66,6 +68,11 @@
     margin-bottom: 15px;
     font-size: smaller;
     text-align: center;
+  }
+
+  .stamps {
+    max-width: 500px;
+    margin: 0px auto;
   }
 
   .stamp {

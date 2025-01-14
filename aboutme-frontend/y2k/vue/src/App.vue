@@ -19,7 +19,4 @@ import FooterComponent from './components/FooterComponent.vue';
     width: 50vw;
     margin: 2vh auto;
   }
-  .app>div {
-    margin-top: 5px;
-  }
 </style>
