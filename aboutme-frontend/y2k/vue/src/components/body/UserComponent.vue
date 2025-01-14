@@ -25,13 +25,13 @@
     <div v-if="typeof user == 'string'">Loading...</div>
     <div v-else>
       <h1 >{{ user.name }}</h1>
-      <img src="../../assets/resources/img/SideImage.png" alt="Silly pic x3" class="left sideImage">
+      <img src="/img/SideImage.png" alt="Silly pic x3" class="left sideImage">
       <div class="right">
-        <p><img src="../../assets/resources/img/emoji/Cake.png" alt="win10 cake emoji" class="emoji"> {{ user.birthday }} ({{ user.age }})</p>
-        <p><img src="../../assets/resources/img/emoji/Trans.png" alt="win10 trans emoji" class="emoji"> {{ user.gender }}</p>
-        <p><img src="../../assets/resources/img/emoji/Heart.png" alt="win10 heart emoji" class="emoji"> {{ user.pronouns }}</p>
-        <p><img src="../../assets/resources/img/emoji/Rainbow.png" alt="win10 rainbow emoji" class="emoji"> Sexuality: {{ user.orientation }}</p>
-        <p><img src="../../assets/resources/img/emoji/Alien.png" alt="win10 alien emoji" class="emoji"> Mood: {{ user.mood }}</p>
+        <p><img src="/img/emoji/Cake.png" alt="win10 cake emoji" class="emoji"> {{ user.birthday }} ({{ user.age }})</p>
+        <p><img src="/img/emoji/Trans.png" alt="win10 trans emoji" class="emoji"> {{ user.gender }}</p>
+        <p><img src="/img/emoji/Heart.png" alt="win10 heart emoji" class="emoji"> {{ user.pronouns }}</p>
+        <p><img src="/img/emoji/Rainbow.png" alt="win10 rainbow emoji" class="emoji"> Sexuality: {{ user.orientation }}</p>
+        <p><img src="/img/emoji/Alien.png" alt="win10 alien emoji" class="emoji"> Mood: {{ user.mood }}</p>
       </div>
       <p class="left">"{{ user.quote }}"</p>
     </div>

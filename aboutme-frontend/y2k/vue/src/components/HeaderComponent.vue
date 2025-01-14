@@ -19,14 +19,14 @@
           </div>
         </div>
       </div>
-      <a href="https://github.com/psikoo"><img src="../assets/resources/img/GithubLogo.png" alt="github" class="smallImage"></a>
+      <a href="https://github.com/psikoo"><img src="/img/GithubLogo.png" alt="github" class="smallImage"></a>
     </nav>
   </div>
 </template>
 
 <style scoped>
   .main {
-    width: calc(100% -12px);
+    width: calc(100% - 12px);
     background-color: var(--bg-color);
     border: 6px double var(--border-color);
   }
