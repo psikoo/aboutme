@@ -7,8 +7,6 @@ import UserComponent from './body/UserComponent.vue';
   <div class="main">
     <UserComponent class="user left"/>
     <AboutComponent class="about"/>
-    <UserComponent class="other left"/>
-    <AboutComponent class="about"/>
   </div>
 </template>
 
