@@ -19,10 +19,10 @@
   }
   getURL("https://quenecesitas.net:3000/users/1");
 </script>
-
+<!-- need to add v-if to wait for api to load -->
 <template>
   <div class="main">
-    <h1 class="intro">{{ user.intro }}</h1>
+    <h1 class="intro">{{ user.intro }}</h1> 
   </div>
 </template>
 
