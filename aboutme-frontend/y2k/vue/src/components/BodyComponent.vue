@@ -13,6 +13,7 @@ import UserComponent from './body/UserComponent.vue';
 <style scoped>
   .main {
     width: 100%;
+    height: 100%;
     display: flex;
     flex-wrap: wrap;
   }
