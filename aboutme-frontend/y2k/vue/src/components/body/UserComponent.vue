@@ -30,7 +30,8 @@
         <p><img src="/img/emoji/Cake.png" alt="win10 cake emoji" class="emoji"> {{ user.birthday }} ({{ user.age }})</p>
         <p><img src="/img/emoji/Trans.png" alt="win10 trans emoji" class="emoji"> {{ user.gender }}</p>
         <p><img src="/img/emoji/Heart.png" alt="win10 heart emoji" class="emoji"> {{ user.pronouns }}</p>
-        <p><img src="/img/emoji/Rainbow.png" alt="win10 rainbow emoji" class="emoji"> Sexuality: {{ user.orientation }}</p>
+        <p class="notPhone"><img src="/img/emoji/Rainbow.png" alt="win10 rainbow emoji" class="emoji"> Sexuality: {{ user.orientation }}</p>
+        <p class="phoneOnly">{{ user.orientation }}</p>
         <p><img src="/img/emoji/Alien.png" alt="win10 alien emoji" class="emoji"> Mood: {{ user.mood }}</p>
       </div>
       <div class="left">
@@ -63,5 +64,35 @@
 
   .emoji {
     height: 1.3vh;
+  }
+
+  .phoneOnly {
+    display: none;
+  }
+  .notPhone {
+      display: block;
+  }
+  @media only screen and (max-width: 600px) {
+    .emoji {
+      display: none;
+    }
+    .right>p {
+      margin-top: 2px;
+      font-size: 0.80em;
+    }
+    .left {
+      margin-top: 10px;
+    }
+    .left>p {
+      font-family: "Press Start 2P";
+      font-size: 0.70em;
+    }
+
+    .phoneOnly {
+      display: unset;
+    }
+    .notPhone {
+      display: none;
+    }
   }
 </style>

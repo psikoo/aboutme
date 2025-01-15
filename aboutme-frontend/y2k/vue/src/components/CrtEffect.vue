@@ -1,13 +1,19 @@
+<script setup lang="ts">
+  // @ts-ignore: Object is possibly 'null'.
+  const viewportHeight = Math.max(document.documentElement.clientHeight, document.getElementById("app").clientHeight || 0)+"px";
+</script>
+
 <template>
   <div class="crt"></div>
 </template>
 
 <style scoped>
   .crt {
-    height: 100vh;
-    width: 100vw;
+    height: v-bind(viewportHeight);
+    width: 100%;
     position: absolute;
-    top: 0px; left: 0px;
+    top: 0px; 
+    left: 0px;
     z-index: 1000;
     pointer-events: none;
     background: rgb(0,0,0);

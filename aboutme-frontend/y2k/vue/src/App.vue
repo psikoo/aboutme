@@ -17,6 +17,13 @@ import FooterComponent from './components/FooterComponent.vue';
 <style scoped>
   .app {
     width: 50vw;
-    margin: 2vh auto;
+    margin: 0 auto;
+    contain: content;
+  }
+  @media only screen and (max-width: 600px) {
+    .app {
+      width: 95vw;
+      margin: 0 auto;
+    }
   }
 </style>

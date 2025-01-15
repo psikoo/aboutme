@@ -45,6 +45,7 @@
       <h1 class="introText">{{ user.intro }}</h1>
       <div class="stamps">
         <img v-for="(stamp, index)  in stamps" :src="base+stamp" class="stamp"/>
+        <img :src="base+'Madoka.png'" class="stamp phoneOnly"/>
       </div>
     </div>
   </div>
@@ -78,5 +79,18 @@
   .stamp {
     height: 55px;
     width: 100px;
+  }
+
+  .phoneOnly {
+    display: none;
+  }
+  @media only screen and (max-width: 600px) {
+    .stamp {
+      height: 44px;
+      width: 80px;
+    }
+    .phoneOnly {
+      display: unset;
+    }
   }
 </style>

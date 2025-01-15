@@ -19,7 +19,7 @@
           </div>
         </div>
       </div>
-      <a href="https://github.com/psikoo"><img src="/img/GithubLogo.png" alt="github" class="smallImage"></a>
+      <a href="https://github.com/psikoo"><img src="/img/GithubLogo.png" alt="github" class="smallImage notPhone"></a>
     </nav>
   </div>
 </template>
@@ -29,6 +29,7 @@
     width: calc(100% - 12px);
     background-color: var(--bg-color);
     border: 6px double var(--border-color);
+    margin-top: 15px;
   }
 
   nav {
@@ -78,5 +79,26 @@
     background-color: var(--hover-color);
     border-radius: 15%;
     text-decoration: underline;
+  }
+
+  .notPhone {
+      display: block;
+  }
+  @media only screen and (max-width: 600px) {
+    .main {
+      margin-top: 2.5vw;
+    }
+    .top {
+      margin-top: 10px;
+    }
+    .bottom>.navText {
+      margin-left: 3px;
+    }
+    .navText {
+      text-align: left;
+    }
+    .notPhone {
+      display: none;
+    }
   }
 </style>
