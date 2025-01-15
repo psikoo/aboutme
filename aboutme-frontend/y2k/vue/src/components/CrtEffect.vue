@@ -1,6 +1,4 @@
 <script setup lang="ts">
-  // @ts-ignore: Object is possibly 'null'.
-  const viewportHeight = Math.max(document.documentElement.clientHeight, document.getElementById("app").clientHeight || 0)+"px";
 </script>
 
 <template>
@@ -9,9 +7,9 @@
 
 <style scoped>
   .crt {
-    height: v-bind(viewportHeight);
-    width: 100%;
-    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
     top: 0px; 
     left: 0px;
     z-index: 1000;
