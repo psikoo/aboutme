@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import AboutComponent from './body/AboutComponent.vue';
+import LinksComponent from './body/LinksComponent.vue';
 import UrlComponent from './body/UrlComponent.vue';
 import UserComponent from './body/UserComponent.vue';
 </script>
@@ -9,6 +10,7 @@ import UserComponent from './body/UserComponent.vue';
     <div class="left">
       <UserComponent/>
       <UrlComponent/>
+      <LinksComponent/>
     </div>
     <div class="right">
       <AboutComponent/>

@@ -22,8 +22,11 @@
 
 <template>
   <div class="main">
-    <h1 class="linkName underline">{{ user.linkName }}</h1>
-    <p><a :href="user.urlString" target="_blank" class="linkUrl">{{ user.urlString }}</a></p>
+    <div v-if="typeof user == 'string'">Loading...</div>
+    <div v-else>
+      <h1 class="linkName underline">{{ user.linkName }}&lt3</h1>
+      <p><a :href="user.urlString" target="_blank" class="linkUrl">{{ user.urlString }}</a></p>
+    </div>
   </div>
 </template>
 
