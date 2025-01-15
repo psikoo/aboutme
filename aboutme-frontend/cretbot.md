@@ -1,3 +1,3 @@
-sudo certbot --expand -d quenecesitas.net,(SUBDOMAIN).quenecesitas.net
+sudo certbot --nginx
 
-sudo certbot --expand -d quenecesitas.net,www.quenecesitas.net,y2k.quenecesitas.net,cmd.quenecesitas.net,league.quenecesitas.net
+sudo certbot --expand -d cait.moe,www.cait.moe,y2k.cait.moe,cmd.cait.moe,league.cait.moe

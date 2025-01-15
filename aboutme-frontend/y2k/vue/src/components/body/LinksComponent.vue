@@ -22,7 +22,7 @@
       console.log(e);
     }
   }
-  getURL("https://quenecesitas.net:3000/urls/");
+  getURL("https://cait.moe:3000/urls/");
 
   async function getOrderedLinks() {
     let orderedLinksStatic: any = [];

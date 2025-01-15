@@ -36,9 +36,9 @@ export async function processCommand(command) {
         addToOld(command[0], pagesString);}
     //Other
     else if(command[0] == "admin") {
-        window.location.href = "https://quenecesitas.net:9090/"; }
+        window.location.href = "https://cait.moe:9090/"; }
     else if(command[0] == "pi") {
-        window.location.href = "http://quenecesitas.net:81/admin/"; }
+        window.location.href = "http://cait.moe:81/admin/"; }
     //Unknown
     else { addToOld(command[0], commandNotFoundString);}
 }
@@ -123,12 +123,12 @@ let catString = `<pre class="customFont">
 let repoString = "<a href=\"https://github.com/psikoo/website\" target=\"_blank\">&gtgithub.com/psikoo/website</a>\nThis project was made with pure HTML, CSS and JS. To see how it was made use the command \"repo\". To see other projects of mine use the command \"projects\", or use the \"aboutMe\" command for more information on me.";
 
 let pagesString= `<pre class="customFont">
-> <a href=\"https://quenecesitas.net\" target=\"_blank\">quenecesitas.net</a>
-> <a href=\"https://y2k.quenecesitas.net\" target=\"_blank\">y2k.quenecesitas.net</a>
-> <a href=\"https://cmd.quenecesitas.net\" target=\"_blank\">cmd.quenecesitas.net</a>
-    > <a href=\"https://cmd.quenecesitas.net/tamagotchi\" target=\"_blank\">/tamagotchi</a>
-    > <a href=\"https://cmd.quenecesitas.net/morse\" target=\"_blank\">/morse</a>
-> <a href=\"https://league.quenecesitas.net\" target=\"_blank\">league.quenecesitas.net</a>
+> <a href=\"https://cait.moe\" target=\"_blank\">cait.moe</a>
+> <a href=\"https://y2k.cait.moe\" target=\"_blank\">y2k.cait.moe</a>
+> <a href=\"https://cmd.cait.moe\" target=\"_blank\">cmd.cait.moe</a>
+    > <a href=\"https://cmd.cait.moe/tamagotchi\" target=\"_blank\">/tamagotchi</a>
+    > <a href=\"https://cmd.cait.moe/morse\" target=\"_blank\">/morse</a>
+> <a href=\"https://league.cait.moe\" target=\"_blank\">league.cait.moe</a>
 </pre>`;
 
 let commandNotFoundString = "The given command doesn't exist, to see list of available commands, type \"help\".";

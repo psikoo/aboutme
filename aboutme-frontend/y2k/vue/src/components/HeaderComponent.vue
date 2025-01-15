@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  const url = "quenecesitas.net/";
+  const url = "cait.moe/";
   const subdomains = ["www", "cmd"];
 </script>
 

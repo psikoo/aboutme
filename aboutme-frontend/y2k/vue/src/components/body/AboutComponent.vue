@@ -17,7 +17,7 @@
       console.log(e);
     }
   }
-  getURL("https://quenecesitas.net:3000/users/1");
+  getURL("https://cait.moe:3000/users/1");
   // stamps
   const base: string = "/img/stamps/"; // Compiler fucks the relative rout
   const stamps: any =  ['CatFeet.gif','Cats.gif','ComputerLove.jpg','Discord.gif','EyesLove.png','FrogLove.gif',
