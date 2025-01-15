@@ -26,7 +26,7 @@ import UserComponent from './body/UserComponent.vue';
 
   .left {
     float: left;
-    width: 42%;
+    width: 31%;
     margin-right: 5px;
   }
   .left>* {
@@ -34,9 +34,18 @@ import UserComponent from './body/UserComponent.vue';
   }
   .right {
     float: right;
-    width: calc(58% - 5px);
+    width: calc(69% - 5px);
   }
   .right>* {
     margin-top: 5px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .left {
+      width: 45%;
+    }
+    .right {
+      width: calc(55% - 5px);
+    }
   }
 </style>

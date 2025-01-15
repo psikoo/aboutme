@@ -17,4 +17,6 @@ EXPOSE 3000
 # Start the server using the production build
 CMD ["npm", "run", "start:prod"]
 # sudo docker build -t aboutme-backend .
+# cd ../aboutme-docker
+# sudo docker-compose down
 # sudo docker-compose up

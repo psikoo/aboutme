@@ -50,7 +50,22 @@ p {
 }
 
 .underline {
-  text-decoration: underline solid var(--text-color) 2px;
+  text-decoration: underline solid var(--text-color) 2px !important;
+}
+
+.phoneOnly {
+  display: none !important;
+}
+.notPhone {
+  display: block !important;
+}
+@media only screen and (max-width: 600px) {
+  .phoneOnly {
+    display: unset !important;
+  }
+  .notPhone {
+    display: none !important;
+  }
 }
 
 @keyframes textShadow {

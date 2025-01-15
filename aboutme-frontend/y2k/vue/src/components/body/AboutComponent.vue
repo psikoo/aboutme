@@ -80,17 +80,10 @@
     height: 55px;
     width: 100px;
   }
-
-  .phoneOnly {
-    display: none;
-  }
   @media only screen and (max-width: 600px) {
     .stamp {
       height: 44px;
       width: 80px;
-    }
-    .phoneOnly {
-      display: unset;
     }
   }
 </style>

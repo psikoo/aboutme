@@ -23,20 +23,17 @@
 <template>
   <div class="main">
     <div v-if="typeof user == 'string'">Loading...</div>
-    <div v-else>
+    <div v-else class="vertical">
       <h1 class="underline">{{ user.name }}</h1>
-      <img src="/img/SideImage.png" alt="Silly pic x3" class="left sideImage">
-      <div class="right">
+      <img src="/img/SideImage.png" alt="Silly pic x3" class="sideImage">
+      <div class="info">
         <p><img src="/img/emoji/Cake.png" alt="win10 cake emoji" class="emoji"> {{ user.birthday }} ({{ user.age }})</p>
         <p><img src="/img/emoji/Trans.png" alt="win10 trans emoji" class="emoji"> {{ user.gender }}</p>
         <p><img src="/img/emoji/Heart.png" alt="win10 heart emoji" class="emoji"> {{ user.pronouns }}</p>
-        <p class="notPhone"><img src="/img/emoji/Rainbow.png" alt="win10 rainbow emoji" class="emoji"> Sexuality: {{ user.orientation }}</p>
-        <p class="phoneOnly">{{ user.orientation }}</p>
+        <p><img src="/img/emoji/Rainbow.png" alt="win10 rainbow emoji" class="emoji"> {{ user.orientation }}</p>
         <p><img src="/img/emoji/Alien.png" alt="win10 alien emoji" class="emoji"> Mood: {{ user.mood }}</p>
       </div>
-      <div class="left">
-        <p>"{{ user.quote }}"</p>
-      </div>
+      <h1 class="quote">"{{ user.quote }}"</h1>
     </div>
   </div>
 </template>
@@ -49,16 +46,19 @@
     border: 6px double var(--border-color);
   }
 
-  .left {
-    float: left;
+  .vertical {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
-  .right {
-    padding-top: 10px;
+  .vertical>h1{
+    text-align: center;
   }
 
   .sideImage {
-    height: 20vh;
-    margin: 10px 8px 10px 0px;
+    height: 30vh;
+    margin: 10px auto;
+    margin-top: 15px;
     border: 2px solid var(--border-color);
   }
 
@@ -66,33 +66,25 @@
     height: 1.3vh;
   }
 
-  .phoneOnly {
-    display: none;
+  .quote {
+    margin-top: 10px;
+    font-size: 0.70em;
+    text-align: center;
   }
-  .notPhone {
-      display: block;
-  }
+
   @media only screen and (max-width: 600px) {
+    .vertical>h1{
+      font-size: 0.55em;
+    }
+    .sideImage {
+      height: 25vh;
+      margin: 10px auto;
+    }
     .emoji {
       display: none;
     }
-    .right>p {
-      margin-top: 2px;
-      font-size: 0.80em;
-    }
-    .left {
-      margin-top: 10px;
-    }
-    .left>p {
-      font-family: "Press Start 2P";
+    .info {
       font-size: 0.70em;
-    }
-
-    .phoneOnly {
-      display: unset;
-    }
-    .notPhone {
-      display: none;
     }
   }
 </style>

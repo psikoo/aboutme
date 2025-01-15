@@ -25,7 +25,8 @@
     <div v-if="typeof user == 'string'">Loading...</div>
     <div v-else>
       <h1 class="linkName underline">{{ user.linkName }}&lt3</h1>
-      <p><a :href="user.urlString" target="_blank" class="linkUrl">{{ user.urlString }}</a></p>
+      <p class="notPhone"><a :href="user.urlString" target="_blank" class="linkUrl">{{ user.urlString }}</a></p>
+      <p class="phoneOnly"><a :href="user.urlString" target="_blank" class="linkUrl">{{ user.urlString.slice(8) }}</a></p>
     </div>
   </div>
 </template>
@@ -55,5 +56,15 @@
     text-decoration: underline;
     background-color: var(--hover-color);
     border-radius: 5px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .linkName {
+      font-size: 0.7rem;
+      margin-bottom: 5px;
+    }
+    .linkUrl {
+      font-size: 0.7rem;
+    }
   }
 </style>

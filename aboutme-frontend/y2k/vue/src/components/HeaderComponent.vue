@@ -81,9 +81,6 @@
     text-decoration: underline;
   }
 
-  .notPhone {
-      display: block;
-  }
   @media only screen and (max-width: 600px) {
     .main {
       margin-top: 2.5vw;
@@ -96,9 +93,7 @@
     }
     .navText {
       text-align: left;
-    }
-    .notPhone {
-      display: none;
+      font-size: 0.7rem;
     }
   }
 </style>
