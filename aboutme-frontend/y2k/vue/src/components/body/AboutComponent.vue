@@ -20,10 +20,10 @@
   getURL("https://quenecesitas.net:3000/users/1");
   // stamps
   const base: string = "/img/stamps/"; // Compiler fucks the relative rout
-  const stamps: any = ['CatFeet.gif','Cats.gif','ComputerLove.jpg','Discord.gif','EyesLove.png','FrogLove.gif',
-                            'Gender.png','IsopodLove.png','KuromiLove.png','LuckyStar.png','Miku.gif','MikuDance.gif','MonsterLove.jpg',
-                            'NightcoreLove.png','NyanCat.gif','OldWeb.png','OwO.gif','Pantone.gif','ParkingLot.png','Pompompurin.gif',
-                            'ShinyStuff.png','SleepPlushies.gif','Support.gif','UndertaleDog.gif','XD.png'];
+  const stamps: any =  ['CatFeet.gif','Cats.gif','ComputerLove.jpg','Discord.gif','EyesLove.png','FrogLove.gif',
+                        'Gender.png','IsopodLove.png','KuromiLove.gif','LuckyStar.png','PhysicalMedia.png','MikuDance.gif','MonsterLove.jpg',
+                        'Scene.png','NyanCat.gif','OldWeb.png','OwO.gif','WindowsXP.gif','ParkingLot.png','Pompompurin.gif',
+                        'Vore.png','SleepPlushies.gif','Support.gif','UndertaleDog.gif','XD.png'];
   function shuffle(array: any) {
     let currentIndex = array.length;
     while (currentIndex != 0) {
