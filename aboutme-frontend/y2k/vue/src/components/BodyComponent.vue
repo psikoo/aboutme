@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import AboutComponent from './body/AboutComponent.vue';
-import LinksComponent from './body/LinksComponent.vue';
-import UrlComponent from './body/UrlComponent.vue';
-import UserComponent from './body/UserComponent.vue';
+import AboutComponent from './body/right/AboutComponent.vue';
+import LinksComponent from './body/left/LinksComponent.vue';
+import UrlComponent from './body/left/UrlComponent.vue';
+import UserComponent from './body/left/UserComponent.vue';
+import ProjectComponent from './body/right/ProjectComponent.vue';
 </script>
 
 <template>
@@ -14,6 +15,7 @@ import UserComponent from './body/UserComponent.vue';
     </div>
     <div class="right">
       <AboutComponent/>
+      <ProjectComponent/>
     </div>
   </div>
 </template>
