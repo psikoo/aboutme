@@ -24,18 +24,20 @@
   <div class="main">
     <div v-if="typeof projects == 'string'">Loading...</div>
     <div v-else>
-      <h1 class="tittle underline">My Projects OwO</h1>
-      <div class="notPhone projects">
+      <h1 class="notPhone tittle underline">My Projects OwO</h1>
+      <h1 class="PhoneOnly tittle underline">My Projects</h1>
+      <div class="projects">
         <div v-for="(project, index) in projects" class="project">
           <h1><a :href="projects[index].url" target="_blank" class="linkUrl">{{ projects[index].name }}</a></h1>
           <p class="description">{{ projects[index].description }}</p>
           <p class="foot">
-            <img class="filetype" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
+            <img v-if="projects[index].tag == 'js'" class="filetype" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
+            <img v-if="projects[index].tag == 'discord.js'" class="filetype" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/discordjs/discordjs-original.svg" />
+            <img v-if="projects[index].tag == 'java'" class="filetype" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" />
+            <img v-if="projects[index].tag == 'website'" class="filetype" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" />
             {{ projects[index].date }}
           </p>
         </div>
-        <!-- <p class="phoneOnly"><a :href="projects[0].url" target="_blank" class="linkUrl">{{ projects[0].url.slice(8) }}</a></p> -->
-
       </div>
     </div>
   </div>
@@ -69,6 +71,7 @@
   .project  {
     border: 2px solid var(--border-color);
     width: 250px;
+    height: 10vh;
     text-align: start;
     padding: 10px;
     margin: 0px 5px 5px 0px;
@@ -102,10 +105,29 @@
   @media only screen and (max-width: 600px) {
     .tittle {
       font-size: 0.7rem;
-      margin-bottom: 5px;
     }
+
+    .projects {
+      display: unset;
+    }
+
+    .project  {
+      height: auto;
+      width: auto;
+    }
+
     .linkUrl {
       font-size: 0.7rem;
+      text-wrap: unset;
+      word-wrap: break-word
+    }
+
+    .description {
+      font-size: 0.7rem;
+    }
+
+    .foot {
+      font-size: 0.6rem;
     }
   }
 </style>
