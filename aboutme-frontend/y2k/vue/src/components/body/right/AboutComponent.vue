@@ -82,8 +82,8 @@
   }
   @media only screen and (max-width: 600px) {
     .stamp {
-      height: 44px;
-      width: 80px;
+      height: 41px;
+      width: 75px;
     }
   }
 </style>
