@@ -4,6 +4,7 @@ import LinksComponent from './body/left/LinksComponent.vue';
 import UrlComponent from './body/left/UrlComponent.vue';
 import UserComponent from './body/left/UserComponent.vue';
 import ProjectComponent from './body/right/ProjectComponent.vue';
+import SongComponent from './body/right/SongComponent.vue';
 </script>
 
 <template>
@@ -16,6 +17,7 @@ import ProjectComponent from './body/right/ProjectComponent.vue';
     <div class="right">
       <AboutComponent/>
       <ProjectComponent/>
+      <SongComponent/>
     </div>
   </div>
 </template>

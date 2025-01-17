@@ -12,4 +12,6 @@ export class Song {
     sfw: boolean;
     @Column({nullable:false})
     name: string;
+    @Column({nullable:false})
+    cover: string;
 }
