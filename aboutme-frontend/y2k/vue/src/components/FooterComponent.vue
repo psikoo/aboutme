@@ -6,11 +6,6 @@ import { ref } from "vue";
   const isInstagram = ref(!!navigator.userAgent.match(/Instagram/i));
   const isAndroid = ref(!!navigator.userAgent.match(/Android/i));
   const isIOS = ref(!!navigator.userAgent.match(/iPad|iPhone|iPod/i));
-  if(isInstagram && isAndroid && confirm("Open native browser?")) {
-    window.location.replace("intent://y2k.cait.moe#Intent;scheme=https;end"); // remove is instagram and use a better in ap detector
-    // window.location.href = ("intent://y2k.cait.moe#Intent;scheme=https;end");
-  }
-  //! https://www.npmjs.com/package/inapp-spy
   const userAgent = ref(navigator.userAgent);
 </script>
 
