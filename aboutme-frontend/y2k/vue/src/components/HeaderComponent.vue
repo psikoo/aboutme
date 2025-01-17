@@ -62,7 +62,7 @@
   .smallImage {
     padding: 0px;
     margin: 15px;
-    height: 5vh;
+    height: 2.5vw;
     border-radius: 50%;
     display:block;
   }

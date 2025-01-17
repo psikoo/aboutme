@@ -72,7 +72,7 @@
   .project  {
     border: 2px solid var(--border-color);
     width: 250px;
-    height: 10vh;
+    height: 5.5vw;
     text-align: start;
     padding: 10px;
     margin: 0px 5px 5px 0px;
@@ -100,6 +100,6 @@
 
   .filetype {
     vertical-align: middle;
-    height: 1.6vh;
+    height: 1vw;
   }
 </style>  
