@@ -12,7 +12,7 @@ body {
   /* background-color: var(--bg-color); */
   background-image: url("./resources/img/BlingeeBG.gif");
   color: var(--text-color);
-  overflow-x: hidden;
+  overflow-x: visible;
   overflow-y: visible;
 }
 
