@@ -32,7 +32,8 @@ export class SongsService {
         url: body.url,
         tag: body.tag,
         sfw: body.sfw,
-        name: body.name
+        name: body.name,
+        cover: await this.getCoverUrl(body.url)
       })
       if(!user) throw new NotFoundException("Resource not found");
       else this.userRepository.save(user);
@@ -48,6 +49,7 @@ export class SongsService {
     }
     
     async getCoverUrl(url: string):Promise<string> {
+      console.log(url)
       await fetch('url', {
         method: 'GET', headers: {
           'Accept': 'application/json',
@@ -57,7 +59,7 @@ export class SongsService {
       }).then((response) => {
         console.log(response.json().then(
           (data) => { 
-            console.log(data.album.images[0].url)
+            console.log(data)
             return data.album.images[0].url;
           }
         ));
