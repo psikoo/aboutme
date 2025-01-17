@@ -7,7 +7,7 @@
 
 <style scoped>
   .crt {
-    height: 100vh;
+    height: 100%;
     width: 100vw;
     position: fixed;
     top: 0px; 
