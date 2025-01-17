@@ -22,7 +22,7 @@ export class SongsService {
         tag: body.tag,
         sfw: body.sfw,
         name: body.name,
-        cover: await this.getCoverUrl(body.url)
+        cover: body.cover
       })
       return this.userRepository.save(user);
     }
@@ -32,7 +32,8 @@ export class SongsService {
         url: body.url,
         tag: body.tag,
         sfw: body.sfw,
-        name: body.name
+        name: body.name,
+        cover: body.cover
       })
       if(!user) throw new NotFoundException("Resource not found");
       else this.userRepository.save(user);
@@ -45,23 +46,5 @@ export class SongsService {
         this.userRepository.remove(user);
         return JSON.parse(`{"deletedId": "${id}"}`);
       }
-    }
-    
-    async getCoverUrl(url: string):Promise<string> {
-      await fetch('url', {
-        method: 'GET', headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + process.env.SPOTIFY_KEY
-        }
-      }).then((response) => {
-        console.log(response.json().then(
-          (data) => { 
-            console.log(data.album.images[0].url)
-            return data.album.images[0].url;
-          }
-        ));
-      });
-      return "Error fetching cover";
     }
 }
