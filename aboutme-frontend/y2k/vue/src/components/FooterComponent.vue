@@ -6,7 +6,10 @@ import { ref } from "vue";
   const isInstagram = ref(!!navigator.userAgent.match(/Instagram/i));
   const isAndroid = ref(!!navigator.userAgent.match(/Android/i));
   const isIOS = ref(!!navigator.userAgent.match(/iPad|iPhone|iPod/i));
-  if(isInstagram && isAndroid) window.location.replace("intent://y2k.cait.moe;scheme=https;end"); // remove is instagram and use a better in ap detector
+  if(isInstagram && isAndroid && confirm("Open native browser?")) {
+    window.location.replace("intent://y2k.cait.moe#Intent;scheme=https;end"); // remove is instagram and use a better in ap detector
+    // window.location.href = ("intent://y2k.cait.moe#Intent;scheme=https;end");
+  }
   //! https://www.npmjs.com/package/inapp-spy
   const userAgent = ref(navigator.userAgent);
 </script>
@@ -19,6 +22,7 @@ import { ref } from "vue";
     <h1>Instagram: {{ isInstagram }}</h1>
     <h1>Android: {{ isAndroid }}</h1>
     <h1>iOS: {{ isIOS }}</h1>
+    <h1>href: {{ userAgent }}</h1>
     <h1>userAgent: {{ userAgent }}</h1>
 
     <!--! THIS IS THE BEST TOOL https://inappdebugger.com/ -->
