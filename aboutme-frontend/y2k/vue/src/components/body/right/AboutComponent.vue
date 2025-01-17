@@ -80,10 +80,4 @@
     height: 55px;
     width: 100px;
   }
-  @media only screen and (max-width: 600px) {
-    .stamp {
-      height: 41px;
-      width: 75px;
-    }
-  }
 </style>

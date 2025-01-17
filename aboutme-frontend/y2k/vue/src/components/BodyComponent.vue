@@ -41,13 +41,4 @@ import ProjectComponent from './body/right/ProjectComponent.vue';
   .right>* {
     margin-top: 5px;
   }
-
-  @media only screen and (max-width: 600px) {
-    .left {
-      width: 45%;
-    }
-    .right {
-      width: calc(55% - 5px);
-    }
-  }
 </style>

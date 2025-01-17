@@ -32,9 +32,10 @@
           <p class="description">{{ projects[index].description }}</p>
           <p class="foot">
             <img v-if="projects[index].tag == 'js'" class="filetype" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
-            <img v-if="projects[index].tag == 'discord.js'" class="filetype" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/discordjs/discordjs-original.svg" />
-            <img v-if="projects[index].tag == 'java'" class="filetype" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" />
-            <img v-if="projects[index].tag == 'website'" class="filetype" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" />
+            <img v-else-if="projects[index].tag == 'discord.js'" class="filetype" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/discordjs/discordjs-original.svg" />
+            <img v-else-if="projects[index].tag == 'java'" class="filetype" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" />
+            <img v-else-if="projects[index].tag == 'website'" class="filetype" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" />
+            <img v-else class="filetype" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" />
             {{ projects[index].date }}
           </p>
         </div>
@@ -101,33 +102,4 @@
     vertical-align: middle;
     height: 1.6vh;
   }
-
-  @media only screen and (max-width: 600px) {
-    .tittle {
-      font-size: 0.7rem;
-    }
-
-    .projects {
-      display: unset;
-    }
-
-    .project  {
-      height: auto;
-      width: auto;
-    }
-
-    .linkUrl {
-      font-size: 0.7rem;
-      text-wrap: unset;
-      word-wrap: break-word
-    }
-
-    .description {
-      font-size: 0.7rem;
-    }
-
-    .foot {
-      font-size: 0.6rem;
-    }
-  }
-</style>
+</style>  

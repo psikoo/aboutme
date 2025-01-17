@@ -57,14 +57,4 @@
     background-color: var(--hover-color);
     border-radius: 5px;
   }
-
-  @media only screen and (max-width: 600px) {
-    .linkName {
-      font-size: 0.7rem;
-      margin-bottom: 5px;
-    }
-    .linkUrl {
-      font-size: 0.7rem;
-    }
-  }
 </style>

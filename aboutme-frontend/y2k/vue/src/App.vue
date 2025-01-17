@@ -3,11 +3,14 @@ import CrtEffect from './components/CrtEffect.vue';
 import HeaderComponent from './components/HeaderComponent.vue';
 import BodyComponent from './components/BodyComponent.vue';
 import FooterComponent from './components/FooterComponent.vue';
+import { ref, type Ref } from "vue";
+  const phone: Ref<boolean> = ref(!!navigator.userAgent.match(/iPad|iPhone|iPod|BlackBerry|Android|Windows Pone|webOS|Nintendo Switch|Nintendo WiiU|Nintendo 3DS/i));
+  console.log(`Phone: ${phone.value}`)
 </script>
 
 <template>
   <CrtEffect/>
-  <div class="app">
+  <div :class="{ app: !phone, appPhone: phone }">
     <HeaderComponent/>
     <BodyComponent/>
     <FooterComponent/>
@@ -20,10 +23,7 @@ import FooterComponent from './components/FooterComponent.vue';
     margin: 0 auto;
     contain: content;
   }
-  @media only screen and (max-width: 600px) {
-    .app {
-      width: 95vw;
-      margin: 0 auto;
-    }
+  .appPhone {
+    margin-left: 15px !important;
   }
 </style>

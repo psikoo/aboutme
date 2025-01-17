@@ -71,23 +71,4 @@
     font-size: 0.70em;
     text-align: center;
   }
-
-  @media only screen and (max-width: 600px) {
-    .main {
-      padding: 10px 5px;
-    }
-    .vertical>h1{
-      font-size: 0.55em;
-    }
-    .sideImage {
-      height: 25vh;
-      margin: 10px auto;
-    }
-    .emoji {
-      display: none;
-    }
-    .info {
-      font-size: 0.70em;
-    }
-  }
 </style>

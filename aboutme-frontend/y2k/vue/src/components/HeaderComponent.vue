@@ -79,21 +79,5 @@
     background-color: var(--hover-color);
     border-radius: 15%;
     text-decoration: underline;
-  }
-
-  @media only screen and (max-width: 600px) {
-    .main {
-      margin-top: 2.5vw;
-    }
-    .top {
-      margin-top: 10px;
-    }
-    .bottom>.navText {
-      margin-left: 3px;
-    }
-    .navText {
-      text-align: left;
-      font-size: 0.7rem;
-    }
-  }
+  }  
 </style>

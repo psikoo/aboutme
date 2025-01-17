@@ -129,14 +129,4 @@
     background-color: var(--hover-color);
     border-radius: 5px;
   }
-
-  @media only screen and (max-width: 600px) {
-    .title {
-      font-size: 0.7rem;
-      margin-bottom: 5px;
-    }
-    .link {
-      font-size: 0.7rem;
-    }
-  }
 </style>
