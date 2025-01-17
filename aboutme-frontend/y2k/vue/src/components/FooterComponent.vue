@@ -13,14 +13,11 @@ import { ref } from "vue";
     <h1>Instagram: {{ isInstagram }}</h1>
     <h1>userAgent: {{ userAgent }}</h1>
 
-    <a href="intent://y2k.cait.moe;scheme=https;end" target="_blank">Open Browser Android</a>
+    <!--! THIS IS THE BEST TOOL https://inappdebugger.com/ -->
+    <a href="intent://y2k.cait.moe#Intent;scheme=https;end" target="_blank">Open Browser Android</a>
     <hr>
     <a href="x-safari-https://y2k.cait.moe" target="_blank">Open Browser iOS</a>
     <hr>
-    <a 
-      href='shortcuts://x-callback-url/run-shortcut?name="c427b6c7-bcf9-41cd-b8d0-b251fc837b7c"&x-error=${encodeURIComponent("https://y2k.cait.moe")}'
-      target="_blank"> Open Browser iOS shortcuts fallback url
-    </a>
   </div>
 </template>
 
