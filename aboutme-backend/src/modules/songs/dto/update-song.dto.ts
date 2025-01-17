@@ -9,4 +9,6 @@ export class UpdateSongDto {
     sfw: boolean;
     @IsString()
     name: string;
+    @IsString()
+    cover: string;
 }
