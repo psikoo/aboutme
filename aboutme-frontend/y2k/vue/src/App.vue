@@ -25,5 +25,6 @@ import { ref, type Ref } from "vue";
   }
   .appPhone {
     margin-left: 15px !important;
+    margin-right: 15px !important;
   }
 </style>
