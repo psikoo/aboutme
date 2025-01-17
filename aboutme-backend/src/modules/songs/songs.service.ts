@@ -50,11 +50,11 @@ export class SongsService {
     
     async getCoverUrl(url: string):Promise<string> {
       console.log("https://api.spotify.com/v1/tracks/"+url.slice(31))
-      await fetch('url', {
-        method: 'GET', headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + process.env.SPOTIFY_KEY
+      await fetch("https://api.spotify.com/v1/tracks/"+url.slice(31), {
+        method: "GET", headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer " + process.env.SPOTIFY_KEY
         }
       }).then((response) => {
         console.log(response.json().then(
