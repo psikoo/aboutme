@@ -12,7 +12,7 @@ import { ref, type Ref } from "vue";
 </script>
 
 <template>
-  <CrtEffect v-if="isNative"/>
+  <CrtEffect/>
   <div v-if="isInstagram">
     <a v-if="isAndroid" href="intent://y2k.cait.moe#Intent;scheme=https;end" target="_blank" class="openIn">Open your default browser</a>
     <a v-else-if="isIOS" href="x-safari-https://y2k.cait.moe" target="_blank" class="openIn">Open in Safari</a>
