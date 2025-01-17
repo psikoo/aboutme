@@ -25,8 +25,7 @@
     <div v-if="typeof user == 'string'">Loading...</div>
     <div v-else>
       <h1 class="linkName underline">{{ user.linkName }}&lt3</h1>
-      <p class="notPhone"><a :href="user.urlString" target="_blank" class="linkUrl">{{ user.urlString }}</a></p>
-      <p class="phoneOnly"><a :href="user.urlString" target="_blank" class="linkUrl">{{ user.urlString.slice(8) }}</a></p>
+      <p><a :href="user.urlString" target="_blank" class="linkUrl">{{ user.urlString }}</a></p>
     </div>
   </div>
 </template>

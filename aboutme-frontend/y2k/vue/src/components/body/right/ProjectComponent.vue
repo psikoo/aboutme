@@ -24,8 +24,7 @@
   <div class="main">
     <div v-if="typeof projects == 'string'">Loading...</div>
     <div v-else>
-      <h1 class="notPhone tittle underline">My Projects OwO</h1>
-      <h1 class="PhoneOnly tittle underline">My Projects</h1>
+      <h1 class="tittle underline">My Projects OwO</h1>
       <div class="projects">
         <div v-for="(project, index) in projects" class="project">
           <h1><a :href="projects[index].url" target="_blank" class="linkUrl">{{ projects[index].name }}</a></h1>

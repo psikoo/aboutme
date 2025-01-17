@@ -75,8 +75,7 @@
     <div v-if="typeof links == 'string'">Loading...</div>
     <div v-else>
       <div class="top">
-        <h1 class="title underline notPhone">My links!^.^</h1>
-        <h1 class="title underline phoneOnly">links!</h1>
+        <h1 class="title underline">My links!^.^</h1>
       </div>
       <div v-for="(tag, index) in tags" class="linkSection">
         <h1 class="title underline">{{ orderedLinks[index][0] }}</h1>

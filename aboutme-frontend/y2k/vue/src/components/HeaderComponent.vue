@@ -19,7 +19,6 @@
           </div>
         </div>
       </div>
-      <a href="https://github.com/psikoo"><img src="/img/GithubLogo.png" alt="github" class="smallImage notPhone"></a>
     </nav>
   </div>
 </template>

@@ -45,7 +45,6 @@
       <h1 class="introText">{{ user.intro }}</h1>
       <div class="stamps">
         <img v-for="(stamp, index)  in stamps" :src="base+stamp" class="stamp"/>
-        <img :src="base+'Madoka.png'" class="stamp phoneOnly"/>
       </div>
     </div>
   </div>
