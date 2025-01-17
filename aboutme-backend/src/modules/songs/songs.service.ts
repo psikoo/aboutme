@@ -50,6 +50,7 @@ export class SongsService {
     
     async getCoverUrl(url: string):Promise<string> {
       console.log("https://api.spotify.com/v1/tracks/"+url.slice(31))
+      console.log(process.env.SPOTIFY_KEY)
       await fetch("https://api.spotify.com/v1/tracks/"+url.slice(31), {
         method: "GET", headers: {
           "Accept": "application/json",
