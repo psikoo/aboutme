@@ -34,6 +34,7 @@
     <div v-if="typeof songs == 'string'">Loading...</div>
     <div v-else>
       <h1 class="tittleTop underline">Music ^///^</h1>
+      <!-- Amazing code from: https://www.kazimariusz.com/codesnippets/vinyl-showcase -->
       <div id="vinyl-gallery">
         <div v-for="(song, index) in songs" class="vinyl">
           <img :src="songs[index].cover" alt="Song Cover">
@@ -61,6 +62,7 @@
     margin-bottom: 10px;
   }
 
+  /* Amazing code from: https://www.kazimariusz.com/codesnippets/vinyl-showcase */
   #vinyl-gallery {
     all: initial;
     width: 100%;
