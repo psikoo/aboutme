@@ -12,12 +12,21 @@
         headers: headersList 
       });
       const data = await res.json();
+      shuffle(data);
       songs.value = data;
     } catch(e) {
       console.log(e);
     }
   }
   getURL("https://cait.moe:3000/songs/");
+  function shuffle(array: any) {
+    let currentIndex = array.length;
+    while (currentIndex != 0) {
+      let randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+      [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+    }
+  }
 </script>
 
 <template>
