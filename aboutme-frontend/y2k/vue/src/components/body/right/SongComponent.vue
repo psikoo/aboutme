@@ -12,12 +12,21 @@
         headers: headersList 
       });
       const data = await res.json();
+      shuffle(data);
       songs.value = data;
     } catch(e) {
       console.log(e);
     }
   }
   getURL("https://cait.moe:3000/songs/");
+  function shuffle(array: any) {
+    let currentIndex = array.length;
+    while (currentIndex != 0) {
+      let randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+      [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+    }
+  }
 </script>
 
 <template>
@@ -25,6 +34,7 @@
     <div v-if="typeof songs == 'string'">Loading...</div>
     <div v-else>
       <h1 class="tittleTop underline">Music ^///^</h1>
+      <!-- Amazing code from: https://www.kazimariusz.com/codesnippets/vinyl-showcase -->
       <div id="vinyl-gallery">
         <div v-for="(song, index) in songs" class="vinyl">
           <img :src="songs[index].cover" alt="Song Cover">
@@ -52,6 +62,7 @@
     margin-bottom: 10px;
   }
 
+  /* Amazing code from: https://www.kazimariusz.com/codesnippets/vinyl-showcase */
   #vinyl-gallery {
     all: initial;
     width: 100%;

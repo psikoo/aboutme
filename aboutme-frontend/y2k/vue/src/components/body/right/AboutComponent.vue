@@ -27,16 +27,13 @@
   function shuffle(array: any) {
     let currentIndex = array.length;
     while (currentIndex != 0) {
-      // Pick a remaining element...
       let randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex--;
-      // And swap it with the current element.
       [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
     }
   }
   shuffle(stamps);
 </script>
-<!-- need to add v-if to wait for api to load -->
 <template>
   <div class="main">
     <div v-if="typeof user == 'string'">Loading...</div>
