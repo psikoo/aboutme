@@ -23,8 +23,8 @@ import DebugComponent from './components/DebugComponent.vue';
     <HeaderComponent/>
     <BodyComponent/>
     <FooterComponent/>
+    <DebugComponent/>
   </div>
-  <DebugComponent/>
 </template>
 
 <style scoped>
