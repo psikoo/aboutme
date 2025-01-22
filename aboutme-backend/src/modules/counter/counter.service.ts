@@ -9,11 +9,14 @@ export class CounterService {
   
     async getCounter(): Promise<Count> {
         const previousCounter: Count = await this.counterRepository.findOneBy({id:0});
+        console.log("Prev: "+previousCounter.count)
+        const newCount = previousCounter.count++;
         const counter: Count = await this.counterRepository.preload({
             id: 0,
-            count: previousCounter.count++,
+            count: newCount,
         });
         this.counterRepository.save(counter);
+        console.log("Counter: "+counter.count)
         return counter;
     }
 
