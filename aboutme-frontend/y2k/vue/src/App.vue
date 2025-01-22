@@ -4,6 +4,7 @@ import HeaderComponent from './components/HeaderComponent.vue';
 import BodyComponent from './components/BodyComponent.vue';
 import FooterComponent from './components/FooterComponent.vue';
 import { ref, type Ref } from "vue";
+import DebugComponent from './components/DebugComponent.vue';
   const phone: Ref<boolean> = ref(!!navigator.userAgent.match(/iPad|iPhone|iPod|BlackBerry|Android|Windows Pone|webOS|Nintendo Switch|Nintendo WiiU|Nintendo 3DS/i));
   const isInstagram = ref(!!navigator.userAgent.match(/Instagram/i));
   const isNative = ref(!isInstagram);
@@ -23,6 +24,7 @@ import { ref, type Ref } from "vue";
     <BodyComponent/>
     <FooterComponent/>
   </div>
+  <DebugComponent/>
 </template>
 
 <style scoped>
@@ -32,8 +34,10 @@ import { ref, type Ref } from "vue";
     contain: content;
   }
   .appPhone {
+    width: 50vw;
     margin-left: 15px !important;
     margin-right: 15px !important;
+    contain: content;
   }
   .openIn {
     color: var(--border-color);

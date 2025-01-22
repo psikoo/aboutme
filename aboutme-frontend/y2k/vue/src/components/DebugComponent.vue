@@ -11,15 +11,32 @@ import { ref } from "vue";
 
 <template>
   <div class="main">
-    <h1>Footer</h1>
+    <h1>This site is under construction x3</h1>
+    <hr>
+    <h1>vw: {{ viewW }}, vh: {{ viewH }} (1:{{ viewW/viewH }})</h1>
+    <h1>phone: {{ isPhone }}</h1>
+    <h1>instagram: {{ isInstagram }}</h1>
+    <h1>android: {{ isAndroid }}</h1>
+    <h1>iOS: {{ isIOS }}</h1>
+    <h1>userAgent: {{ userAgent }}</h1>
+
+    <!--! THIS IS THE BEST TOOL https://inappdebugger.com/ -->
+    <hr>
+    <a href="intent://y2k.cait.moe#Intent;scheme=https;end" target="_blank">Open Browser Android</a>
+    <hr>
+    <a href="x-safari-https://y2k.cait.moe" target="_blank">Open Browser iOS</a>
   </div>
 </template>
 
 <style scoped>
   .main {
-    width: calc(100% - 12px);
-    background-color: var(--bg-color);
-    border: 6px double var(--border-color);
-    margin-top: 5px;
+    width: 100%;
+    background-color: red;
+  }
+  a {
+    color: white;
+  }
+  hr {
+    border-color: white;
   }
 </style>

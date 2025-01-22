@@ -2,26 +2,28 @@
 <html lang="">
   <head>
     <meta charset="UTF-8">
+    <meta name="author" content="Caitlyn">
+    <meta name="description" content="A y2k themed about me page, inspired by MySpace profiles :3">
+    <meta name="keywords" content="y2k, MySpace, SpaceHey, NeoCities, Caitlyn, psikoo">
     <link rel="icon" href="/favicon.ico">
     <meta name="viewport" content="width=1920, height=965, initial-scale=1.0, maximum-scale=1.0">
-    <!-- <meta name="viewport" content="user-scalable=no, initial-scale=1, minimum-scale=1, maximum-scale=1, width=1920, target-densitydpi=device-dpi"> -->
-    <title>psikoo's y2k about me 🖤</title>
+    <title> Caitlyn's y2k about me 🖤</title>
   </head>
   <body>
-  <script type='text/javascript'> 
-    title = " psikoo's y2k about me 🖤";
-    position = 0;
-    function scroll() {
-      if (position == title.length-1) { // acount for 🖤 being two character in reality
+    <script type='text/javascript'> 
+      title = " Caitlyn's y2k about me 🖤";
+      position = 0;
+      function scroll() {
+        if (position == title.length-1) { // acount for 🖤 being two character in reality
+          position++;
+          document.title = title.substring(position, title.length) + title.substring(0, position); 
+        } 
+        else document.title = title.substring(position, title.length) + title.substring(0, position);
         position++;
-        document.title = title.substring(position, title.length) + title.substring(0, position); 
-      } 
-      else document.title = title.substring(position, title.length) + title.substring(0, position);
-      position++;
-      if (position > title.length) position = 0;
-      titleScroll = window.setTimeout(scroll, 300);
-    }
-    scroll();
+        if (position > title.length) position = 0;
+        titleScroll = window.setTimeout(scroll, 300);
+      }
+      scroll();
     </script>
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
