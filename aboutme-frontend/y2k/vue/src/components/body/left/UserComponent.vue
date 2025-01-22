@@ -25,13 +25,13 @@
     <div v-if="typeof user == 'string'">Loading...</div>
     <div v-else class="vertical">
       <h1 class="underline">{{ user.name }}</h1>
-      <img src="/img/SideImage.png" alt="Silly pic x3" class="sideImage">
+      <img src="/img/SideImage.webp" alt="Silly pic x3" class="sideImage">
       <div class="info">
-        <p><img src="/img/emoji/Cake.png" alt="win10 cake emoji" class="emoji"> {{ user.birthday }} ({{ user.age }})</p>
-        <p><img src="/img/emoji/Trans.png" alt="win10 trans emoji" class="emoji"> {{ user.gender }}</p>
-        <p><img src="/img/emoji/Heart.png" alt="win10 heart emoji" class="emoji"> {{ user.pronouns }}</p>
-        <p><img src="/img/emoji/Rainbow.png" alt="win10 rainbow emoji" class="emoji"> {{ user.orientation }}</p>
-        <p><img src="/img/emoji/Alien.png" alt="win10 alien emoji" class="emoji"> Mood: {{ user.mood }}</p>
+        <p><img src="/img/emoji/Cake.webp" alt="win10 cake emoji" class="emoji"> {{ user.birthday }} ({{ user.age }})</p>
+        <p><img src="/img/emoji/Trans.webp" alt="win10 trans emoji" class="emoji"> {{ user.gender }}</p>
+        <p><img src="/img/emoji/Heart.webp" alt="win10 heart emoji" class="emoji"> {{ user.pronouns }}</p>
+        <p><img src="/img/emoji/Rainbow.webp" alt="win10 rainbow emoji" class="emoji"> {{ user.orientation }}</p>
+        <p><img src="/img/emoji/Alien.webp" alt="win10 alien emoji" class="emoji"> Mood: {{ user.mood }}</p>
       </div>
       <h1 class="quote">"{{ user.quote }}"</h1>
     </div>

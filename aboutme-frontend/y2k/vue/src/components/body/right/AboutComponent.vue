@@ -20,10 +20,10 @@
   getURL("https://cait.moe:3000/users/1");
   // stamps
   const base: string = "/img/stamps/"; // Compiler fucks the relative rout
-  const stamps: any =  ['CatFeet.gif','Cats.gif','ComputerLove.jpg','Discord.gif','EyesLove.png','FrogLove.gif',
-                        'Gender.png','IsopodLove.png','KuromiLove.gif','LuckyStar.png','PhysicalMedia.png','MikuDance.gif','MonsterLove.jpg',
-                        'Scene.png','NyanCat.gif','OldWeb.png','OwO.gif','WindowsXP.gif','ParkingLot.png','Pompompurin.gif',
-                        'Vore.png','SleepPlushies.gif','Support.gif','UndertaleDog.gif','XD.png'];
+  const stamps: any =  ['CatFeet.gif','Cats.gif','ComputerLove.webp','Discord.gif','EyesLove.webp','FrogLove.gif',
+                        'Gender.webp','IsopodLove.webp','KuromiLove.gif','LuckyStar.webp','PhysicalMedia.webp','MikuDance.gif','MonsterLove.webp',
+                        'Scene.webp','NyanCat.gif','OldWeb.webp','OwO.gif','WindowsXP.gif','ParkingLot.webp','Pompompurin.gif',
+                        'Vore.webp','SleepPlushies.gif','Support.gif','UndertaleDog.gif','XD.webp'];
   function shuffle(array: any) {
     let currentIndex = array.length;
     while (currentIndex != 0) {
