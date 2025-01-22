@@ -56,14 +56,15 @@
   }
 
   .sideImage {
-    height: 15vw;
+    height: 300px;
     margin: 10px auto;
     margin-top: 15px;
     border: 2px solid var(--border-color);
   }
 
   .emoji {
-    height: 0.7vw;
+    height: 0.9rem;
+    width: 0.9rem;
   }
 
   .quote {
