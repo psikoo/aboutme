@@ -10,11 +10,11 @@ export class UrlsController {
 
     @Get()
     getUsers(): Promise<Url[]> {
-    return this.userService.getUsers();
+      return this.userService.getUsers();
     }
     @Get(":id")
     getUser(@Param("id") id: number): Promise<Url> {
-    return this.userService.getUser(id);
+      return this.userService.getUser(id);
     }
     @Post()
     createUser(@Headers('apiKey') apiKey: string, @Body() body: CreateUrlDto): Promise<Url> {

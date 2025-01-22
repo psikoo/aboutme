@@ -11,9 +11,10 @@ import { BlogsModule } from './modules/blogs/blogs.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { DatabaseModule } from './database/database.module';
 import { BasicPasswordMiddleware, LoggerMiddleware } from './middleware';
+import { CounterModule } from './modules/counter/counter.module';
 
 @Module({
-  imports: [ConfigModule.forRoot({ isGlobal: true }), DatabaseModule, UsersModule, InterestsModule, SongsModule, UrlsModule, PhotosModule, ProjectsModule, BlogsModule],
+  imports: [ConfigModule.forRoot({ isGlobal: true }), DatabaseModule, UsersModule, InterestsModule, SongsModule, UrlsModule, PhotosModule, ProjectsModule, BlogsModule, CounterModule],
   controllers: [AppController],
   providers: [AppService],
 })
