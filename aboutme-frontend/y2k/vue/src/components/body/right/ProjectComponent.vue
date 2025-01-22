@@ -30,11 +30,11 @@
           <h1><a :href="projects[index].url" target="_blank" class="linkUrl">{{ projects[index].name }}</a></h1>
           <p class="description">{{ projects[index].description }}</p>
           <p class="foot">
-            <img v-if="projects[index].tag == 'js'" class="filetype" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
-            <img v-else-if="projects[index].tag == 'discord.js'" class="filetype" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/discordjs/discordjs-original.svg" />
-            <img v-else-if="projects[index].tag == 'java'" class="filetype" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" />
-            <img v-else-if="projects[index].tag == 'website'" class="filetype" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" />
-            <img v-else class="filetype" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" />
+            <img v-if="projects[index].tag == 'js'" alt="filetype" class="filetype" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
+            <img v-else-if="projects[index].tag == 'discord.js'" alt="filetype" class="filetype" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/discordjs/discordjs-original.svg" />
+            <img v-else-if="projects[index].tag == 'java'" alt="filetype" class="filetype" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" />
+            <img v-else-if="projects[index].tag == 'website'" alt="filetype" class="filetype" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" />
+            <img v-else alt="filetype" class="filetype" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" />
             {{ projects[index].date }}
           </p>
         </div>

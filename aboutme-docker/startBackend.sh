@@ -6,4 +6,4 @@ cd aboutme-backend
 sudo docker build -t aboutme-backend .
 cd ../aboutme-docker
 sudo docker compose down
-sudo docker compose up
+sudo docker compose up -d

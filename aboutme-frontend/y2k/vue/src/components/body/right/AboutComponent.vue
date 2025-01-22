@@ -41,7 +41,7 @@
       <h1 class="intro">About Me!</h1> 
       <h1 class="introText">{{ user.intro }}</h1>
       <div class="stamps">
-        <img v-for="(stamp, index)  in stamps" :src="base+stamp" class="stamp"/>
+        <img v-for="(stamp, index)  in stamps" :src="base+stamp" alt="stamp" class="stamp"/>
       </div>
     </div>
   </div>
