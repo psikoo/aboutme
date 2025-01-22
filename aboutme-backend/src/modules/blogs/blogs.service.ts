@@ -1,33 +1,34 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+
 import { Blog } from './entities';
 import { CreateBlogDto, UpdateBlogDto } from './dto';
 
 @Injectable()
 export class BlogsService {
-  constructor(@InjectRepository(Blog) private readonly userRepository: Repository<Blog>) {}
+  constructor(@InjectRepository(Blog) private readonly blogRepository: Repository<Blog>) {}
 
   async getBlogs(): Promise<Blog[]> {
-    return await this.userRepository.find();
+    return await this.blogRepository.find();
   }
   async getBlog(id: number): Promise<Blog> {
-    const user: Blog = await this.userRepository.findOneBy({id});
-    if(!user) throw new NotFoundException();
-    else return user;
+    const blog: Blog = await this.blogRepository.findOneBy({id});
+    if(!blog) throw new NotFoundException();
+    else return blog;
   }
   async createBlog(body: CreateBlogDto): Promise<Blog> {
-    const user: Blog = await this.userRepository.create({
+    const blog: Blog = await this.blogRepository.create({
       name: body.name,
       tag: body.tag,
       sfw: body.sfw,
       description: body.description,
       date: body.date
     })
-    return this.userRepository.save(user);
+    return this.blogRepository.save(blog);
   }
   async updateBlog(id: number, body: UpdateBlogDto): Promise<Blog> {
-    const user: Blog = await this.userRepository.preload({
+    const blog: Blog = await this.blogRepository.preload({
       id,
       name: body.name,
       tag: body.tag,
@@ -35,15 +36,15 @@ export class BlogsService {
       description: body.description,
       date: body.date
     })
-    if(!user) throw new NotFoundException("Resource not found");
-    else this.userRepository.save(user);
-    return user;
+    if(!blog) throw new NotFoundException("Resource not found");
+    else this.blogRepository.save(blog);
+    return blog;
   }
   async deleteBlog(id: number): Promise<JSON> {
-    const user: Blog = await this.userRepository.findOneBy({id});
-    if(!user) throw new NotFoundException("Resource not found");
+    const blog: Blog = await this.blogRepository.findOneBy({id});
+    if(!blog) throw new NotFoundException("Resource not found");
     else {
-      this.userRepository.remove(user);
+      this.blogRepository.remove(blog);
       return JSON.parse(`{"deletedId": "${id}"}`);
     }
   }

@@ -1,50 +1,51 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+
 import { Song } from './entities';
 import { CreateSongDto, UpdateSongDto } from './dto';
 
 @Injectable()
 export class SongsService {
-    constructor(@InjectRepository(Song) private readonly userRepository: Repository<Song>) {}
+  constructor(@InjectRepository(Song) private readonly songRepository: Repository<Song>) {}
 
-    async getSongs(): Promise<Song[]> {
-      return await this.userRepository.find();
+  async getSongs(): Promise<Song[]> {
+    return await this.songRepository.find();
+  }
+  async getSong(id: number): Promise<Song> {
+    const song: Song = await this.songRepository.findOneBy({id});
+    if(!song) throw new NotFoundException();
+    else return song;
+  }
+  async createSong(body: CreateSongDto): Promise<Song> {
+    const song: Song = await this.songRepository.create({
+      url: body.url,
+      tag: body.tag,
+      sfw: body.sfw,
+      name: body.name,
+      cover: body.cover
+    })
+    return this.songRepository.save(song);
+  }
+  async updateSong(id: number, body: UpdateSongDto): Promise<Song> {
+    const song: Song = await this.songRepository.preload({
+      id,
+      url: body.url,
+      tag: body.tag,
+      sfw: body.sfw,
+      name: body.name,
+      cover: body.cover
+    })
+    if(!song) throw new NotFoundException("Resource not found");
+    else this.songRepository.save(song);
+    return song;
+  }
+  async deleteSong(id: number): Promise<JSON> {
+    const song: Song = await this.songRepository.findOneBy({id});
+    if(!song) throw new NotFoundException("Resource not found");
+    else {
+      this.songRepository.remove(song);
+      return JSON.parse(`{"deletedId": "${id}"}`);
     }
-    async getSong(id: number): Promise<Song> {
-      const user: Song = await this.userRepository.findOneBy({id});
-      if(!user) throw new NotFoundException();
-      else return user;
-    }
-    async createSong(body: CreateSongDto): Promise<Song> {
-      const user: Song = await this.userRepository.create({
-        url: body.url,
-        tag: body.tag,
-        sfw: body.sfw,
-        name: body.name,
-        cover: body.cover
-      })
-      return this.userRepository.save(user);
-    }
-    async updateSong(id: number, body: UpdateSongDto): Promise<Song> {
-      const user: Song = await this.userRepository.preload({
-        id,
-        url: body.url,
-        tag: body.tag,
-        sfw: body.sfw,
-        name: body.name,
-        cover: body.cover
-      })
-      if(!user) throw new NotFoundException("Resource not found");
-      else this.userRepository.save(user);
-      return user;
-    }
-    async deleteSong(id: number): Promise<JSON> {
-      const user: Song = await this.userRepository.findOneBy({id});
-      if(!user) throw new NotFoundException("Resource not found");
-      else {
-        this.userRepository.remove(user);
-        return JSON.parse(`{"deletedId": "${id}"}`);
-      }
-    }
+  }
 }

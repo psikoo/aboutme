@@ -1,7 +1,8 @@
-import { Controller, Headers, Get, Param, Post, Body, UnauthorizedException, Patch, Delete } from '@nestjs/common';
+import { Controller, Headers, Get, Param, Post, Body, Patch, Delete } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { ProjectsService } from './projects.service';
+
 import { Project } from './entities';
+import { ProjectsService } from './projects.service';
 import { CreateProjectDto, UpdateProjectDto } from './dto';
 
 @Controller('projects')

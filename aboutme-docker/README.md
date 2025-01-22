@@ -1,0 +1,1 @@
+The startBackend.sh builds a docker image for the backend and starts it next to the postgresql database and pgadmin

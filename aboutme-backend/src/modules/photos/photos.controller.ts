@@ -1,8 +1,9 @@
 import { Body, Controller, Headers, Delete, Get, Param, Patch, Post, UnauthorizedException } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { PhotosService } from './photos.service';
+
 import { Photo } from './entities';
 import { CreatePhotoDto, UpdatePhotoDto } from './dto';
+import { PhotosService } from './photos.service';
 
 @Controller('photos')
 export class PhotosController {

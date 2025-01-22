@@ -1,23 +1,24 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { Photo } from './entities';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
+
+import { Photo } from './entities';
 import { CreatePhotoDto, UpdatePhotoDto } from './dto';
 
 @Injectable()
 export class PhotosService {
-  constructor(@InjectRepository(Photo) private readonly userRepository: Repository<Photo>) {}
+  constructor(@InjectRepository(Photo) private readonly photoRepository: Repository<Photo>) {}
 
   async getPhotos(): Promise<Photo[]> {
-    return await this.userRepository.find();
+    return await this.photoRepository.find();
   }
   async getPhoto(id: number): Promise<Photo> {
-    const user: Photo = await this.userRepository.findOneBy({id});
-    if(!user) throw new NotFoundException();
-    else return user;
+    const photo: Photo = await this.photoRepository.findOneBy({id});
+    if(!photo) throw new NotFoundException();
+    else return photo;
   }
   async createPhoto(body: CreatePhotoDto): Promise<Photo> {
-    const user: Photo = await this.userRepository.create({
+    const photo: Photo = await this.photoRepository.create({
       url: body.url,
       tag: body.tag,
       sfw: body.sfw,
@@ -25,10 +26,10 @@ export class PhotosService {
       description: body.description,
       date: body.date
     })
-    return this.userRepository.save(user);
+    return this.photoRepository.save(photo);
   }
   async updatePhoto(id: number, body: UpdatePhotoDto): Promise<Photo> {
-    const user: Photo = await this.userRepository.preload({
+    const photo: Photo = await this.photoRepository.preload({
       id,
       url: body.url,
       tag: body.tag,
@@ -37,15 +38,15 @@ export class PhotosService {
       description: body.description,
       date: body.date
     })
-    if(!user) throw new NotFoundException("Resource not found");
-    else this.userRepository.save(user);
-    return user;
+    if(!photo) throw new NotFoundException("Resource not found");
+    else this.photoRepository.save(photo);
+    return photo;
   }
   async deletePhoto(id: number): Promise<JSON> {
-    const user: Photo = await this.userRepository.findOneBy({id});
-    if(!user) throw new NotFoundException("Resource not found");
+    const photo: Photo = await this.photoRepository.findOneBy({id});
+    if(!photo) throw new NotFoundException("Resource not found");
     else {
-      this.userRepository.remove(user);
+      this.photoRepository.remove(photo);
       return JSON.parse(`{"deletedId": "${id}"}`);
     }
   }

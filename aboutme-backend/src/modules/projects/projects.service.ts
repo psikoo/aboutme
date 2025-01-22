@@ -1,23 +1,24 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Project } from './entities';
 import { Repository } from 'typeorm';
+
+import { Project } from './entities';
 import { CreateProjectDto, UpdateProjectDto } from './dto';
 
 @Injectable()
 export class ProjectsService {
-  constructor(@InjectRepository(Project) private readonly userRepository: Repository<Project>) {}
+  constructor(@InjectRepository(Project) private readonly projectRepository: Repository<Project>) {}
 
   async getProjects(): Promise<Project[]> {
-    return await this.userRepository.find();
+    return await this.projectRepository.find();
   }
   async getProject(id: number): Promise<Project> {
-    const user: Project = await this.userRepository.findOneBy({id});
-    if(!user) throw new NotFoundException();
-    else return user;
+    const project: Project = await this.projectRepository.findOneBy({id});
+    if(!project) throw new NotFoundException();
+    else return project;
   }
   async createProject(body: CreateProjectDto): Promise<Project> {
-    const user: Project = await this.userRepository.create({
+    const project: Project = await this.projectRepository.create({
       url: body.url,
       tag: body.tag,
       sfw: body.sfw,
@@ -25,10 +26,10 @@ export class ProjectsService {
       description: body.description,
       date: body.date
     })
-    return this.userRepository.save(user);
+    return this.projectRepository.save(project);
   }
   async updateProject(id: number, body: UpdateProjectDto): Promise<Project> {
-    const user: Project = await this.userRepository.preload({
+    const project: Project = await this.projectRepository.preload({
       id,
       url: body.url,
       tag: body.tag,
@@ -37,15 +38,15 @@ export class ProjectsService {
       description: body.description,
       date: body.date
     })
-    if(!user) throw new NotFoundException("Resource not found");
-    else this.userRepository.save(user);
-    return user;
+    if(!project) throw new NotFoundException("Resource not found");
+    else this.projectRepository.save(project);
+    return project;
   }
   async deleteProject(id: number): Promise<JSON> {
-    const user: Project = await this.userRepository.findOneBy({id});
-    if(!user) throw new NotFoundException("Resource not found");
+    const project: Project = await this.projectRepository.findOneBy({id});
+    if(!project) throw new NotFoundException("Resource not found");
     else {
-      this.userRepository.remove(user);
+      this.projectRepository.remove(project);
       return JSON.parse(`{"deletedId": "${id}"}`);
     }
   }

@@ -1,48 +1,49 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { Url } from './entities';
-import { CreateUrlDto, UpdateUrlDto } from './dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
+import { Url } from './entities';
+import { CreateUrlDto, UpdateUrlDto } from './dto';
+
 @Injectable()
 export class UrlsService {
-    constructor(@InjectRepository(Url) private readonly userRepository: Repository<Url>) {}
+  constructor(@InjectRepository(Url) private readonly urlRepository: Repository<Url>) {}
 
-    async getUsers(): Promise<Url[]> {
-      return await this.userRepository.find();
+  async getUrls(): Promise<Url[]> {
+    return await this.urlRepository.find();
+  }
+  async getUrl(id: number): Promise<Url> {
+    const url: Url = await this.urlRepository.findOneBy({id});
+    if(!url) throw new NotFoundException();
+    else return url;
+  }
+  async createUrl(body: CreateUrlDto): Promise<Url> {
+    const url: Url = await this.urlRepository.create({
+      url: body.url,
+      tag: body.tag,
+      sfw: body.sfw,
+      name: body.name
+    })
+    return this.urlRepository.save(url);
+  }
+  async updateUrl(id: number, body: UpdateUrlDto): Promise<Url> {
+    const url: Url = await this.urlRepository.preload({
+      id,
+      url: body.url,
+      tag: body.tag,
+      sfw: body.sfw,
+      name: body.name
+    })
+    if(!url) throw new NotFoundException("Resource not found");
+    else this.urlRepository.save(url);
+    return url;
+  }
+  async deleteUrl(id: number): Promise<JSON> {
+    const url: Url = await this.urlRepository.findOneBy({id});
+    if(!url) throw new NotFoundException("Resource not found");
+    else {
+      this.urlRepository.remove(url);
+      return JSON.parse(`{"deletedId": "${id}"}`);
     }
-    async getUser(id: number): Promise<Url> {
-      const user: Url = await this.userRepository.findOneBy({id});
-      if(!user) throw new NotFoundException();
-      else return user;
-    }
-    async createUser(body: CreateUrlDto): Promise<Url> {
-      const user: Url = await this.userRepository.create({
-        url: body.url,
-        tag: body.tag,
-        sfw: body.sfw,
-        name: body.name
-      })
-      return this.userRepository.save(user);
-    }
-    async updateUser(id: number, body: UpdateUrlDto): Promise<Url> {
-      const user: Url = await this.userRepository.preload({
-        id,
-        url: body.url,
-        tag: body.tag,
-        sfw: body.sfw,
-        name: body.name
-      })
-      if(!user) throw new NotFoundException("Resource not found");
-      else this.userRepository.save(user);
-      return user;
-    }
-    async deleteUser(id: number): Promise<JSON> {
-      const user: Url = await this.userRepository.findOneBy({id});
-      if(!user) throw new NotFoundException("Resource not found");
-      else {
-        this.userRepository.remove(user);
-        return JSON.parse(`{"deletedId": "${id}"}`);
-      }
-    }
+  }
 }

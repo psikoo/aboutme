@@ -1,8 +1,9 @@
-import { Controller, Headers, Delete, Get, Param, Patch, Post, UnauthorizedException, Body } from '@nestjs/common';
+import { Controller, Headers, Delete, Get, Param, Patch, Post, Body } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { InterestsService } from './interests.service';
+
 import { Interest } from './entities';
 import { CreateInterestDto, UpdateInterestDto } from './dto';
+import { InterestsService } from './interests.service';
 
 @Controller('interests')
 export class InterestsController {

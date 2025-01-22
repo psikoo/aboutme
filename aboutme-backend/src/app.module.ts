@@ -1,6 +1,10 @@
 import { MiddlewareConsumer, Module, NestModule, RequestMethod } from '@nestjs/common';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { BasicPasswordMiddleware, LoggerMiddleware } from './middleware';
+import { DatabaseModule } from './database/database.module';
 import { UsersModule } from './modules/users/users.module';
 import { InterestsModule } from './modules/interests/interests.module';
 import { SongsModule } from './modules/songs/songs.module';
@@ -8,9 +12,6 @@ import { UrlsModule } from './modules/urls/urls.module';
 import { PhotosModule } from './modules/photos/photos.module';
 import { ProjectsModule } from './modules/projects/projects.module';
 import { BlogsModule } from './modules/blogs/blogs.module';
-import { ConfigModule, ConfigService } from '@nestjs/config';
-import { DatabaseModule } from './database/database.module';
-import { BasicPasswordMiddleware, LoggerMiddleware } from './middleware';
 import { CounterModule } from './modules/counter/counter.module';
 
 @Module({
