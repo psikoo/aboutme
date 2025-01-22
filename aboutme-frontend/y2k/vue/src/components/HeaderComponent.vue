@@ -1,6 +1,25 @@
 <script setup lang="ts">
+  import { ref } from "vue";
   const url = "cait.moe/";
   const subdomains = ["www", "cmd"];
+  const counter: any = ref("Loading");
+  async function getURL(url: string) {
+      try {
+      const headersList = {
+        "Accept": "*/*",
+        "Access-Control-Allow-Origin": "*"
+      }
+      const res = await fetch(url, { 
+        method: "GET",
+        headers: headersList 
+      });
+      const data = await res.json();
+      counter.value = data;
+    } catch(e) {
+      console.log(e);
+    }
+  }
+  getURL("https://cait.moe:3000/counter");
 </script>
 
 <template>
@@ -17,6 +36,14 @@
             <a :href="'https://'+subdomain+'.'+url"><h2 class="navText">{{ subdomain }}</h2></a>
             <h2 v-if="index < subdomains.length-1" class="navText">•</h2>
           </div>
+        </div>
+      </div>
+      <div class="right">
+        <div v-if="typeof counter == 'string'">Loading...</div>
+        <div v-else>
+          <h1>
+            {{ counter.count }}
+          </h1>
         </div>
       </div>
     </nav>
@@ -56,6 +83,13 @@
   .bottom>div>a {
     text-decoration: none;
     text-decoration-color: rgb(255, 255, 255);
+  }
+
+  .right {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+    font-size: small;
   }
 
   .smallImage {
