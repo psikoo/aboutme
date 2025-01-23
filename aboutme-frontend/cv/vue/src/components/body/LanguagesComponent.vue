@@ -5,7 +5,7 @@
   <div class="main">
     <h2>Language Skills</h2>
     <hr>
-    <p><strong>Spanish</strong> - Mother tong</p>
+    <p><strong>Spanish</strong> - Mother tongue</p>
     <p><strong>English</strong> - C1</p>
   </div>
 </template>
