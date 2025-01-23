@@ -22,7 +22,7 @@ import DebugComponent from './components/modifications/DebugComponent.vue';
     <HeaderComponent/>
     <BodyComponent/>
     <FooterComponent/>
-    <DebugComponent/>
+    <!-- <DebugComponent/> -->
   </div>
 </template>
 
