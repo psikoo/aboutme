@@ -5,7 +5,7 @@ import { Blog } from './entities';
 import { CreateBlogDto, UpdateBlogDto } from './dto';
 import { BlogsService } from './blogs.service';
 
-@Controller('blogs')
+@Controller('y2k/blogs')
 export class BlogsController {
   constructor(private readonly configService: ConfigService, private readonly blogService: BlogsService) {};
 

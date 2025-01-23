@@ -4,7 +4,7 @@ import { ConfigService } from '@nestjs/config';
 import { CounterService } from './counter.service';
 import { Count } from './entities';
 
-@Controller('counter')
+@Controller('y2k/counter')
 export class CounterController {
     constructor(private readonly configService: ConfigService, private readonly counterService: CounterService) {};
 

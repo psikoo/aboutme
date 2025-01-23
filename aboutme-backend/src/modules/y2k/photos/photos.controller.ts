@@ -5,7 +5,7 @@ import { Photo } from './entities';
 import { CreatePhotoDto, UpdatePhotoDto } from './dto';
 import { PhotosService } from './photos.service';
 
-@Controller('photos')
+@Controller('y2k/photos')
 export class PhotosController {
   constructor(private readonly configService: ConfigService, private readonly photoService: PhotosService) {};
 

@@ -5,7 +5,7 @@ import { Interest } from './entities';
 import { CreateInterestDto, UpdateInterestDto } from './dto';
 import { InterestsService } from './interests.service';
 
-@Controller('interests')
+@Controller('y2k/interests')
 export class InterestsController {
   constructor(private readonly configService: ConfigService, private readonly interestService: InterestsService) {};
 

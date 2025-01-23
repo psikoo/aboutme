@@ -5,7 +5,7 @@ import { Url } from './entities';
 import { UrlsService } from './urls.service';
 import { CreateUrlDto, UpdateUrlDto } from './dto';
 
-@Controller('urls')
+@Controller('y2k/urls')
 export class UrlsController {
   constructor(private readonly configService: ConfigService, private readonly urlService: UrlsService) {};
 

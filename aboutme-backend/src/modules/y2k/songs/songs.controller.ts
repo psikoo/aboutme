@@ -5,7 +5,7 @@ import { Song } from './entities';
 import { CreateSongDto, UpdateSongDto } from './dto';
 import { SongsService } from './songs.service';
 
-@Controller('songs')
+@Controller('y2k/songs')
 export class SongsController {
   constructor(private readonly configService: ConfigService, private readonly songService: SongsService) {};
 

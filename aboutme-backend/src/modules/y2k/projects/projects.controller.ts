@@ -5,7 +5,7 @@ import { Project } from './entities';
 import { ProjectsService } from './projects.service';
 import { CreateProjectDto, UpdateProjectDto } from './dto';
 
-@Controller('projects')
+@Controller('y2k/projects')
 export class ProjectsController {
   constructor(private readonly configService: ConfigService, private readonly projectsService: ProjectsService) {};
 
