@@ -25,10 +25,11 @@ import { ref, type Ref } from "vue";
 
 <style scoped>
   .app {
-    width: calc(100vw - 30px);
-    margin: 15px;
+    width: calc(80vw);
+    margin: 15px auto;
     background-color: var(--bg-color);
     contain: content;
+    box-shadow: 5px 5px 0px 0px var(--shadow-color);
   }
   .openIn {
     color: var(--border-color);

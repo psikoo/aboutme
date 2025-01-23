@@ -1,18 +1,34 @@
 :root {
-  --bg-color: rgb(200, 200, 200);
-  --hover-color: rgb(50, 30, 100);
+  --fg-color: rgb(255, 240, 145);
+  --bg-color: rgb(255, 255, 185);
+  --hover-color: rgb(255, 235, 100);
+  --shadow-color: rgba(0, 0, 0, 0.3);
   --text-color: rgb(0, 0, 0);
+  --tittle-color: rgb(0, 0,0 );
   --border-color: rgb(0, 0, 0);
 }
 
 body {
   background-color: white;
+  background-image: url("./other/img/paper.png");
   color: var(--text-color);
   overflow-x: visible;
   overflow-y: visible;
 }
 
-h1,h2,h3,h4,h5 {
+h1 {
+  font-family: Calibri, sans-serif;
+  font-size: 3rem;
+  color: var(--tittle-color);
+} 
+
+h2 {
+  font-family: Calibri, sans-serif;
+  font-size: 1.5rem;
+  color: var(--tittle-color);
+}
+
+h3,h4,h5 {
   font-family: Calibri, sans-serif
 }
 
