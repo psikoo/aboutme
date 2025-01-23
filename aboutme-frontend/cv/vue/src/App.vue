@@ -12,8 +12,8 @@ import { ref, type Ref } from "vue";
 <template>
   <CrtEffect/>
   <div v-if="isInstagram">
-    <a v-if="isAndroid" href="intent://y2k.cait.moe#Intent;scheme=https;end" target="_blank" class="openIn">Open your default browser</a>
-    <a v-else-if="isIOS" href="x-safari-https://y2k.cait.moe" target="_blank" class="openIn">Open in Safari</a>
+    <a v-if="isAndroid" href="intent://cv.cait.moe#Intent;scheme=https;end" target="_blank" class="openIn">Open your default browser</a>
+    <a v-else-if="isIOS" href="x-safari-https://cv.cait.moe" target="_blank" class="openIn">Open in Safari</a>
     <h1 v-else>Please manually open the site in your native browser of choice :D</h1>
   </div>
   <div v-else class="app">

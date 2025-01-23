@@ -3,9 +3,16 @@
   --bg-color: rgb(255, 255, 185);
   --hover-color: rgb(255, 235, 100);
   --shadow-color: rgba(0, 0, 0, 0.3);
-  --text-color: rgb(0, 0, 0);
-  --tittle-color: rgb(0, 0,0 );
+  --text-color: rgb(80, 60, 60);
+  --tittle-color: rgb(80, 60, 60);
   --border-color: rgb(0, 0, 0);
+}
+
+::selection {
+  background-color: var(--hover-color);
+}
+::-moz-selection {
+  background-color: var(--hover-color);
 }
 
 body {
@@ -20,20 +27,20 @@ h1 {
   font-family: Calibri, sans-serif;
   font-size: 3rem;
   color: var(--tittle-color);
-} 
-
-h2 {
+} h2 {
   font-family: Calibri, sans-serif;
   font-size: 1.5rem;
   color: var(--tittle-color);
-}
-
-h3,h4,h5 {
+} h3,h4,h5 {
+  font-family: Calibri, sans-serif
+} p {
   font-family: Calibri, sans-serif
 }
 
-p {
-  font-family: Calibri, sans-serif
+a {
+  color: var(--text-color);
+} a:hover {
+  background-color: var(--hover-color);
 }
 
 #app {
