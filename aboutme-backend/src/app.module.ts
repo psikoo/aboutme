@@ -13,9 +13,27 @@ import { PhotosModule } from './modules/photos/photos.module';
 import { ProjectsModule } from './modules/projects/projects.module';
 import { BlogsModule } from './modules/blogs/blogs.module';
 import { CounterModule } from './modules/counter/counter.module';
+import { RouterModule } from '@nestjs/core';
 
 @Module({
-  imports: [ConfigModule.forRoot({ isGlobal: true }), DatabaseModule, UsersModule, InterestsModule, SongsModule, UrlsModule, PhotosModule, ProjectsModule, BlogsModule, CounterModule],
+  imports: [ConfigModule.forRoot({ isGlobal: true }), 
+            DatabaseModule, UsersModule, InterestsModule, SongsModule, UrlsModule, PhotosModule, ProjectsModule, BlogsModule, CounterModule,
+            RouterModule.register([
+              {
+                path: "y2k",
+                children: [
+                  {
+                    path: "blogs",
+                    module: BlogsModule
+                  },
+                  {
+                    path: "counter",
+                    module: CounterModule
+                  }
+                ]
+              }
+            ])
+            ],
   controllers: [AppController],
   providers: [AppService],
 })
