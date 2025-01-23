@@ -16,24 +16,8 @@ import { CounterModule } from './modules/counter/counter.module';
 import { RouterModule } from '@nestjs/core';
 
 @Module({
-  imports: [ConfigModule.forRoot({ isGlobal: true }), 
-            DatabaseModule, UsersModule, InterestsModule, SongsModule, UrlsModule, PhotosModule, ProjectsModule, BlogsModule, CounterModule,
-            RouterModule.register([
-              {
-                path: "y2k",
-                children: [
-                  {
-                    path: "blogs",
-                    module: BlogsModule
-                  },
-                  {
-                    path: "counter",
-                    module: CounterModule
-                  }
-                ]
-              }
-            ])
-            ],
+  imports: [ConfigModule.forRoot({ isGlobal: true }), DatabaseModule, 
+            UsersModule, InterestsModule, SongsModule, UrlsModule, PhotosModule, ProjectsModule, BlogsModule, CounterModule],
   controllers: [AppController],
   providers: [AppService],
 })

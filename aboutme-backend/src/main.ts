@@ -9,9 +9,8 @@ const httpsOptions = {
   cert: fs.readFileSync("/etc/letsencrypt/live/"+process.env.URL+"/cert.pem"),
 };
 async function bootstrap() {
-  app = await NestFactory.create(AppModule, {
-    httpsOptions,
-  });
+  app = await NestFactory.create(AppModule, { httpsOptions });
+  app.setGlobalPrefix("y2k");
   app.enableCors();
   app.useGlobalPipes(new ValidationPipe({
     transform: true,
