@@ -17,7 +17,7 @@
       console.log(e);
     }
   }
-  getURL("https://cait.moe:3000/users/1");
+  getURL("https://cait.moe:3000/api/y2k/users/1");
   // stamps
   const base: string = "/img/stamps/"; // Compiler fucks the relative rout
   const stamps: any =  ['CatFeet.gif','Cats.gif','ComputerLove.webp','Discord.gif','EyesLove.webp','FrogLove.gif',

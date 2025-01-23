@@ -17,7 +17,7 @@
       console.log(e);
     }
   }
-  getURL("https://cait.moe:3000/users/1");
+  getURL("https://cait.moe:3000/api/y2k/users/1");
 </script>
 
 <template>

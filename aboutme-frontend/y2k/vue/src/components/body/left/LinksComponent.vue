@@ -23,7 +23,7 @@
       console.log(e);
     }
   }
-  getURL("https://cait.moe:3000/urls/");
+  getURL("https://cait.moe:3000/api/y2k/urls/");
 
   async function getOrderedLinks() {
     let unorderedLinksStatic: any = [];

@@ -19,7 +19,7 @@
       console.log(e);
     }
   }
-  getURL("https://cait.moe:3000/counter");
+  getURL("https://cait.moe:3000/api/y2k/api/y2k/counter");
 </script>
 
 <template>

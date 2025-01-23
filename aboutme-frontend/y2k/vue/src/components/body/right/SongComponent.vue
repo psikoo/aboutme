@@ -18,7 +18,7 @@
       console.log(e);
     }
   }
-  getURL("https://cait.moe:3000/songs/");
+  getURL("https://cait.moe:3000/api/y2k/songs/");
   function shuffle(array: any) {
     let currentIndex = array.length;
     while (currentIndex != 0) {
