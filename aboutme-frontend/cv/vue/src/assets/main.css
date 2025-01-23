@@ -43,6 +43,10 @@ a {
   background-color: var(--hover-color);
 }
 
+strong {
+  font-weight: bold;
+}
+
 #app {
   margin: 0 auto;
 }

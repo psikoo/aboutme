@@ -4,32 +4,32 @@
 <template>
   <div class="main">
     <nav>
-      <img src="https://avatars.githubusercontent.com/psikoo" alt="profile picture image">
+      <img src="/img/pfp.webp" alt="profile picture image">
       <div class="center">
         <h1>Hugo Hernandez Muelas</h1>
         <h2>Multi-platform Application Developer</h2>
         <hr>
         <div class="bottom">
           <div class="pair">
-            <div class="name">Email:</div>
+            <div><strong>Email:</strong></div>
             <div class="data"><a href="mailto:hugohernandezmuelas03@gmail.com">hugo@cait.moe</a></div>
           </div>
           <div class="pair">
-            <div class="name">Website:</div>
+            <div><strong>Website:</strong></div>
             <div class="data"><a href="https://www.cait.moe/">www.cait.moe</a></div>
           </div>
           <div class="pair">
-            <div class="name">Github:</div>
+            <div><strong>Github:</strong></div>
             <div class="data"><a href="https://github.com/psikoo">psikoo</a></div>
           </div>
         </div>
         <div class="bottom">
           <div class="pair">
-            <div class="name">Phone:</div>
+            <div><strong>Phone:</strong></div>
             <div class="data"><a href="tel:+34682131285">(+34)682 13 12 85</a></div>
           </div>
           <div class="pair">
-            <div class="name">Residence:</div>
+            <div><strong>Residence:</strong></div>
             <div class="data">Madrid, Spain</div>
           </div>
         </div>
@@ -81,9 +81,5 @@
     display: flex;
     flex-direction: row;
     gap: 5px;
-  }
-
-  .name {
-    font-weight: bold;
   }
 </style>

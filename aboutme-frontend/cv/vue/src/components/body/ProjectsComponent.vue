@@ -1,0 +1,34 @@
+<script setup lang="ts">
+</script>
+
+<template>
+  <div class="main">
+    <h2>Projects</h2>
+    <hr>
+    <p><a href="https://github.com/psikoo/DGTcameradownloader"><strong>DGT camera downloader</strong></a> - <img alt="filetype" class="filetype" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg"/> Download photos coming from DGT cameras</p>
+    <p><a href="https://github.com/psikoo/EAN-13_generator"><strong>EAN-13 generator</strong></a> - <img alt="filetype" class="filetype" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"/>  Generate barcodes using the EAN-13 guidelines</p>
+    <p><a href="https://github.com/psikoo/AlgorithmicArtistry"><strong>Algorithmic Artistry</strong></a> - <img alt="filetype" class="filetype" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg"/> Text based RPG, with turned based combat</p>
+    <p><a href="https://github.com/psikoo/aboutme"><strong>About Me</strong></a> - <img alt="filetype" class="filetype" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"/> Monorepo containing all the code for my sites</p>
+    <p><a href="https://github.com/psikoo?tab=repositories"><strong>More Projects</strong></a> - More personal projects in my github</p>
+  </div>
+</template>
+
+<style scoped>
+  .main {
+    max-width: 100%;
+    contain: content;
+  }
+  
+  hr {
+    width: 5%;
+    margin: 0px 0px 5px 0px;
+    height: 1px;
+    border: 0;
+    border-top: 4px solid var(--text-color);
+  }
+
+  .filetype {
+    vertical-align: middle;
+    height: 1rem;
+  }
+</style>
