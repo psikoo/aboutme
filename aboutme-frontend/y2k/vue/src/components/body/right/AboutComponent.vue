@@ -19,7 +19,7 @@
   }
   getURL("https://cait.moe:3000/api/y2k/users/1");
   // stamps
-  const base: string = "/img/stamps/"; // Compiler fucks the relative rout
+  const base: string = "/out/img/stamps/"; // Compiler fucks the relative rout
   const stamps: any =  ['CatFeet.gif','Cats.gif','ComputerLove.webp','Discord.gif','EyesLove.webp','FrogLove.gif',
                         'Gender.webp','IsopodLove.webp','KuromiLove.gif','LuckyStar.webp','PhysicalMedia.webp','MikuDance.gif','MonsterLove.webp',
                         'Scene.webp','NyanCat.gif','OldWeb.webp','OwO.gif','WindowsXP.gif','ParkingLot.webp','Pompompurin.gif',
