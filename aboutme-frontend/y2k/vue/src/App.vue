@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import CrtEffect from './components/CrtEffect.vue';
+import CrtEffect from './components/modifications/CrtEffect.vue';
 import HeaderComponent from './components/HeaderComponent.vue';
 import BodyComponent from './components/BodyComponent.vue';
 import FooterComponent from './components/FooterComponent.vue';
 import { ref, type Ref } from "vue";
-import DebugComponent from './components/DebugComponent.vue';
+import DebugComponent from './components/modifications/DebugComponent.vue';
   const phone: Ref<boolean> = ref(!!navigator.userAgent.match(/iPad|iPhone|iPod|BlackBerry|Android|Windows Pone|webOS|Nintendo Switch|Nintendo WiiU|Nintendo 3DS/i));
   const isInstagram = ref(!!navigator.userAgent.match(/Instagram/i));
   const isAndroid = ref(!!navigator.userAgent.match(/Android/i));
