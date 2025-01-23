@@ -8,7 +8,8 @@ import { ref, type Ref } from "vue";
   const isIOS = ref(!!navigator.userAgent.match(/iPad|iPhone|iPod/i));
 
   function activatePrintMode() {
-    document.getElementsByName("body")[0].style.backgroundImage = '';
+    printMode.value = true;
+    document.body.style.background = "white";
   }
   const printMode = ref(false);
 </script>
@@ -20,7 +21,7 @@ import { ref, type Ref } from "vue";
     <h1 v-else>Please manually open the site in your native browser of choice :D</h1>
   </div>
   <div v-else>
-    <button @click="printMode = true; activatePrintMode" class="print">Print Mode</button>
+    <button @click="activatePrintMode" class="print">Print Mode</button>
     <div :class="{ app: !printMode, appPrint: printMode }">
       <HeaderComponent/>
       <BodyComponent/>
