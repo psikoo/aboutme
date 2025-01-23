@@ -5,7 +5,7 @@ import { UsersService } from './users.service';
 import { User } from './entities';
 import { CreateUserDto, UpdateUserDto } from './dto';
 
-@Controller('users')
+@Controller('y2k/users')
 export class UsersController {
   constructor(private readonly configService: ConfigService, private readonly userService: UsersService) {};
 

@@ -10,7 +10,7 @@ const httpsOptions = {
 };
 async function bootstrap() {
   app = await NestFactory.create(AppModule, { httpsOptions });
-  app.setGlobalPrefix("y2k");
+  app.setGlobalPrefix("api");
   app.enableCors();
   app.useGlobalPipes(new ValidationPipe({
     transform: true,

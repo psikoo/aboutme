@@ -5,15 +5,14 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { BasicPasswordMiddleware, LoggerMiddleware } from './middleware';
 import { DatabaseModule } from './database/database.module';
-import { UsersModule } from './modules/users/users.module';
-import { InterestsModule } from './modules/interests/interests.module';
-import { SongsModule } from './modules/songs/songs.module';
-import { UrlsModule } from './modules/urls/urls.module';
-import { PhotosModule } from './modules/photos/photos.module';
-import { ProjectsModule } from './modules/projects/projects.module';
-import { BlogsModule } from './modules/blogs/blogs.module';
-import { CounterModule } from './modules/counter/counter.module';
-import { RouterModule } from '@nestjs/core';
+import { UsersModule } from './modules/y2k/users/users.module';
+import { InterestsModule } from './modules/y2k/interests/interests.module';
+import { SongsModule } from './modules/y2k/songs/songs.module';
+import { UrlsModule } from './modules/y2k/urls/urls.module';
+import { PhotosModule } from './modules/y2k/photos/photos.module';
+import { ProjectsModule } from './modules/y2k/projects/projects.module';
+import { BlogsModule } from './modules/y2k/blogs/blogs.module';
+import { CounterModule } from './modules/y2k/counter/counter.module';
 
 @Module({
   imports: [ConfigModule.forRoot({ isGlobal: true }), DatabaseModule, 
