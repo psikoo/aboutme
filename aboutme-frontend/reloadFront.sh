@@ -4,9 +4,7 @@ cd ..
 sudo git pull
 echo "y2k"
 cd aboutme-frontend/y2k/vue
-sudo npm install
 sudo npm run build
 echo "cv"
 cd ../../cv/vue
-sudo npm install
 sudo npm run build
