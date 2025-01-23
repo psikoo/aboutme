@@ -7,6 +7,6 @@ cd aboutme-frontend/y2k/vue
 sudo npm install
 sudo npm run build
 echo "cv"
-cd aboutme-frontend/cv/vue
+cd ../../aboutme-frontend/cv/vue
 sudo npm install
 sudo npm run build
