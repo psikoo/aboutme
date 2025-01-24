@@ -63,25 +63,25 @@ export class TamagotchiService {
       tamagotchi.happiness = 0;
       tamagotchi.hunger = 0;
       tamagotchi.energy = 0;
-    } 
-
-    let currentTime = new Date().valueOf()
-    let timePassed = (currentTime)-tamagotchi.lastUpdate;
-    let secondsPassed = timePassed/1000;
-    let timeForTick = 3600; // seconds
-    if(secondsPassed/timeForTick >= 1) {
-      let subtract = Math.floor(secondsPassed/timeForTick);
-      if((tamagotchi.happiness - subtract <= 0) || (tamagotchi.hunger - subtract <= 0) || (tamagotchi.energy - subtract <= 0)) {
-        tamagotchi.state = "Dead";
-        tamagotchi.happiness = 0;
-        tamagotchi.hunger = 0;
-        tamagotchi.energy = 0;
-      } else {
-        tamagotchi.deadTime = currentTime;
-        tamagotchi.happiness -= subtract;
-        tamagotchi.hunger -= subtract;
-        tamagotchi.energy -= subtract;
-        tamagotchi.lastUpdate = currentTime;
+    } else {
+      let currentTime = new Date().valueOf()
+      let timePassed = (currentTime)-tamagotchi.lastUpdate;
+      let secondsPassed = timePassed/1000;
+      let timeForTick = 3600; // seconds
+      if(secondsPassed/timeForTick >= 1) {
+        let subtract = Math.floor(secondsPassed/timeForTick);
+        if((tamagotchi.happiness - subtract <= 0) || (tamagotchi.hunger - subtract <= 0) || (tamagotchi.energy - subtract <= 0)) {
+          tamagotchi.state = "Dead";
+          tamagotchi.happiness = 0;
+          tamagotchi.hunger = 0;
+          tamagotchi.energy = 0;
+        } else {
+          tamagotchi.deadTime = currentTime;
+          tamagotchi.happiness -= subtract;
+          tamagotchi.hunger -= subtract;
+          tamagotchi.energy -= subtract;
+          tamagotchi.lastUpdate = currentTime;
+        }
       }
     }
     return JSON.parse(JSON.stringify(tamagotchi));
