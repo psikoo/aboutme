@@ -53,7 +53,6 @@
   img {
     margin: 15px;
     height: 128px;
-    background-color: gray;
     border-radius: 50%;
     display:block;
   }
