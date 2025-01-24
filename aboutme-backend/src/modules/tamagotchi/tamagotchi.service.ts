@@ -17,6 +17,12 @@ let tamagotchi = {
 export class TamagotchiService {
 
   async getTamagotchi(): Promise<JSON> {
+    if((tamagotchi.happiness <= 0) || (tamagotchi.hunger <= 0) || (tamagotchi.energy <= 0)) {
+      tamagotchi.state = "Dead";
+      tamagotchi.happiness = 0;
+      tamagotchi.hunger = 0;
+      tamagotchi.energy = 0;
+    } 
     return JSON.parse(JSON.stringify(tamagotchi));
   }
 
@@ -52,6 +58,13 @@ export class TamagotchiService {
   }
 
   async getReload(): Promise<JSON> {
+    if((tamagotchi.happiness <= 0) || (tamagotchi.hunger <= 0) || (tamagotchi.energy <= 0)) {
+      tamagotchi.state = "Dead";
+      tamagotchi.happiness = 0;
+      tamagotchi.hunger = 0;
+      tamagotchi.energy = 0;
+    } 
+
     let currentTime = new Date().valueOf()
     let timePassed = (currentTime)-tamagotchi.lastUpdate;
     let secondsPassed = timePassed/1000;
