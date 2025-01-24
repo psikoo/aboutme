@@ -87,7 +87,7 @@ function numToBar(num) {
 }
 
 async function getTamagotchi(res) {
-    let data = JSON.parse(await getURL("https://cait.moe:3000/getTamagotchi"));
+    let data = JSON.parse(await getURL("https://cait.moe:3000/api/tamagotchi/tamagotchi"));
     let age;
     let info = "";
     if(data.state == "Dead") {
