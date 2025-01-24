@@ -16,11 +16,11 @@
           </div>
           <div class="pair">
             <div><strong>Website:</strong></div>
-            <div class="data"><a href="https://www.cait.moe/">www.cait.moe</a></div>
+            <div class="data"><a href="https://www.cait.moe/" target="_blank">www.cait.moe</a></div>
           </div>
           <div class="pair">
             <div><strong>Github:</strong></div>
-            <div class="data"><a href="https://github.com/psikoo">psikoo</a></div>
+            <div class="data"><a href="https://github.com/psikoo" target="_blank">psikoo</a></div>
           </div>
         </div>
         <div class="bottom">
