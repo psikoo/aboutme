@@ -4,7 +4,7 @@
 <template>
   <div class="main">
     <nav>
-      <img src="/img/pfp.webp" alt="profile picture image">
+      <img src="/img/pfp.webp" alt="pfp">
       <div class="center">
         <h1>Hugo Hernandez Muelas</h1>
         <h2>Multi-platform Application Developer</h2>
@@ -53,6 +53,7 @@
   img {
     margin: 15px;
     height: 128px;
+    background-color: gray;
     border-radius: 50%;
     display:block;
   }
