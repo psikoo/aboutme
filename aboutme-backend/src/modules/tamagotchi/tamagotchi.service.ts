@@ -25,9 +25,9 @@ export class TamagotchiService {
     tamagotchi.energy--;
     if(tamagotchi.happiness < 10) { 
       tamagotchi.happiness++; 
-      return JSON.parse(`"message": "Your Tamagotchi feels happier"`);
+      return JSON.parse(JSON.stringify({"message": "Your Tamagotchi feels happier"}));
     } else { 
-      return JSON.parse(`"message": "Your Tamagotchi is too happy, you made it tired"`);
+      return JSON.parse(JSON.stringify({"message": "Your Tamagotchi is too happy, you made it tired"}));
     }
   }
   
@@ -35,9 +35,9 @@ export class TamagotchiService {
     if(tamagotchi.hunger < 10 && tamagotchi.energy < 10) { 
       tamagotchi.hunger++; 
       tamagotchi.energy++; 
-      return JSON.parse(`"message": "Your Tamagotchi feels fuller"`);
+      return JSON.parse(JSON.stringify({"message": "Your Tamagotchi feels fuller"}));
     } else {
-      return JSON.parse(`"message": "Your Tamagotchi is too full or energetic to eat"`);
+      return JSON.parse(JSON.stringify({"message": "Your Tamagotchi is too full or energetic to eat"}));
     }
   }
 
@@ -45,9 +45,9 @@ export class TamagotchiService {
     tamagotchi.hunger--;
     if(tamagotchi.energy < 10) { 
       tamagotchi.energy++;
-      return JSON.parse(`"message": "Your Tamagotchi feels rested"`);
+      return JSON.parse(JSON.stringify({"message": "Your Tamagotchi feels rested"}));
     } else {
-      return JSON.parse(`"message": "Your Tamagotchi is too energetic, you made it hungry"`);
+      return JSON.parse(JSON.stringify({"message": "Your Tamagotchi is too energetic, you made it hungry"}));
     }
   }
 
