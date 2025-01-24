@@ -4,15 +4,15 @@ export async function processCommand(command) {
     if(command[0] == "play" || command[0] == "p") {
         let res = await getURL("https://cait.moe:3000/api/tamagotchi/play");
         clearOld();
-        addToOld(command[0], await calculateTamagotchiString(res.message));}
+        addToOld(command[0], await calculateTamagotchiString(JSON.parse(res).message));}
     else if(command[0] == "feed" || command[0] == "f") {
         let res = await getURL("https://cait.moe:3000/api/tamagotchi/feed");
         clearOld();
-        addToOld(command[0], await calculateTamagotchiString(res.message));}
+        addToOld(command[0], await calculateTamagotchiString(JSON.parse(res).message));}
     else if(command[0] == "rest" || command[0] == "s") {
         let res = await getURL("https://cait.moe:3000/api/tamagotchi/rest");
         clearOld();
-        addToOld(command[0], await calculateTamagotchiString(res.message));}
+        addToOld(command[0], await calculateTamagotchiString(JSON.parse(res).message));}
     //Utils
     else if(command[0] == "help") {
         addToOld(command[0], helpString);} 
