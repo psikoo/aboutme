@@ -24,6 +24,23 @@ services:
       - pgadmin:/var/lib/pgadmin
     depends_on:
       - db
+  aboutme-backend:
+    container_name: aboutme-backend
+    image: aboutme-backend:1
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - type: bind
+        source: /etc/letsencrypt/live/${URL1}/privkey.pem
+        target: /etc/letsencrypt/live/${URL1}/privkey.pem
+      - type: bind
+        source: /etc/letsencrypt/live/${URL1}/cert.pem
+        target: /etc/letsencrypt/live/${URL1}/cert.pem
+    links:
+      - db
+    depends_on:
+      - db
   aboutme-nginx:
     container_name: aboutme-nginx
     image: nginx:latest
@@ -38,6 +55,9 @@ services:
       - type: bind
         source: /etc/letsencrypt/options-ssl-nginx.conf
         target: /etc/letsencrypt/options-ssl-nginx.conf
+      - type: bind
+        source: /etc/letsencrypt/ssl-dhparams.pem
+        target: /etc/letsencrypt/ssl-dhparams.pem
 
       - type: bind
         source: /var/www/aboutme
@@ -62,23 +82,6 @@ services:
       - type: bind
         source: /etc/letsencrypt/live/${URL2}/fullchain.pem
         target: /etc/letsencrypt/live/${URL2}/fullchain.pem
-    links:
-      - db
-    depends_on:
-      - db
-  aboutme-backend:
-    container_name: aboutme-backend
-    image: aboutme-backend:1
-    restart: always
-    ports:
-      - "3000:3000"
-    volumes:
-      - type: bind
-        source: /etc/letsencrypt/live/${URL1}/privkey.pem
-        target: /etc/letsencrypt/live/${URL1}/privkey.pem
-      - type: bind
-        source: /etc/letsencrypt/live/${URL1}/cert.pem
-        target: /etc/letsencrypt/live/${URL1}/cert.pem
     links:
       - db
     depends_on:
