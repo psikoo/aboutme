@@ -6,8 +6,10 @@ sudo git pull
 echo "-- Starting nginx --"
 sudo nginx -t
 sudo nginx -s reload
+cd aboutme-nginx # home /aboutme/aboutme-nginx
+sudo docker build -t aboutme-nginx:1 .
 echo "-- Starting the backend --"
-cd aboutme-backend # home /aboutme/aboutme-backend
+cd ../aboutme-backend # home /aboutme/aboutme-backend
 sudo docker build -t aboutme-backend:1 .
 cd ../aboutme-docker # home /aboutme/aboutme-docker
 sudo docker compose down

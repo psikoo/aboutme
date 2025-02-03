@@ -41,6 +41,9 @@ services:
       - type: bind
         source: /etc/letsencrypt/live/${URL}/cert.pem
         target: /etc/letsencrypt/live/${URL}/cert.pem
+      - type: bind
+        source: /var/www/aboutme
+        target: /var/www/aboutme
     links:
       - db
     depends_on:
