@@ -26,7 +26,7 @@ services:
       - db
   aboutme-backend:
     container_name: aboutme-backend
-    image: aboutme-backend:latest
+    image: aboutme-backend:1
     restart: always
     ports:
       - "3000:3000"
