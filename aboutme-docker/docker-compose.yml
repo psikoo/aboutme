@@ -42,6 +42,9 @@ services:
         source: /etc/letsencrypt/live/${URL}/cert.pem
         target: /etc/letsencrypt/live/${URL}/cert.pem
       - type: bind
+        source: /etc/letsencrypt/options-ssl-nginx.conf
+        target: /etc/letsencrypt/options-ssl-nginx.conf
+      - type: bind
         source: /var/www/aboutme
         target: /var/www/aboutme
     links:
