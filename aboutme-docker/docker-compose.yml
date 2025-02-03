@@ -36,17 +36,32 @@ services:
         source: /etc/nginx/sites-enabled/default
         target: /etc/nginx/conf.d/default.conf
       - type: bind
-        source: /etc/letsencrypt/live/${URL}/privkey.pem
-        target: /etc/letsencrypt/live/${URL}/privkey.pem
-      - type: bind
-        source: /etc/letsencrypt/live/${URL}/cert.pem
-        target: /etc/letsencrypt/live/${URL}/cert.pem
-      - type: bind
         source: /etc/letsencrypt/options-ssl-nginx.conf
         target: /etc/letsencrypt/options-ssl-nginx.conf
+
       - type: bind
         source: /var/www/aboutme
         target: /var/www/aboutme
+
+      - type: bind
+        source: /etc/letsencrypt/live/${URL1}/privkey.pem
+        target: /etc/letsencrypt/live/${URL1}/privkey.pem
+      - type: bind
+        source: /etc/letsencrypt/live/${URL1}/cert.pem
+        target: /etc/letsencrypt/live/${URL1}/cert.pem
+      - type: bind
+        source: /etc/letsencrypt/live/${URL1}/fullchain.pem
+        target: /etc/letsencrypt/live/${URL1}/fullchain.pem
+
+      - type: bind
+        source: /etc/letsencrypt/live/${URL2}/privkey.pem
+        target: /etc/letsencrypt/live/${URL2}/privkey.pem
+      - type: bind
+        source: /etc/letsencrypt/live/${URL2}/cert.pem
+        target: /etc/letsencrypt/live/${URL2}/cert.pem
+      - type: bind
+        source: /etc/letsencrypt/live/${URL2}/fullchain.pem
+        target: /etc/letsencrypt/live/${URL2}/fullchain.pem
     links:
       - db
     depends_on:
