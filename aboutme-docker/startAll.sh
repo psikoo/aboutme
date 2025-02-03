@@ -5,31 +5,31 @@ varRepo="/var/www/aboutme"
 
 echo "-- Pulling repo --"
 cd $homeRepo
-sudo git stash 
-sudo git pull
+sudo git stash &>/dev/null
+sudo git pull &>/dev/null
 cd $varRepo
-sudo git stash
-sudo git pull
+sudo git stash &>/dev/null
+sudo git pull &>/dev/null
 
 echo "-- Test nginx --"
-sudo nginx -t
-sudo nginx -s reload
+sudo nginx -t &>/dev/null
+sudo nginx -s reload &>/dev/null
 
 echo "-- Build backend --"
 cd $homeRepo/aboutme-backend
-sudo docker build -t aboutme-backend:1 .
+sudo docker build -t aboutme-backend:1 . &>/dev/null
 
 echo "-- Building the frontend --"
 cd $varRepo/aboutme-frontend/y2k/vue
 echo "> y2k"
-sudo npm run build
+sudo npm run build &>/dev/null
 
 cd $varRepo/aboutme-frontend/cv/vue
 echo "> cv"
-sudo npm run build
+sudo npm run build &>/dev/null
 
 cd $homeRepo/aboutme-docker
-sudo docker compose down
-sudo docker compose up -d
+sudo docker compose down &>/dev/null
+sudo docker compose up -d &>/dev/null
 
 echo "-- Script End --"
