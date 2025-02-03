@@ -3,9 +3,6 @@ echo "-- Pulling repo --"
 cd ..
 sudo git stash 
 sudo git pull
-echo "-- Starting nginx --"
-# home /aboutme/aboutme-nginx
-cd ./aboutme-nginx
 echo "-- Starting the backend --"
 # home /aboutme/aboutme-backend
 cd ../aboutme-backend

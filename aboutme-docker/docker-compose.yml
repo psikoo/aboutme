@@ -24,6 +24,27 @@ services:
       - pgadmin:/var/lib/pgadmin
     depends_on:
       - db
+  aboutme-nginx:
+    container_name: aboutme-nginx
+    image: nginx:latest
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - type: bind
+        source: /etc/nginx/sites-enabled/default
+        target: /etc/nginx/sites-enabled/default
+      - type: bind
+        source: /etc/letsencrypt/live/${URL}/privkey.pem
+        target: /etc/letsencrypt/live/${URL}/privkey.pem
+      - type: bind
+        source: /etc/letsencrypt/live/${URL}/cert.pem
+        target: /etc/letsencrypt/live/${URL}/cert.pem
+    links:
+      - db
+    depends_on:
+      - db
   aboutme-backend:
     container_name: aboutme-backend
     image: aboutme-backend:1
