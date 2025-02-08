@@ -1,5 +1,7 @@
 import { resolveServerURL, resolveRegionURL } from './util.js';
 
+alert("This website is not currently working as my api server is not running in the background");
+
 // Get the default settings from the settings.json file
 await getSettings();
 async function getSettings() {
