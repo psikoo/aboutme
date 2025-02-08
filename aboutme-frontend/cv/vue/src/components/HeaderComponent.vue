@@ -12,7 +12,7 @@
         <div class="bottom">
           <div class="pair">
             <div><strong>Email:</strong></div>
-            <div class="data"><a href="mailto:hugohernandezmuelas03@gmail.com">hugo@cait.moe</a></div>
+            <div class="data"><a href="mailto:hugo@cait.moe">hugo@cait.moe</a></div>
           </div>
           <div class="pair">
             <div><strong>Website:</strong></div>

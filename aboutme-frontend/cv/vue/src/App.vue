@@ -6,12 +6,6 @@ import { ref, type Ref } from "vue";
   const isInstagram = ref(!!navigator.userAgent.match(/Instagram/i));
   const isAndroid = ref(!!navigator.userAgent.match(/Android/i));
   const isIOS = ref(!!navigator.userAgent.match(/iPad|iPhone|iPod/i));
-
-  function activatePrintMode() {
-    printMode.value = true;
-    document.body.style.background = "white";
-  }
-  const printMode = ref(false);
 </script>
 
 <template>
@@ -21,8 +15,7 @@ import { ref, type Ref } from "vue";
     <h1 v-else>Please manually open the site in your native browser of choice :D</h1>
   </div>
   <div v-else>
-    <button @click="activatePrintMode" class="print">Print Mode</button>
-    <div :class="{ app: !printMode, appPrint: printMode }">
+    <div class="app">
       <HeaderComponent/>
       <BodyComponent/>
       <FooterComponent/>
@@ -38,23 +31,12 @@ import { ref, type Ref } from "vue";
     contain: content;
     box-shadow: 5px 5px 0px 0px var(--shadow-color);
   }
-  .appPrint {
-    width: 100vw;
-    margin: 0px;
-    background-color: var(--bg-color);
-    contain: content;
-    box-shadow: 0px 0px 0px 0px var(--shadow-color);
-  }
-
-  .print {
-    color: var(--border-color);
-    padding: 10px;
-    position: absolute;
-    top: 30px;
-    left: 30px;
-    background-color: var(--bg-color);
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
+  @media print {
+    .app {
+      width: 100vw;
+      margin: 0px;
+      box-shadow: 0px 0px 0px 0px var(--shadow-color);
+    }
   }
 
   .openIn {

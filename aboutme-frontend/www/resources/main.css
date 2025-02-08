@@ -1,0 +1,77 @@
+:root {
+  --bg-color: #000000;
+  --text-color: #EEEEEE;
+  --primary-color: #00ADB5;
+  --secondary-color: #FF2E60;
+}
+
+@font-face {
+  font-family: scp;
+  font-display: swap;
+  src: url(./fonts/SCP.ttf);
+}
+
+html {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: scp;
+  font-size: small;
+}
+
+h2 {
+  margin-top: 40px;
+}
+
+p {
+  text-align: justify;
+}
+
+strong {
+  color: var(--primary-color);
+  font-weight: bolder;
+}
+em {
+  color: var(--primary-color);
+  font-style: italic;
+}
+mark {
+  color: var(--primary-color);
+  font-weight: bold;
+  background-color: unset;
+}
+small {
+  font-size: xx-small;
+}
+
+a {
+  color: var(--primary-color);
+}
+a:visited, a:visited>em {
+  color: var(--secondary-color);
+}
+
+.center {
+  text-align: center;
+}
+.nobr {
+  display: inline;
+}
+.noMargin {
+  margin: 0px !important;
+}
+.noBold {
+  font-weight: normal !important;
+}
+
+.main {
+  margin: 30px auto;
+  max-width:800px;
+  padding: 10px;
+}
+
+.tittle1 {
+  margin-bottom: 40px;
+}
+.tittle2 {
+  margin-bottom: 20px;
+}

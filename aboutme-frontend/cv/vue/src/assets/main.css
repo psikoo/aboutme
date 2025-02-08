@@ -22,6 +22,11 @@ body {
   overflow-x: visible;
   overflow-y: visible;
 }
+@media print {
+  body {
+    background-image: none !important;
+  }
+}
 
 h1 {
   font-family: Calibri, sans-serif;
