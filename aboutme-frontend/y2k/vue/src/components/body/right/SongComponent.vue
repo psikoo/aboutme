@@ -35,7 +35,7 @@
     <div v-else>
       <h1 class="tittleTop underline">Music ^///^</h1>
       <!-- Amazing code from: https://www.kazimariusz.com/codesnippets/vinyl-showcase -->
-      <div id="vinyl-gallery" class="mainVinyl">
+      <div id="vinyl-gallery">
         <div v-for="(song, index) in songs" class="vinyl">
           <img :src="songs[index].cover" alt="Song Cover">
           <div class="title">
@@ -72,9 +72,6 @@
     flex-direction: row;
     position: relative;
     margin-left: -6px;
-  }
-
-  #vinyl-gallery .mainVinyl {
     transform: translateX(-15px);
   }
 
