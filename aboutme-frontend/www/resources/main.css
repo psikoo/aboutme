@@ -114,13 +114,17 @@ a:visited, a:visited>em {
 
 .main {
   margin: 30px auto;
-  max-width:800px;
+  max-width: 40vw;
   padding: 10px;
 }
-
 .tittle1 {
   margin-bottom: 40px;
 }
 .tittle2 {
   margin-bottom: 20px;
 }
+
+@media (max-width:1000px)  { .main { max-width: 50vw; } }
+@media (max-width:800px)  { .main { max-width: 60vw; } }
+@media (max-width:600px)  { .main { max-width: 70vw; } }
+@media (max-width:451px)  { .main { max-width: 80vw; } }
