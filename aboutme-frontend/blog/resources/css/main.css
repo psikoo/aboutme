@@ -1,8 +1,8 @@
 :root {
   --bg-color: #000000;
   --text-color: #EEEEEE;
-  --primary-color: #2C9080;
-  --secondary-color: #2C9080;
+  --primary-color: #20C20E;
+  --secondary-color: #20C20E;
   /* --secondary-color: #DD1545; */
 }
 
@@ -12,15 +12,15 @@
 }
 
 @font-face {
-  font-family: scp;
+  font-family: Iosevka;
   font-display: swap;
-  src: url(./fonts/SCP.ttf);
+  src: url(../fonts/IosevkaExt.ttf);
 }
 
 html {
   background-color: var(--bg-color);
   color: var(--text-color);
-  font-family: scp;
+  font-family: Iosevka;
   font-size: small;
   scrollbar-width: thin;
   scrollbar-color: var(--primary-color) var(--bg-color);
@@ -36,6 +36,14 @@ h2 {
 
 p {
   text-align: justify;
+}
+
+button {
+  background-color: var(--bg-color);
+  color: var(--primary-color);
+  border: none;
+  font-family: unset;
+  user-select: unset;
 }
 
 strong {
@@ -117,6 +125,11 @@ a:visited, a:visited>em {
   max-width: 40vw;
   padding: 10px;
 }
+@media (max-width:1000px)  { .main { max-width: 50vw; } }
+@media (max-width:800px)  { .main { max-width: 60vw; } }
+@media (max-width:600px)  { .main { max-width: 70vw; } }
+@media (max-width:451px)  { .main { max-width: 80vw; } }
+
 .tittle1 {
   margin-bottom: 40px;
 }
@@ -124,7 +137,6 @@ a:visited, a:visited>em {
   margin-bottom: 20px;
 }
 
-@media (max-width:1000px)  { .main { max-width: 50vw; } }
-@media (max-width:800px)  { .main { max-width: 60vw; } }
-@media (max-width:600px)  { .main { max-width: 70vw; } }
-@media (max-width:451px)  { .main { max-width: 80vw; } }
+.entryContent{
+  margin-left: 22px;
+}
