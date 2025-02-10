@@ -133,10 +133,10 @@ a:visited, a:visited>em {
 .tittle1 {
   margin-bottom: 40px;
 }
-.tittle2 {
+
+.entryTittle {
   margin-bottom: 20px;
 }
-
 .entryContent{
-  margin-left: 22px;
+  margin-left: 2rem;
 }
