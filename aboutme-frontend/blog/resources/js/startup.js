@@ -1,7 +1,7 @@
 import { getURL } from "./get.js";
 
-let entryNum = 1;
 let baseURL = "https://blog.cait.moe/entries/";
+let entryNum = parseInt(await getURL(baseURL+"counter.txt"));
 let entries = document.getElementById("entries");
 
 for(let i = 0; i < entryNum; i++) {
