@@ -30,7 +30,7 @@ sudo npm run build >/dev/null
 
 cd $varRepo/aboutme-frontend/blog
 echo "> blog"
-fileNum=$(ls ./entries | wc -l)
+fileNum=$((ls ./entries | wc -l) - 1)
 echo fileNum > ./entries/counter
 
 cd $homeRepo/aboutme-docker
