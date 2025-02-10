@@ -28,6 +28,11 @@ cd $varRepo/aboutme-frontend/cv/vue
 echo "> cv"
 sudo npm run build >/dev/null
 
+cd $varRepo/aboutme-frontend/blog
+echo "> blog"
+fileNum=$(ls ./entries | wc -l)
+echo fileNum > ./entries/counter
+
 cd $homeRepo/aboutme-docker
 sudo docker compose down >/dev/null
 sudo docker compose up -d >/dev/null
