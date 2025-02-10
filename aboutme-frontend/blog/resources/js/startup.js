@@ -1,10 +1,12 @@
 import { getURL } from "./get.js";
 
 let baseURL = "https://blog.cait.moe/entries/";
+// let baseURL = "http://127.0.0.1:5500/aboutme-frontend/blog/entries/"
 let entryNum = parseInt(await getURL(baseURL+"counter.txt"))-1;
 let entries = document.getElementById("entries");
 
-for(let i = 0; i < entryNum; i++) {
+for(let i = entryNum; i >= 0; i--) {
   entries.innerHTML += `<div id="${"entry"+i}" class="entry">${await getURL(baseURL+i+".html")}</div>`;
   console.log(await getURL(baseURL+i+".html"));
+  // TODO make a parser for the image urls
 }
