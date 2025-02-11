@@ -88,6 +88,15 @@ a:visited, a:visited>em {
   right: 0px;
 }
 
+.sideImageLink {
+  z-index: 9999;
+  height: 400px;
+  width: 400px;
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+}
+
 .dim {
   z-index: -1;
   height: 400px;
