@@ -1,0 +1,147 @@
+html {
+  overflow-x: hidden;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+nav {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4vw;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding-block: 10px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+}
+
+h1 {
+  padding-top: 7vh;
+  padding-bottom: 2vh;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 2rem;
+}
+
+h2 {
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 1.5rem;
+}
+
+p {
+  max-width: 45vw;
+  text-align: center;
+  margin: auto;
+}
+
+.notIntractable {
+  user-select: none;
+  pointer-events: none;
+}
+
+.bannerImgTop {
+  width: 100vw;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: -2;
+}
+.bannerImgBot {
+  width: 100vw;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  z-index: -2;
+}
+.bgWhite {
+  height: 60vh;
+  width: 100vw;
+  background-color: white;
+  position: fixed;
+  top: 20vh;
+  left: 0px;
+  z-index: -1;
+}
+
+.navItem:hover {
+  text-decoration: underline;
+}
+
+.main {
+  width: 50vw;
+  background-color: white;
+  margin: 8vh auto;
+  color: black;
+}
+
+.midSec {
+  display: flex;
+  gap: 50px;
+  max-width: 45vw;
+  margin: 10vh auto 5vh auto;
+}
+.midSecItem>h2 {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+.midSecItem>p {
+  margin-top: 15px;
+  width: calc((45vw / 4) - 50px);
+}
+.midSecImg {
+  width: calc((45vw / 4) - 50px);
+}
+
+.linkSec {
+  display: flex;
+  max-width: 45vw;
+  margin: auto;
+  padding-bottom: 7vh;
+}
+.linkSecItem {
+  margin: auto;
+}
+.linkSecItem>svg {
+  width: 10vw;
+}
+
+.contact {
+  background-color: gray;
+}
+.formContact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 10%;
+}
+.formContactItem {
+  color: black;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.formContactSmall {
+  flex-basis: calc(50% - 10px);
+}
+.formContactBig {
+  flex-basis: 100%;
+}
+.formContactGrow {
+  flex-grow: 1;
+}
+
+.submitButton {
+  padding-block: 10px;
+  padding-inline: 10px;
+  font-size: 1.1rem;
+  color: white;
+  background-color: black;
+  border: 1px solid white;
+}
