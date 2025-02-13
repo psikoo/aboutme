@@ -2,18 +2,74 @@
 <p class="entryContent">
   <strong>- Introduction:</strong>
   <br>
-  A Digispark is an Attiny85 based microcontroller development board, initially developed and 
-  distributed by Digistump LLC. Digistump abandoned the project a couple of years ago and left 
-  the task of maintaining the drivers and libraries to the Arduino community.
+  A Digispark is an 
+  <a href="https://content.instructables.com/F98/D011/JSCG6QG3/F98D011JSCG6QG3.pdf" target="_blank">Attiny85</a>
+  microcontroller based development board, initially developed and distributed by Digistump LLC. 
+  Digistump abandoned the project a couple of years ago and left the task of maintaining the drivers 
+  and libraries to the Arduino community.
   <br>
   I came to know of this little and cute USBs <a href="#[1]">[^1]</a> after a friend of my mine 
   showed me one he had been playing around with. I fell in love instantly, and so I bought a
-  couple of them through Amazon to experiment with them.
+  couple of them through Amazon to experiment with them (they were really affordable, about 2€ each).
   <br>
-  <div class="entryImgs center">
-    <div class="entryImg imgSmall">
-      <img src="https://blog.cait.moe/entries/resources/img/0/digispark.jpg" alt="digispark" class="notIntractable" id="[1]">
-      <small>[^1] so cute and small</small>
-    </div>
-  </div>
+  This blog is going to be recompilation of the steps I took in order to learn how to use these boards, 
+  this will be useful for myself as reference if I ever decide to go back and tinker with one of these 
+  boards or if anyone is interested in doing something similar to what I did.
 </p>
+<div class="entryImgs center">
+  <div class="entryImg imgSmall">
+    <img src="https://blog.cait.moe/entries/resources/img/0/digispark.jpg" alt="digispark" class="notIntractable" id="[1]">
+    <small>[^1] so cute and small</small>
+  </div>
+</div>
+<p class="entryContent">
+  <strong>- Setup:</strong>
+  <br>
+  Setting up a development environment for the Digispark was a more involved process than it could
+  initially seem. I decided to program the chip through its usb interface, as i don't have access to
+  a chip programer or an arduino board. To do this we will need the 
+  <a href="https://www.arduino.cc/en/software" target="_blank">Arduino IDE</a>.
+  <br>
+  Once we have the IDE we need to download a plugin to support Attiny85 boards as they are not arduino
+  and thus not supported by default. To do this go into: 
+  <code>File > Preferences... > Additional boards manager URLs</code>
+  We need to add the following URL into the box:
+  <br>
+  <a href="https://raw.githubusercontent.com/digistump/arduino-boards-index/master/package_digistump_index.json" target="_blank" class="medium">https://raw.githubusercontent.com/digistump/arduino-boards-index/master/package_digistump_index.json</a>
+  <br>
+  The URL contains a definition of all the digistump boards with different build instructions and libraries.
+  <br>
+  We now need to install the "<mark>Digistump AVR Boards</mark>" board manager: 
+  <code>Tools > Board > Boards manager...</code>
+  During the installation process you will see one of the drivers fail to install, this is due to digistump
+  abandoning the project. To fix this we need to manually install the drivers from 
+  <a href="https://github.com/digistump/DigistumpArduino/releases/download/1.6.7/Digistump.Drivers.zip" target="_blank">Digistump's github</a>,
+  all we need to do is uncompress the .zip and run "<mark>Install Drivers.exe</mark>".
+  <br>
+  Lastly, go into the "Select Board" and choose "Select other board and port...", in this menu select 
+  "<mark>Digispark (Default - 16.5mhz)</mark>".
+  <br>
+  And thats it, you can now go and make programs for your Digispark
+</p>
+<p class="entryContent">
+  <strong>- Hello World:</strong>
+  <br>
+  Now that our development environment is working correctly we can try and upload a small Hello World
+  program to our Digispark, the Hello World version of embedded systems is a blinking led. According
+  to the 
+  <a href="https://content.instructables.com/F98/D011/JSCG6QG3/F98D011JSCG6QG3.pdf" target="_blank">Attiny reference</a>
+  for our middle the pin corresponding to the red led is pin number 1. 
+  <br>
+  So we just need to write a program that sets pin 1 high and low repeatedly:
+</p>
+<pre><code class="cpp">
+void setup() {
+  pinMode(1, OUTPUT);
+}
+void loop() {
+  digitalWrite(1, HIGH);   
+  delay(500);                      
+  digitalWrite(1, LOW);    
+  delay(500);              
+}
+</code></pre>
