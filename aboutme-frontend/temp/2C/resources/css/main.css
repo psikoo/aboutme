@@ -35,6 +35,10 @@ footer {
   display: none;
 }
 
+input {
+  padding: 5px;
+}
+
 .notIntractable {
   user-select: none;
   pointer-events: none;
@@ -214,6 +218,9 @@ footer {
     flex-direction: unset;
     gap: 15vw;
     max-width: 75vw;
+  }
+  .formContactSmall {
+    flex-basis: calc(50% - 10px);
   }
 }
 
