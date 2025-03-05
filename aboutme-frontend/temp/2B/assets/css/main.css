@@ -2999,3 +2999,20 @@ input, select, textarea {
 .nominated:before{
 	content:"🏆"
 }
+
+.customImg {
+	display: block;
+	margin: auto;
+	border-radius: 10%;
+	padding-bottom: 50px;
+}
+
+.customVid {
+	display: block;
+	margin: auto;
+	padding-top: 100px;
+}
+
+form input[type="email"] {
+	line-height: 1em;
+}
