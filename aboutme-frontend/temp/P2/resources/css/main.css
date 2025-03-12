@@ -1,0 +1,101 @@
+@keyframes scroll {
+	from {
+		transform: translate(-2520px, -1680px);
+	}
+	to {
+		transform: translate(0px, 0px);
+	}
+}
+
+.banner {
+    overflow: hidden;
+    height: 60vh;
+}
+.bannerImg {
+    z-index: 0;
+    width: 5040px;
+    height: 3360px;
+    animation: scroll 25s linear infinite;
+    background-image: url("/P2/resources/img/banner.webp");
+    background-repeat: repeat;
+}
+.bannerGradientUp {
+    z-index: 1;
+    height: 30vh;
+    width: 100%;
+    position: absolute;
+    top: calc(10vh + 2px);
+    left: 0px;
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 100%);
+}
+.bannerGradientDown {
+    z-index: 1;
+    height: 30vh;
+    width: 100%;
+    position: absolute;
+    top: calc(40vh + 2px);
+    left: 0px;
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 100%);
+}
+.bannerText {
+    z-index: 2;
+    position: absolute;
+    top: calc(35vh + 2px);
+    margin-left: 50vw;
+    transform: translateX(-50%);
+    padding: 20px;
+    border-radius: 20px;
+    background-color: var(--bg-color-t);
+    text-align: center;
+}
+.bannerText > h1 {
+    font-size: xx-large;
+}
+.bannerText > p {
+    color: var(--main-color);
+}
+
+.content {
+    width: 100%;
+    margin: 10vh 0px 5vh 0px;
+    text-align: center;
+}
+.content > h1 {
+    color: var(--main-color);
+    font-size: xx-large;
+}
+
+.downloads {
+    width: 100%;
+    margin-top: 5vh;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1vw;
+    align-items: center;
+    justify-content: center;
+}
+.downloads>a:hover {
+    text-decoration: underline;
+    color: var(--main-color);
+    margin: unset;
+    border-radius: unset;
+    background-color: unset;
+}
+.downloads>a>img {
+    height: 7vh;
+}
+.downloads>div {
+    flex-basis: 100%;
+}
+.downloads>div>a {
+    text-decoration: underline;
+    color: var(--main-color);
+} .downloads>div>a:hover {
+    text-decoration: underline;
+    color: var(--main-color);
+    margin: unset;
+    padding: unset;
+    background-color: unset;
+}

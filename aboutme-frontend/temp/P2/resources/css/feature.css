@@ -1,0 +1,42 @@
+iframe {
+  margin-top: 5vh;
+  margin-left: 50vw;
+  transform: translateX(-50%);
+  border-radius: 20px;
+  width: calc(200px + 30vw);
+  aspect-ratio: 16 / 9;
+}
+
+.features {
+  margin: 5vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2vw;
+}
+
+.feature {
+  flex-basis: 100%;
+  max-width: 300px;
+  height: 30vh;
+  padding: 20px;
+  text-align: center;
+  background-color: var(--border-color);
+  border-radius: 20px;
+  display: flex;
+  flex-flow: column;
+}
+.feature>h1 {
+  color: var(--main-color);
+  font-size: x-large;
+  padding-bottom: 10px;
+}
+.feature>p {
+  text-wrap: stable;
+}
+.feature>img {
+  margin-top: auto;
+  max-width: 300px;
+  border-radius: 20px;
+}

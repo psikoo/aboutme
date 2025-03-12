@@ -1,0 +1,126 @@
+:root {
+    --text-color: rgb(220, 220, 220);
+    --main-color: rgb(250, 110, 15);
+
+    --bg-color: rgb(0, 0, 0);
+    --bg-color-t: rgba(0, 0, 0, 0.3);
+
+    --border-color: rgb(30, 30, 30);
+    --hover-color: rgb(50, 50, 50);
+    --selected-color: rgba(50, 50, 50, 0.7);
+}
+
+* {
+    overscroll-behavior: none;
+}
+
+html {
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+}
+
+strong {
+    font-weight: bolder;
+}
+
+h1 {
+    color: var(--text-color);
+}
+
+a {
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: var(--text-color);
+} a:hover {
+    padding: 0.5rem 1rem;
+    background-color: var(--hover-color);
+    border-radius: 20px;
+}
+
+header {
+    z-index: 10;
+    height: 10vh;
+    background-color: var(--bg-color);
+    border-bottom: 2px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2vw;
+    width: 100vw;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+}
+
+footer {
+    z-index: 10;
+    padding: 0.1vh;
+    background-color: var(--bg-color);
+    border-top: 2px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+}
+
+.noHover {
+    background-color: unset !important;
+}
+.noPadding {
+    padding: 0px !important;
+}
+
+.selected {
+    background-color: var(--selected-color);
+    border-radius: 20px;
+}.selected:hover {
+    filter: brightness(120%);
+}
+
+.separator {
+    width: 10vw;
+}
+
+.button {
+    font-weight: bolder;
+    color: white;
+    background-color: var(--main-color) !important;
+    padding: 0.5rem 1rem;
+    border: 0px;
+    border-radius: 20px;
+} .button:hover {
+    filter: brightness(120%);
+}
+
+.logo {
+    height: 5vh;
+    overflow: hidden;
+} .logo:hover {
+    border-radius: 0px;
+} .smallLogo {
+    height: 2vh;
+    overflow: hidden;
+    padding: 0px 10px 0px 0px;
+} .smallLogo:hover {
+    border-radius: 0px;
+    padding: 0px 10px 0px 0px;
+}
+
+.headerSpacer {
+    height: calc(10vh + 2px);
+}
+.footerSpacer {
+    height: calc(5vh + 2px);
+}

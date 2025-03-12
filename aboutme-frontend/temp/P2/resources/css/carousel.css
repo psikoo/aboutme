@@ -1,0 +1,15 @@
+.gallery {
+  width: 50vw;
+  margin: auto;
+  margin-bottom: 3vh;
+}
+
+.gallery-cell {
+  z-index: 1;
+  height: 720px;
+  margin-right: 100px;
+}
+
+.gallery-cell>img {
+  height: 720px;
+}
