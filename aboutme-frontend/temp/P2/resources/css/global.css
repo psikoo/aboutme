@@ -12,6 +12,7 @@
 
 * {
     overscroll-behavior: none;
+    scroll-margin-top: calc(10vh + 2px + 20px);
 }
 
 html {
