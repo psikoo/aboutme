@@ -17,6 +17,11 @@
   src: url(../fonts/IosevkaExt.ttf);
 }
 
+* {
+  scroll-behavior: smooth;
+  scroll-margin-top: 10px;
+}
+
 html {
   background-color: var(--bg-color);
   color: var(--text-color);
@@ -24,8 +29,6 @@ html {
   font-size: small;
   scrollbar-width: thin;
   scrollbar-color: var(--primary-color) var(--bg-color);
-  scroll-behavior: smooth;
-  scroll-margin-top: 10px;
 }
 body {
   margin: 0px;
