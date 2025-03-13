@@ -7,9 +7,11 @@
 .gallery-cell {
   z-index: 1;
   height: 720px;
+  width: 333px;
   margin-right: 100px;
 }
 
 .gallery-cell>img {
   height: 720px;
+  width: 333px;
 }
