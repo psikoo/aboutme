@@ -23,3 +23,9 @@
   user-select: none;
   pointer-events: none;
 }
+.hideScroll {
+  overflow-x: hidden !important;
+}
+.tab {
+  padding-left: 2rem;
+}

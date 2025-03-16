@@ -4,22 +4,14 @@ code {
   margin-block: 10px;
   display: block;
   border-radius: 5px;
-  background-color: var(--fg-color);
+  backdrop-filter: invert(10%);
   font-family: Iosevka;
   line-height: 1.5rem;
   font-size: 1rem;
   color: var(--text-color);
 }
-:not(pre)>code:before {
-  color: var(--primary-color);
-  content: "# ";
-}
-pre>code.cpp:before {
-  padding: 5px;
-  border-radius: 0px 0px 5px 5px;
-  background-color: var(--bg-color);
-  color: var(--primary-color);
-  position: relative;
-  top: -8px;
-  content: "c++";
-}
+
+:not(pre)>code:before { content: "# "; color: var(--primary-color); }
+:not(pre)>code { text-wrap: nowrap; }
+
+pre>code.cpp:before { content: "c++"; padding: 5px; border-radius: 0px 0px 5px 5px; background-color: var(--bg-color); color: var(--primary-color); position: relative; top: -8px; }
