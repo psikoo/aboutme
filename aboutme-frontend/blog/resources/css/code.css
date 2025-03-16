@@ -1,5 +1,5 @@
 code {
-  overflow-x:scroll;
+  overflow-x: auto;
   padding: 10px;
   margin-block: 10px;
   display: block;

