@@ -1,2 +1,3 @@
 #!/bin/bash
 echo "-- Remote script working --"
+ls -la .
