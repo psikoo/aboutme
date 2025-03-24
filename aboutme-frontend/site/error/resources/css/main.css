@@ -1,0 +1,118 @@
+:root {
+  --bg-color: #000000;
+  --text-color: #EEEEEE;
+  --primary-color: #2C9080;
+  --secondary-color: #ff3333;
+}
+
+::selection {
+  color: var(--text-color);
+  background-color: var(--primary-color);
+}
+
+@font-face {
+  font-family: scp;
+  font-display: swap;
+  src: url(../fonts/SCP.ttf);
+}
+
+html {
+  /* overflow: hidden; */
+
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: scp;
+  font-size: small;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color) var(--bg-color);
+}
+
+h1 {
+  color: var(--primary-color);
+  font-size: calc(100px + 10vw);
+  transform: translateX(2.5vw);
+  /* ::after content length / 2 */
+}
+h1::after {
+  font-size: calc(25px + 2.5vw);
+  color: var(--secondary-color);
+  content: "ERROR";
+  display: inline-block;
+  transform: rotate(90deg) translateX(-30%) translateY(50%);
+}
+
+br {
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 15px;
+  text-align: center;
+  margin-top: 0.2rem;
+}
+
+a {
+  font-size: 15px;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+a:visited, a:visited>em {
+  color: var(--primary-color);
+}
+
+.main {
+  width: 90vw;
+  height: 90vh;
+  margin: 5vh 5vw 5vh 5vw;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.top {
+  margin-top: auto;
+  display: flex;
+}
+
+.bot {
+  transform: translateY(-2.5vw);
+  margin-bottom: auto;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.sideImage {
+  z-index: -3;
+  height: 400px;
+  width: 400px;
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  transform: translate(20%, 20%);
+}
+
+.dim {
+  z-index: -2;
+  height: 400px;
+  width: 400px;
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+}
+.dimAll {
+  background: rgba(0, 0, 0, 0.5);
+}
+.dimBorderTop {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(0,0,0,1) 90%);
+}
+.dimBorderSide {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(270deg, rgba(255,255,255,0) 30%, rgba(0,0,0,1) 90%);
+}
+.dimBorderCorner {
+  background: rgb(0, 0, 0);
+  background: radial-gradient(farthest-corner at 100% 100%, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 80%);
+}

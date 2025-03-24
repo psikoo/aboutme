@@ -1,0 +1,34 @@
+.center {
+  justify-content: center;
+}
+.centerText {
+  text-align: center;
+}
+.nobr {
+  display: inline;
+}
+.noBreak {
+  white-space: nowrap;
+}
+.noMargin {
+  margin: 0px !important;
+}
+.noBold {
+  font-weight: normal !important;
+}
+.noRecolor {
+  color: var(--text-color) !important;
+}
+.notIntractable {
+  user-select: none;
+  pointer-events: none;
+}
+.notSelectable {
+  user-select: none;
+}
+.hideScroll {
+  overflow-x: hidden !important;
+}
+.tab {
+  padding-left: 2rem;
+}
