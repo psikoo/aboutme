@@ -43,7 +43,7 @@ services:
       - db
   aboutme-nginx:
     container_name: aboutme-nginx
-    image: nginx:latest
+    image: nginx:1.27.4
     restart: always
     ports:
       - "80:80"
