@@ -26,29 +26,29 @@
 
 @media (max-width:1000px) { 
   .main { max-width: 60vw; } 
-  .entryImgs { width: 50vw; }
-  .imgSmall { width: calc(50vw / 3 - 1rem); }
-  .imgNormal { width: calc(50vw / 2 - 1rem); }
-  .imgBig { width: 50vw; }
+  .entryImgs { width: 60vw; }
+  .imgSmall { width: calc(60vw / 3 - 1rem); }
+  .imgNormal { width: calc(60vw / 2 - 1rem); }
+  .imgBig { width: 60vw; }
 }
 @media (max-width:800px)  { 
   .main { max-width: 70vw; }
-  .entryImgs { width: 60vw; }
-  .imgSmall { width: calc(60vw / 2 - 1rem); }
-  .imgNormal { width: 60vw; }
-  .imgBig { width: 60vw; }
-}
-@media (max-width:600px)  { 
-  .main { max-width: 90vw; } 
   .entryImgs { width: 70vw; }
   .imgSmall { width: calc(70vw / 2 - 1rem); }
   .imgNormal { width: 70vw; }
   .imgBig { width: 70vw; }
 }
+@media (max-width:600px)  { 
+  .main { max-width: 90vw; } 
+  .entryImgs { width: 90vw; }
+  .imgSmall { width: calc(90vw / 2 - 1rem); }
+  .imgNormal { width: 90vw; }
+  .imgBig { width: 90vw; }
+}
 @media (max-width:451px)  { 
   .main { max-width: 90vw; } 
-  .entryImgs { width: 80vw; }
-  .imgSmall { width: 80vw; }
-  .imgNormal { width: 80vw; }
-  .imgBig { width: 80vw; }
+  .entryImgs { width: 90vw; }
+  .imgSmall { width: 89vw; }
+  .imgNormal { width: 90vw; }
+  .imgBig { width: 90vw; }
 }
