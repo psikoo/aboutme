@@ -1,4 +1,20 @@
-<h2 class="entryTittle"><mark>&gt DigiSpark - I'm just a keyboard *wink *wink</mark></h2>
+<div class="entryTittle">
+  <button onclick="
+    let entryH = 'entry0'; 
+    document.getElementById(entryH).children[1].classList.add('hidden'); 
+    document.getElementById(entryH).children[0].children[0].classList.add('hidden');
+    document.getElementById(entryH).children[0].children[1].classList.remove('hidden')">
+    <h2><mark>&lt DigiSpark - I'm just a keyboard *wink *wink</mark></h2>
+  </button>
+  <button onclick="
+    entryS = 'entry0'; 
+    document.getElementById(entryS).children[1].classList.remove('hidden'); 
+    document.getElementById(entryS).children[0].children[1].classList.add('hidden'); 
+    document.getElementById(entryS).children[0].children[0].classList.remove('hidden')" class="hidden">
+    <h2><mark>&gt DigiSpark - I'm just a keyboard *wink *wink</mark></h2>
+  </button>
+</div>
+<div>
 <p class="entryContent">
   <strong>- Introduction:</strong>
   <br>
@@ -8,17 +24,17 @@
   Digistump abandoned the project a couple of years ago and left the task of maintaining the drivers 
   and libraries to the Arduino community.
   <br>
-  I came to know of this little and cute USBs <a href="#1">[^1]</a> after a friend of my mine 
+  I came to know of this little and cute USBs <a href="#img1">[^1]</a> after a friend of my mine 
   showed me one he had been playing around with. I fell in love instantly, and so I bought a
   couple of them through Amazon to experiment with them (they were really affordable, about 2€ each).
   <br>
   This blog is going to be recompilation of the steps I took in order to learn how to use these boards, 
   this will be useful for myself as reference if I ever decide to go back and tinker with one of these 
   boards or if anyone is interested in doing something similar to what I did.
-</p>
+</p>startup
 <div class="entryImgs center">
   <div class="entryImg imgSmall">
-    <img src="https://blog.cait.moe/entries/resources/img/0/digispark.jpg" alt="digispark" class="notIntractable" id="1">
+    <img src="https://blog.cait.moe/entries/resources/img/0/digispark.jpg" alt="digispark" class="notIntractable" id="img1">
     <small>[^1] so cute and small</small>
   </div>
 </div>
@@ -84,11 +100,11 @@ void loop() {
   it. But before we do that, we need to talk about about the memory limitations of this device...
   <br>
   The Digispark has 6012 bytes of memory, that is definitely not a lot to work with. The amount of data 
-  that can fit in 6Kb is about this much <a href="#2">[^2]</a>:  
+  that can fit in 6Kb is about this much <a href="#img2">[^2]</a>:  
 </p>
 <div class="entryImgs center">
   <div class="entryImg imgSmall">
-    <img src="https://blog.cait.moe/entries/resources/img/0/cat.jpg" alt="cat" class="notIntractable" id="2">
+    <img src="https://blog.cait.moe/entries/resources/img/0/cat.jpg" alt="cat" class="notIntractable" id="img2">
     <small>[^2] 33.3KB - very cute Nora</small>
   </div>
   <div class="entryImg imgSmall">
@@ -321,3 +337,4 @@ void sendString(char rString[]) {
   }
 }
 </code></pre>
+</div>

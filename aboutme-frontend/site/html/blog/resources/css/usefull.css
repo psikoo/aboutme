@@ -29,3 +29,6 @@
 .tab {
   padding-left: 2rem;
 }
+.hidden {
+  display: none !important;
+}
