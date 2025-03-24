@@ -20,11 +20,11 @@ cd $homeRepo/aboutme-backend
 sudo docker build -t aboutme-backend:1 . >/dev/null
 
 echo "-- Building the frontend --"
-cd $varRepo/aboutme-frontend/y2k/vue
+cd $varRepo/aboutme-frontend/site/vue/y2k/vue
 echo "> y2k"
 sudo npm run build >/dev/null
 
-cd $varRepo/aboutme-frontend/cv/vue
+cd $varRepo/aboutme-frontend/site/vue/cv/vue
 echo "> cv"
 sudo npm run build >/dev/null
 
