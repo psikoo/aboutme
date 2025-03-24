@@ -28,7 +28,7 @@ cd $varRepo/aboutme-frontend/cv/vue
 echo "> cv"
 sudo npm run build >/dev/null
 
-cd $varRepo/aboutme-frontend/blog
+cd $varRepo/aboutme-frontend/site/html/blog
 echo "> blog"
 fileNum=$(ls ./entries | wc -l)
 echo $fileNum > ./entries/counter.txt
