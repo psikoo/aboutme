@@ -22,10 +22,12 @@ sudo docker build -t aboutme-backend:1 . >/dev/null
 echo "-- Building the frontend --"
 cd $varRepo/aboutme-frontend/site/vue/y2k/vue
 echo "> y2k"
+sudo npm install >/dev/null
 sudo npm run build >/dev/null
 
 cd $varRepo/aboutme-frontend/site/vue/cv/vue
 echo "> cv"
+sudo npm install >/dev/null
 sudo npm run build >/dev/null
 
 cd $varRepo/aboutme-frontend/site/html/blog
