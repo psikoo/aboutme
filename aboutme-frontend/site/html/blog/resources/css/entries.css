@@ -46,7 +46,7 @@
   .imgBig { width: 70vw; }
 }
 @media (max-width:451px)  { 
-  .main { max-width: 90vw; margin-left: 5px; } 
+  .main { max-width: 90vw; } 
   .entryImgs { width: 80vw; }
   .imgSmall { width: 80vw; }
   .imgNormal { width: 80vw; }
