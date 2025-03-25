@@ -1,6 +1,6 @@
 let baseURL = "https://cait.moe:3000/api/shorturl/urls";
 
-export async function get() {
+export async function getAll() {
   let headersList = {
       "Accept": "*/*"
   }
@@ -12,6 +12,19 @@ export async function get() {
   let data = await response.text();
   return data;
 }
+
+export async function get(id) {
+    let headersList = {
+        "Accept": "*/*"
+    }
+    let response = await fetch(baseURL+"/"+id, { 
+        method: "GET",
+        headers: headersList
+    });
+  
+    let data = await response.text();
+    return data;
+  }
 
 export async function post() {
   let headersList = {

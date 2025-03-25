@@ -1,4 +1,4 @@
-import { get } from "./http.js";
+import { getAll } from "./http.js";
 import { addEvents } from "./events.js";
 
 export function processRes(res) {
@@ -11,7 +11,7 @@ export function processRes(res) {
 }
 
 export async function formatUrls() {
-  let urls = JSON.parse(await get());
+  let urls = JSON.parse(await getAll());
   let urlsDiv = document.getElementById("urls");
   urlsDiv.innerHTML = "";
   for (let i = 0; i < urls.length; i++) {
