@@ -1,6 +1,6 @@
 import { IsString } from "class-validator";
 
-export class UpdateUrlDto {
+export class UpdateShortUrlDto {
   @IsString()
   readonly oldUrl: string;
   @IsString()

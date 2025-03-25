@@ -1,7 +1,7 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
-export class Url {
+export class ShortUrl {
   @PrimaryGeneratedColumn("increment")
   id: number;
   @Column({nullable:false})

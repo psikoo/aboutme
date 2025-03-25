@@ -1,0 +1,1 @@
+export { ShortUrl } from "./url.entity";

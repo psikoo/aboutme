@@ -3,10 +3,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { UsersService } from './urls.service';
 import { UsersController } from './urls.controller';
-import { Url } from './entities';
+import { ShortUrl } from './entities';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Url])],
+  imports: [TypeOrmModule.forFeature([ShortUrl])],
   controllers: [UsersController],
   providers: [UsersService]
 })
