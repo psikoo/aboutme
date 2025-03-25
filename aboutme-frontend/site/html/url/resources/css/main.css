@@ -1,0 +1,70 @@
+:root {
+  --bg-color: #000000;
+  --text-color: #EEEEEE;
+  --primary-color: #2C9080;
+  --secondary-color: #2C9080;
+  --error-color: #ff3333;
+}
+
+::selection {
+  color: var(--text-color);
+  background-color: var(--primary-color);
+}
+
+@font-face {
+  font-family: scp;
+  font-display: swap;
+  src: url(../fonts/SCP.ttf);
+}
+
+html {
+  color: var(--text-color);
+  font-family: scp;
+  font-size: small;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color) var(--bg-color);
+}
+
+main {
+  margin: 20px auto;
+  padding: 2vh;
+  width: 60vw;
+  background-color: var(--bg-color);
+  border-radius: 20px;
+  display: flex;
+  flex-flow: column;
+}
+
+.hbr {
+  margin-block: 1vh;
+  width: 100%;
+  border: 1px solid var(--text-color) ;
+}
+
+.tittle {
+  text-align: center;
+  font-size: 3rem;
+  color: var(--primary-color);
+}
+
+
+.response {
+  margin-top: 1vh;
+  padding: 1vh 1.3vh;
+  border-radius: 15px;
+}
+
+.error {
+  background-color: var(--error-color);
+}
+.success {
+  background-color: var(--primary-color);
+}
+
+.top {
+  display: flex;
+}
+
+.bot {
+  display: flex;
+}
