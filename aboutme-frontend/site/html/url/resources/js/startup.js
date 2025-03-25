@@ -3,11 +3,20 @@ import { formatUrls } from "./format.js";
 
 let params = new URLSearchParams(document.location.search);
 let redirectById = params.get("i");
+let redirectByName = params.get("u");
 if(redirectById != null) {
   let url = JSON.parse(await get(redirectById)).oldUrl;
   console.log(`Redirect by id - (${redirectById}) to ${url}`);
   window.location.href = url;
 } 
+if(redirectByName != null) {
+  let urls = JSON.parse(await getAll());
+  for(let i = 0; i < urls.length; i++) {
+    if(urls[i].newUrl == "https://url.cait.moe/?u="+redirectByName) {
+      window.location.href = urls[i].oldUrl;
+    }
+  }
+}
 
 console.log(await getAll());
 formatUrls();
