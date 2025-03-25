@@ -10,13 +10,13 @@ import { SongsModule } from './modules/y2k/songs/songs.module';
 import { UrlsModule } from './modules/y2k/urls/urls.module';
 import { ProjectsModule } from './modules/y2k/projects/projects.module';
 import { CounterModule } from './modules/y2k/counter/counter.module';
-import { ShortUrlModule } from './modules/tamagotchi/shorturl.module';
+import { ShortUrlsModule } from './modules/shorturl/shorturls.module';
 import { TamagotchiModule } from './modules/tamagotchi/tamagotchi.module';
 
 @Module({
   imports: [ConfigModule.forRoot({ isGlobal: true }), DatabaseModule, 
             UsersModule, SongsModule, UrlsModule, ProjectsModule, CounterModule,
-            ShortUrlModule,
+            ShortUrlsModule,
             TamagotchiModule],
   controllers: [AppController],
   providers: [AppService],

@@ -10,4 +10,4 @@ import { ShortUrl } from './entities';
   controllers: [UsersController],
   providers: [UsersService]
 })
-export class UsersModule {}
+export class ShortUrlsModule {}
