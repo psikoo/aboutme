@@ -1,7 +1,7 @@
 import { Body, Controller, Delete, Get, Headers, Param, Patch, Post } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 
-import { UsersService } from './urls.service';
+import { UsersService } from './shorturls.service';
 import { ShortUrl } from './entities';
 import { CreateShortUrlDto, UpdateShortUrlDto } from './dto';
 
