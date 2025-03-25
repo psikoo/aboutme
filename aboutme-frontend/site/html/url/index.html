@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Caitlyn">
+  <meta name="description" content="A url shortener by Caitlyn">
+
+  <meta property="og:site_name" content="Url Shortener"/>
+  <meta property="og:description" content="A url shortener by Caitlyn"/>
+  <meta property="og:type" content="website"/>
+
+  <link rel="icon" href="./resources/favicon.ico" type="image/ico"/>
+  <link rel="stylesheet" href="./resources/reset.css">
+  <link rel="stylesheet" href="./resources/main.css">
+  <title>Url Shortener</title>
+</head>
+<body>
+  <main>
+    <div class="tittle">
+      <h1>Url Shortener</h1>
+    </div>
+    <div class="controls">
+      <div class="password">
+        <input type="password" name="api" id="api" placeholder="API password">
+        <button>Show</button>
+      </div>
+      <select name="method" id="method">
+        <option value="post">POST</option>
+        <option value="patch">PATCH</option>
+        <option value="delete">DELETE</option>
+      </select>
+    </div>
+    <div class="urls">
+
+    </div>
+  </main>
+  <script type="module" src="./resources/js/startup.js"></script>
+</body>
+</html>
