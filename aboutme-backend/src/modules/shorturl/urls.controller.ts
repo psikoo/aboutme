@@ -5,7 +5,7 @@ import { UsersService } from './urls.service';
 import { ShortUrl } from './entities';
 import { CreateShortUrlDto, UpdateShortUrlDto } from './dto';
 
-@Controller('y2k/users')
+@Controller('shorturl/urls')
 export class UsersController {
   constructor(private readonly configService: ConfigService, private readonly userService: UsersService) {};
 
