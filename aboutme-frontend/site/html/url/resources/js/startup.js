@@ -1,5 +1,9 @@
 import { get } from "./http.js";
+import { formatUrls } from "./format.js";
 
-let urls = document.getElementById("urls");
+console.log(await get());
+formatUrls();
 
-urls.innerHTML += `${await get()}`; console.log(await get());
+var refreshUI = window.setInterval(function(){
+  formatUrls();
+}, 500);

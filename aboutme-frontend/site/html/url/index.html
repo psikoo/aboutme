@@ -26,28 +26,22 @@
       <div class="top">
         <div class="password">
           <input type="password" name="api" id="api" placeholder="API password">
-          <button id="show">Show</button>
+          <button id="show" class="show"><img src='./resources/svg/show.svg' alt='show'></button>
         </div>
-        <select name="method" id="method">
-          <option value="post">POST</option>
-          <option value="patch">PATCH</option>
-          <option value="delete">DELETE</option>
-        </select>
       </div>
       <div class="bot">
-        <div class="id">
-          <label for="id">Id: </label>
-          <input type="text" name="id" id="id" placeholder="id">
-        </div>
         <div class="old">
           <label for="old">Original URL: </label>
-          <input type="text" name="old" id="old" placeholder="URL">
+          <input type="text" name="old" id="old" placeholder="Original URL">
         </div>
         <div class="new">
-          <label for="new">New URL: https://url.cait.moe/?u=</label>
-          <input type="text" name="new" id="new" placeholder="name">
+          <label for="new">New URL: </label>
+          <div>
+            <p>https://url.cait.moe/?u=</p>
+            <input type="text" name="new" id="new" placeholder="New URL">
+          </div>
         </div>
-        <button id="send">Send!</button>
+        <button id="post" class="post">POST</button>
       </div>
       <div id="res"></div>
     </div>

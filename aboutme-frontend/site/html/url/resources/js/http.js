@@ -17,11 +17,11 @@ export async function post() {
   let headersList = {
       "Accept": "*/*",
       "Content-Type": "application/json",
-      "apikey": ""+document.getElementById("api").value
+      "apikey": document.getElementById("api").value+""
   }
   let body = {
       "oldUrl": ""+document.getElementById("old").value,
-      "newUrl": ""+document.getElementById("new").value
+      "newUrl": "https://url.cait.moe/?u="+document.getElementById("new").value
   }
   let response = await fetch(baseURL, { 
       method: "POST",
@@ -33,17 +33,17 @@ export async function post() {
   return data;
 }
 
-export async function patch() {
+export async function patch(id, oldUrl, newUrl) {
   let headersList = {
       "Accept": "*/*",
       "Content-Type": "application/json",
-      "apikey": ""+document.getElementById("api").value
+      "apikey": document.getElementById("api").value+""
   }
   let body = {
-      "oldUrl": ""+document.getElementById("old").value,
-      "newUrl": ""+document.getElementById("new").value
+      "oldUrl": oldUrl,
+      "newUrl": newUrl
   }
-  let response = await fetch(baseURL+"/"+document.getElementById("id").value, { 
+  let response = await fetch(baseURL+"/"+id, { 
       method: "PATCH",
       headers: headersList,
       body: JSON.stringify(body)
@@ -53,13 +53,13 @@ export async function patch() {
   return data;
 }
 
-export async function del() {
+export async function del(id) {
   let headersList = {
       "Accept": "*/*",
       "Content-Type": "application/json",
-      "apikey": ""+document.getElementById("api").value
+      "apikey": document.getElementById("api").value+""
   }
-  let response = await fetch(baseURL+"/"+document.getElementById("id").value, { 
+  let response = await fetch(baseURL+"/"+id, { 
       method: "DELETE",
       headers: headersList,
   });
