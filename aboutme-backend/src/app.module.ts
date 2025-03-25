@@ -11,10 +11,12 @@ import { UrlsModule } from './modules/y2k/urls/urls.module';
 import { ProjectsModule } from './modules/y2k/projects/projects.module';
 import { CounterModule } from './modules/y2k/counter/counter.module';
 import { TamagotchiModule } from './modules/tamagotchi/tamagotchi.module';
+import { ShortUrl } from './modules/shorturl/entities';
 
 @Module({
   imports: [ConfigModule.forRoot({ isGlobal: true }), DatabaseModule, 
             UsersModule, SongsModule, UrlsModule, ProjectsModule, CounterModule,
+            ShortUrl,
             TamagotchiModule],
   controllers: [AppController],
   providers: [AppService],
