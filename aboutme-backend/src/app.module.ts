@@ -6,18 +6,15 @@ import { AppService } from './app.service';
 import { BasicPasswordMiddleware, LoggerMiddleware } from './middleware';
 import { DatabaseModule } from './database/database.module';
 import { UsersModule } from './modules/y2k/users/users.module';
-import { InterestsModule } from './modules/y2k/interests/interests.module';
 import { SongsModule } from './modules/y2k/songs/songs.module';
 import { UrlsModule } from './modules/y2k/urls/urls.module';
-import { PhotosModule } from './modules/y2k/photos/photos.module';
 import { ProjectsModule } from './modules/y2k/projects/projects.module';
-import { BlogsModule } from './modules/y2k/blogs/blogs.module';
 import { CounterModule } from './modules/y2k/counter/counter.module';
 import { TamagotchiModule } from './modules/tamagotchi/tamagotchi.module';
 
 @Module({
   imports: [ConfigModule.forRoot({ isGlobal: true }), DatabaseModule, 
-            UsersModule, InterestsModule, SongsModule, UrlsModule, PhotosModule, ProjectsModule, BlogsModule, CounterModule,
+            UsersModule, SongsModule, UrlsModule, ProjectsModule, CounterModule,
             TamagotchiModule],
   controllers: [AppController],
   providers: [AppService],
