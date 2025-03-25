@@ -21,15 +21,27 @@
       <h1>Url Shortener</h1>
     </div>
     <div class="controls">
-      <div class="password">
-        <input type="password" name="api" id="api" placeholder="API password">
-        <button id="show">Show</button>
+      <div class="top">
+        <div class="password">
+          <input type="password" name="api" id="api" placeholder="API password">
+          <button id="show">Show</button>
+        </div>
+        <select name="method" id="method">
+          <option value="post">POST</option>
+          <option value="patch">PATCH</option>
+          <option value="delete">DELETE</option>
+        </select>
       </div>
-      <select name="method" id="method">
-        <option value="post">POST</option>
-        <option value="patch">PATCH</option>
-        <option value="delete">DELETE</option>
-      </select>
+      <div class="bot">
+        <div class="old">
+          <label for="old">Original URL: </label>
+          <input type="text" name="old" id="old" placeholder="URL">
+        </div>
+        <din class="new">
+          <label for="new">New URL: https://url.cait.moe/?u=</label>
+          <input type="text" name="new" id="new" placeholder="name">
+        </din>
+      </div>
     </div>
     <div class="urls">
 
