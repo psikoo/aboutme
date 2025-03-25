@@ -1,1 +1,1 @@
-export { ShortUrl } from "./url.entity";
+export { ShortUrl } from "./shorturl.entity";
