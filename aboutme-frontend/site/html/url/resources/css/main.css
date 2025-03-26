@@ -1,8 +1,8 @@
 :root {
   --bg-color: #000000;
   --text-color: #EEEEEE;
-  --primary-color: #2C9080;
-  --secondary-color: #ff9e9e;
+  --primary-color: #6052a5;
+  --secondary-color: #291f5a;
   --error-color: #ff3333;
 }
 
@@ -24,7 +24,7 @@ html {
   font-weight: 500;
   line-height: normal;
   scrollbar-width: thin;
-  scrollbar-color: var(--primary-color) rgba(0, 0, 0, 0);
+  scrollbar-color: var(--secondary-color) rgba(0, 0, 0, 0);
   background-color: #34363E;
 }
 
@@ -94,29 +94,35 @@ a {
 }
 
 .bot {
+  margin-top: 5px;
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   align-items: center;
   justify-content: center;
 }
+@media only screen and (max-width: 600px) {
+  .bot { justify-content: unset; }
+}
 
 .id {
- display: flex;
- flex-direction: column;
- gap: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 .new {
- display: flex;
- flex-direction: column;
- gap: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 } .new>div {
   display: flex;
+  flex-wrap: wrap;
   gap: 2px;
 }
 .old {
- display: flex;
- flex-direction: column;
- gap: 5px;  
+  display: flex;
+  flex-direction: column;
+  gap: 5px;  
 }
 
 .post {
@@ -138,7 +144,7 @@ a {
 }
 
 .url {
-  height: 2.1em;
+  height: 2.3em;
   display: flex;
   justify-content: space-between;
   margin-top: 1vh;
@@ -181,7 +187,7 @@ a {
   text-align: center;
   width: 2rem;
   height: 2rem;
-  background-color: var(--secondary-color);
+  background-color: var(--bg-color);
   border-radius: 5px;
   display: flex;
   justify-content: center;

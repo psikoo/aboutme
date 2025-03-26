@@ -1,5 +1,5 @@
 import { post } from "./util/http.js";
-import { processRes } from "./util/format.js";
+import { processRes, formatUrls } from "./util/format.js";
 
 let params = new URLSearchParams(document.location.search);
 if(params.get("i") == null && params.get("u") == null ) {
@@ -22,5 +22,9 @@ if(params.get("i") == null && params.get("u") == null ) {
   postDiv.addEventListener("click", async function () {
     console.log(`> Sent POST - {oldUrl = ${document.getElementById("old").value} > ${document.getElementById("new").value}}`);
     resDiv.innerHTML = processRes(await post(), "POST");
+  });
+  let reloadDiv = document.getElementById("reload");
+  reloadDiv.addEventListener("click", async function () {
+    formatUrls();
   });
 }
