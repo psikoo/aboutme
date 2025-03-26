@@ -1,5 +1,5 @@
-import { post, patch, del } from "./http.js";
-import { processRes } from "./format.js";
+import { patch, del } from "./http.js";
+import { processRes, formatUrls } from "./format.js";
 
 export function addEvents() {
   let delDiv = document.getElementsByClassName("delete");
