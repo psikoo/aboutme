@@ -18,7 +18,7 @@ show.addEventListener("click", function () {
 let send = document.getElementById("post");
 send.addEventListener("click", async function () {
   console.log(`> Sent POST - ${document.getElementById("api").value} { oldUrl = ${document.getElementById("old").value}, newUrl = ${document.getElementById("new").value}}`);
-  post();
+  processRes(post());
   formatUrls(); // Update UI
 });
 
