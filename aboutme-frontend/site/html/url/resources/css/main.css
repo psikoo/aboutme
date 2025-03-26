@@ -101,9 +101,6 @@ a {
   align-items: center;
   justify-content: center;
 }
-@media only screen and (max-width: 600px) {
-  .bot { justify-content: unset; }
-}
 
 .id {
   display: flex;
@@ -202,4 +199,9 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+  main { width: 90vw; }
+  .bot { justify-content: unset; }
 }
