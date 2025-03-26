@@ -1,5 +1,5 @@
 import { post } from "./http.js";
-import { formatUrls } from "./format.js";
+import { processRes, formatUrls } from "./format.js";
 
 let show = document.getElementById("show");
 let api = document.getElementById("api");
