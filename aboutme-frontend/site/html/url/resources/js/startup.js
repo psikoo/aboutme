@@ -6,7 +6,7 @@ let params = new URLSearchParams(document.location.search);
 //  By id (faster)
 let redirectById = params.get("i");
 if(redirectById != null) {
-  document.documentElement.innerHTML = "";
+  document.body.innerHTML = "";
   let url = JSON.parse(await get(redirectById)).oldUrl;
   console.log(`Redirect by id - (${redirectById}) to ${url}`);
   window.location.href = url;
@@ -14,7 +14,7 @@ if(redirectById != null) {
 //  By name (readable)
 let redirectByName = params.get("u");
 if(redirectByName != null) {
-  document.documentElement.innerHTML = "";
+  document.body.innerHTML = "";
   let urls = JSON.parse(await getAll());
   for(let i = 0; i < urls.length; i++) {
     if(urls[i].newUrl == "https://url.cait.moe/?u="+redirectByName) {
