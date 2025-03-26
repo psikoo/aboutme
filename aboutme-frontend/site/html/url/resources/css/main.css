@@ -1,7 +1,7 @@
 :root {
-  --bg-color: #000000;
+  --bg-color: #A594F9;
   --text-color: #EEEEEE;
-  --primary-color: #6052a5;
+  --primary-color: #504095;
   --secondary-color: #291f5a;
   --error-color: #ff3333;
 }
@@ -25,7 +25,7 @@ html {
   line-height: normal;
   scrollbar-width: thin;
   scrollbar-color: var(--secondary-color) rgba(0, 0, 0, 0);
-  background-color: #34363E;
+  background-color: rgb(0, 0, 0);
 }
 
 main {
@@ -202,6 +202,6 @@ a {
 }
 
 @media only screen and (max-width: 600px) {
-  main { width: 90vw; }
+  main { width: 90vw; margin: 1vw auto; }
   .bot { justify-content: unset; }
 }
