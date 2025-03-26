@@ -15,10 +15,9 @@ show.addEventListener("click", function () {
   passwordCounter++;
 });
 
-let send = document.getElementById("post");
-send.addEventListener("click", async function () {
-  console.log(`> Sent POST - ${document.getElementById("api").value} { oldUrl = ${document.getElementById("old").value}, newUrl = ${document.getElementById("new").value}}`);
-  processRes(post());
-  formatUrls(); // Update UI
+let resDiv = document.getElementById("res");
+let postDiv = document.getElementById("post");
+postDiv.addEventListener("click", async function () {
+  console.log(`> Sent POST - {oldUrl = ${document.getElementById("old").value} > ${document.getElementById("new").value}}`);
+  resDiv.innerHTML = processRes(await post(), "POST");
 });
-

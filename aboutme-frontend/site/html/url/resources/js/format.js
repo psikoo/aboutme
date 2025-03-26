@@ -1,17 +1,17 @@
 import { getAll } from "./http.js";
 import { addEvents } from "./events.js";
 
-export function processRes(res) {
+export function processRes(res, method) {
   res = JSON.parse(res);
   let string = `<div class="response `;
   if(res.Error) string += `error">Error: ${res.Error}</div>`;
   else if(res.error) string += `error">Error: ${res.message}</div>`;
-  else string += `success">Success!</div>`;
+  else string += `success">Successful (${method})!</div>`;
   return string;
 }
 
 export async function formatUrls() {
-  let urls = JSON.parse(await getAll());
+  let urls = JSON.parse(await getAll()); console.log(urls);
   let urlsDiv = document.getElementById("urls");
   urlsDiv.innerHTML = "";
   for (let i = 0; i < urls.length; i++) {
