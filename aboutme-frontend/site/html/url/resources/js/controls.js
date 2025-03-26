@@ -22,6 +22,7 @@ if(params.get("i") == null && params.get("u") == null ) {
   postDiv.addEventListener("click", async function () {
     console.log(`> Sent POST - {oldUrl = ${document.getElementById("old").value} > ${document.getElementById("new").value}}`);
     resDiv.innerHTML = processRes(await post(), "POST");
+    formatUrls();
   });
   let reloadDiv = document.getElementById("reload");
   reloadDiv.addEventListener("click", async function () {

@@ -8,6 +8,7 @@ export function addEvents() {
       let urlId = this.parentElement.parentElement.childNodes[1].childNodes[1].innerText;
       console.log(`> Sent DELETE - ${document.getElementById("api").value} {${urlId}} `);
       res.innerHTML = processRes(await del(urlId), "DELETE");
+      formatUrls();
     });
   }
 
@@ -19,6 +20,7 @@ export function addEvents() {
       let newUrl = document.getElementById("new").value;
       console.log(`> Sent PATCH - ${document.getElementById("api").value} {${urlId}} `);
       res.innerHTML = processRes(await patch(urlId, oldUrl, newUrl), "PATCH");
+      formatUrls();
     });
   }
 }
