@@ -1,9 +1,11 @@
 :root {
-  --bg-color: #A594F9;
+  --html-color: #000000;
+  --bg-color: #9BB3CE;
+  --primary-color: #3E5266;
+  --secondary-color: #A7C7E7;
   --text-color: #EEEEEE;
-  --primary-color: #504095;
-  --secondary-color: #291f5a;
-  --error-color: #ff3333;
+  --edit-color: rgb(102, 220, 102);
+  --error-color: rgb(255, 102, 102);
 }
 
 ::selection {
@@ -24,8 +26,10 @@ html {
   font-weight: 500;
   line-height: normal;
   scrollbar-width: thin;
-  scrollbar-color: var(--secondary-color) rgba(0, 0, 0, 0);
-  background-color: rgb(0, 0, 0);
+  scrollbar-color: var(--secondary-color) var(--secondary-color);
+  background-color: var(--html-color);
+  min-height: 100vh;
+  background-image: linear-gradient(to right top, #3e5266, #4c6176, #5a7087, #697f98, #788fa9, #8199b4, #8aa3bf, #93adca, #98b3d1, #9dbad8, #a2c0e0, #a7c7e7);
 }
 
 main {
@@ -36,6 +40,7 @@ main {
   border-radius: 20px;
   display: flex;
   flex-flow: column;
+  border: 2px solid var(--text-color);
 }
 
 input[type="text"], input[type="password"] {
@@ -58,7 +63,7 @@ a {
 }
 
 .hbr {
-  margin-block: 1vh;
+  margin-top: 1vh;
   width: 100%;
   border: 1px solid var(--text-color) ;
 }
@@ -78,7 +83,7 @@ a {
   background-color: var(--error-color);
 }
 .success {
-  background-color: var(--primary-color);
+  background-color: var(--edit-color);
 }
 
 .top {
@@ -152,6 +157,7 @@ a {
   gap: 0.5rem;
   margin-right: 10px;
   overflow-x: auto;
+  scrollbar-color: var(--primary-color) rgba(0, 0, 0, 0) !important;
   white-space: nowrap;
 }
 
@@ -180,7 +186,7 @@ a {
   text-align: center;
   width: 2rem;
   height: 2rem;
-  background-color: var(--bg-color);
+  background-color: var(--edit-color);
   border-radius: 5px;
   display: flex;
   justify-content: center;
