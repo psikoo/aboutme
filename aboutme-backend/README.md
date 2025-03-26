@@ -1,14 +1,17 @@
-## Backend API (nestjs)
+## Nestjs
 
-Api that works as the backend of the project
+The backend used to communicate with my database, i uses the global prefix `/api`.
 
-## Project setup
+
+## Building the docker image
 
 ```bash
-$ npm install
+$ sudo docker build -t aboutme-backend:1 .
 ```
 
-## Compile and run the project
+## Development commands
+
+Commands used while running locally:
 
 ```bash
 # development
