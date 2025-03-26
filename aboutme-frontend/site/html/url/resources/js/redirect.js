@@ -9,7 +9,7 @@ if(redirectById != null) {
   get(redirectById).then(res => {
     let redirect = JSON.parse(res).oldUrl;
     console.log(`Redirect by id - (${redirectById}) to ${redirect}`);
-    window.location.href = redirect;
+    if(redirect != "") window.location.href = redirect;
   });
 } 
 // By name (readable)
@@ -23,7 +23,7 @@ if(redirectByName != null) {
       if(redirects[i].newUrl == "https://url.cait.moe/?u="+redirectByName) {
         let redirect = redirects[i].oldUrl;
         console.log(`Redirect by name - (${redirectByName}) to ${redirect}`);
-        window.location.href = redirect;
+        if(redirect != "") window.location.href = redirect;
       }
     }
   });

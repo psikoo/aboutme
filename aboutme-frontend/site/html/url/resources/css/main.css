@@ -74,7 +74,6 @@ a {
   padding: 1vh 1.3vh;
   border-radius: 10px;
 }
-
 .error {
   background-color: var(--error-color);
 }
@@ -86,11 +85,18 @@ a {
   display: flex;
   justify-content: space-around;
 }
-
 .password {
   display: flex;
   gap: 10px;
   justify-content: space-around;
+}
+.show {
+  height: fit-content;
+  padding:5px 5px 0px 5px;
+  color: var(--text-color);
+  background-color: var(--primary-color);
+  border: 0px;
+  border-radius: 5px;
 }
 
 .bot {
@@ -131,15 +137,6 @@ a {
   border-radius: 5px;
 }
 
-.show {
-  height: fit-content;
-  padding:5px 5px 0px 5px;
-  color: var(--text-color);
-  background-color: var(--primary-color);
-  border: 0px;
-  border-radius: 5px;
-}
-
 .url {
   height: 2.3em;
   display: flex;
@@ -168,7 +165,6 @@ a {
   display: flex;
   gap: 0.5rem;
 }
-
 .oldUrl {
   filter: opacity(75%);
 }
