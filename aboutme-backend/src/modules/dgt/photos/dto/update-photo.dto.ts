@@ -1,7 +1,7 @@
 import { PartialType } from '@nestjs/mapped-types';
 import { CreatePhotoDto } from './create-photo.dto';
 import { IsNumber, IsString } from 'class-validator';
-import { Camera } from 'src/module/cameras/entities';
+import { Camera } from '../../cameras/entities';
 
 export class UpdatePhotoDto extends PartialType(CreatePhotoDto) {
   @IsString()

@@ -1,5 +1,5 @@
 import { Column, Entity, JoinColumn, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import { Photo } from "src/module/photos/entities";
+import { Photo } from "../../photos/entities";
 
 @Entity()
 export class Camera {

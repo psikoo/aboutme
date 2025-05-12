@@ -1,5 +1,5 @@
 import { IsNumber, IsString } from "class-validator";
-import { Camera } from "src/module/cameras/entities";
+import { Camera } from "../../cameras/entities";
 
 export class CreatePhotoDto {
   @IsString()
