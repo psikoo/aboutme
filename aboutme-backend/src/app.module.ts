@@ -12,12 +12,17 @@ import { ProjectsModule } from './modules/y2k/projects/projects.module';
 import { CounterModule } from './modules/y2k/counter/counter.module';
 import { ShortUrlsModule } from './modules/shorturl/shorturls.module';
 import { TamagotchiModule } from './modules/tamagotchi/tamagotchi.module';
+import { CamerasModule } from './modules/dgt/cameras/cameras.module';
+import { PhotosModule } from './modules/dgt/photos/photos.module';
+
 
 @Module({
   imports: [ConfigModule.forRoot({ isGlobal: true }), DatabaseModule, 
             UsersModule, SongsModule, UrlsModule, ProjectsModule, CounterModule,
             ShortUrlsModule,
-            TamagotchiModule],
+            TamagotchiModule,
+            CamerasModule, PhotosModule,
+           ],
   controllers: [AppController],
   providers: [AppService],
 })
