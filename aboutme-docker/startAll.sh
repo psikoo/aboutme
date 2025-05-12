@@ -30,6 +30,11 @@ echo "> cv"
 sudo npm install >/dev/null
 sudo npm run build >/dev/null
 
+cd $varRepo/aboutme-frontend/site/vue/dgt/vue
+echo "> dgt"
+sudo npm install >/dev/null
+sudo npm run build >/dev/null
+
 cd $varRepo/aboutme-frontend/site/html/blog
 echo "> blog"
 fileNum=$(ls ./entries | wc -l)
