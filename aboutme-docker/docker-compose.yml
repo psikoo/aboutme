@@ -24,7 +24,7 @@ services:
       - pgadmin:/var/lib/pgadmin
     depends_on:
       - db
-  aboutme-backend:
+  nest-dgt:
     container_name: aboutme-backend
     image: aboutme-backend:1
     restart: always
@@ -62,15 +62,15 @@ services:
       - db
     depends_on:
       - db
-  java-dgt:
+  aboutme-java:
     container_name: aboutme-java
     image: aboutme-java:1
     restart: always
     depends_on:
       - db
-      - aboutme-backend
+      - nest-dgt
     links:
-      - aboutme-backend
+      - nest-dgt
 
 volumes:
   pgdata:
