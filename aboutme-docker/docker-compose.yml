@@ -39,8 +39,6 @@ services:
         target: /etc/letsencrypt/live/${URL1}/cert.pem
     links:
       - db
-    networks:
-      java:
     depends_on:
       - db
   aboutme-nginx:
@@ -71,12 +69,8 @@ services:
     depends_on:
       - db
       - aboutme-backend
-    networks:
-      java:
-
-networks:
-  java:
-    driver: bridge
+    links:
+      - aboutme-backend
 
 volumes:
   pgdata:
