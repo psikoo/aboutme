@@ -15,9 +15,13 @@ echo "-- Test nginx --"
 sudo nginx -t >/dev/null
 sudo nginx -s reload >/dev/null
 
-echo "-- Build backend --"
+echo "-- Building backend --"
 cd $homeRepo/aboutme-backend
 sudo docker build -t aboutme-backend:1 . >/dev/null
+
+cd $homeRepo/aboutme-java
+./build.sh >/dev/null
+sudo docker build -t aboutme-java:1 . >/dev/null
 
 echo "-- Building the frontend --"
 cd $varRepo/aboutme-frontend/site/vue/y2k/vue
