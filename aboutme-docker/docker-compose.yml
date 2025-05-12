@@ -24,7 +24,7 @@ services:
       - pgadmin:/var/lib/pgadmin
     depends_on:
       - db
-  nest-dgt:
+  aboutme-backend:
     container_name: aboutme-backend
     image: aboutme-backend:1
     restart: always
@@ -39,6 +39,8 @@ services:
         target: /etc/letsencrypt/live/${URL1}/cert.pem
     links:
       - db
+    networks:
+      java:
     depends_on:
       - db
   aboutme-nginx:
@@ -68,9 +70,13 @@ services:
     restart: always
     depends_on:
       - db
-      - nest-dgt
-    links:
-      - nest-dgt
+      - aboutme-backend
+    networks:
+      java:
+
+networks:
+  java:
+    driver: bridge
 
 volumes:
   pgdata:
