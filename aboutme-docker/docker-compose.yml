@@ -11,6 +11,7 @@ services:
       - "500:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
+
   pgadmin:
     container_name: pgadmin4-8.13
     image: dpage/pgadmin4:8.13
@@ -24,6 +25,7 @@ services:
       - pgadmin:/var/lib/pgadmin
     depends_on:
       - db
+
   aboutme-backend:
     container_name: aboutme-backend
     image: aboutme-backend:1
@@ -41,6 +43,7 @@ services:
       - db
     depends_on:
       - db
+
   aboutme-nginx:
     container_name: aboutme-nginx
     image: nginx:1.27.4
@@ -62,6 +65,7 @@ services:
       - db
     depends_on:
       - db
+
   aboutme-java:
     container_name: aboutme-java
     image: aboutme-java:1
