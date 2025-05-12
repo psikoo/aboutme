@@ -34,7 +34,7 @@ public class ApiDownloader implements Runnable {
           WATCHLIST.put(name, url);
         }
       }
-    } catch (URISyntaxException | IOException logError) { Logger.instance().log("Getting", "Cameras", Logger.Verbosity.MEDIUM, Logger.LogType.ERROR); logError.printStackTrace() }
+    } catch (URISyntaxException | IOException logError) { Logger.instance().log("Getting", "Cameras", Logger.Verbosity.MEDIUM, Logger.LogType.ERROR); logError.printStackTrace(); }
     App.setWatchList(WATCHLIST);
     App.updateCameras();
     Logger.instance().log("Updated", "Cameras", Logger.Verbosity.HIGH);
