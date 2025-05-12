@@ -20,7 +20,10 @@ cd $homeRepo/aboutme-backend
 sudo docker build -t aboutme-backend:1 . >/dev/null
 
 cd $homeRepo/aboutme-java
-./build.sh >/dev/null
+user=$(whoami)
+sudo mvn clean validate compile assembly:assembly -DdescriptorId=jar-with-dependencies &&
+sudo chown -R $user ./target &&
+cp ./target/autodownload-1-jar-with-dependencies.jar ./autodownload.jar
 sudo docker build -t aboutme-java:1 . >/dev/null
 
 echo "-- Building the frontend --"
