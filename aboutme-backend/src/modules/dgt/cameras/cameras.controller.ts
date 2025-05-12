@@ -3,7 +3,7 @@ import { CamerasService } from './cameras.service';
 import { CreateCameraDto } from './dto/create-camera.dto';
 import { UpdateCameraDto } from './dto/update-camera.dto';
 
-@Controller('cameras')
+@Controller('dgt/cameras')
 export class CamerasController {
   constructor(private readonly camerasService: CamerasService) {}
 
