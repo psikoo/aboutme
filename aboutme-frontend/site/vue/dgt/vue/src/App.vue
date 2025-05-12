@@ -28,8 +28,8 @@ async function getCameras(url: string) {
 const apiPassword: Ref<string> = ref("");
 async function updateWatchList(cameraId: number, state: boolean) {
   apiPassword.value = prompt("Enter an api password", "")?? "";
-  await postUpdate("http://localhost:3000/api/cameras/"+cameraId, apiPassword.value, state);
-  await getCameras('http://localhost:3000/api/cameras/');
+  await postUpdate("https://cait.moe:3000/api/dgt/cameras/"+cameraId, apiPassword.value, state);
+  await getCameras('https://cait.moe:3000/api/dgt/cameras/');
 }
 
 // Patch camera's watch to the given state
@@ -85,7 +85,7 @@ function setupCamera() {
 
 onMounted(() => {
   // Fetch camera list
-  getCameras("http://localhost:3000/api/cameras/");
+  getCameras("https://cait.moe:3000/api/dgt/cameras/");
   // Set camera according to the url or to the default (598)
   setupCamera();
 })
