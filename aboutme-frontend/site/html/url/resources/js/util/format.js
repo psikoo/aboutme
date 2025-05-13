@@ -20,11 +20,11 @@ export async function formatUrls() {
       <div class="info">
         <div class="urlId">${urls[i].id}</div>
         <div class="urlBox">
-          <div class="oldUrl">
-            (<a href="${urls[i].oldUrl}" target="_blank">${urls[i].oldUrl}</a>)
-          </div>
           <div class="newUrl">
             <a href="${urls[i].newUrl}" target="_blank">${urls[i].newUrl}</a>
+          </div>
+          <div class="oldUrl">
+            (<a href="${urls[i].oldUrl}" target="_blank">${urls[i].oldUrl}</a>)
           </div>
         </div>
       </div>
