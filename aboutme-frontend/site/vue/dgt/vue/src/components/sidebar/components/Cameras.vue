@@ -35,9 +35,5 @@ defineProps<{
 .cameras {
   margin: 0.5rem;
 }
-.sideCameras { 
-  flex: 1 1 auto; 
-  overflow-y: scroll;
-  scrollbar-width: thin;
-}
+.sideCameras { flex: 1 1 auto; }
 </style>

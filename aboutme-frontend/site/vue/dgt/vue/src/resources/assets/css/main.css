@@ -17,6 +17,7 @@
   margin: 0 auto;
   padding: 1rem;
   font-weight: normal;
+  scrollbar-width: thin;
 }
 
 a {
