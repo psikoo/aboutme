@@ -33,6 +33,7 @@ function updateFilter(selected: string) { filter.value = selected; }
 }
 .cameras{
   overflow-y: scroll;
+  scrollbar-width: thin;
 }
 .sideBar {
   padding: 1rem;
