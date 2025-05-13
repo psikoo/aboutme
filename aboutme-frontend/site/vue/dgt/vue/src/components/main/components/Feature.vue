@@ -75,6 +75,10 @@ defineProps<{
 .button:hover { box-shadow: 0px 0px 10px -5px rgba(150,150,150,1); } 
 .button:active { box-shadow: 0px 0px 10px -5px rgba(255,255,255,1); }
 
+.ButtonContent {
+  text-wrap: nowrap;
+}
+
 .active {
   background-color: rgba(0,128,0,0.2);
 }
