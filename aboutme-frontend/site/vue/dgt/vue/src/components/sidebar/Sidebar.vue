@@ -4,6 +4,7 @@ import type { Camera } from '@/resources/types';
 import Cameras from './components/Cameras.vue';
 import Filter from './components/Filter.vue';
 import { ref, type Ref } from 'vue';
+import { useWindowSize } from '@vueuse/core';
 
 defineProps<{
   cameras: Camera[]
@@ -12,10 +13,11 @@ defineProps<{
 
 const filter: Ref<string> = ref("");
 function updateFilter(selected: string) { filter.value = selected; }
+const { width, height } = useWindowSize()
 </script>
 
 <template>
-  <div class="sideBar">
+  <div :class="{sideBar: true, hidden: (width<=1000)}">
     <a href="https://github.com/psikoo/DGTCweb" target="_blank" class="header">DGTC web</a>
     <Filter @updateFilter="(selected) => updateFilter(selected)"/>
     <Cameras @setCamera="(cameraId) => $emit('setCamera', cameraId)" :cameras :filter :cameraId/>
