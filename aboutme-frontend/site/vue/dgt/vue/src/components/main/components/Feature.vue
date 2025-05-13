@@ -47,7 +47,7 @@ defineProps<{
   gap: 0.5rem;
 }
 .feature>img {
-  height: 100%;
+  width: 100%;
   border-radius: 25px;
   box-shadow: 0px 0px 10px -2px rgba(0,0,0,1);
   user-select: none;
@@ -76,6 +76,7 @@ defineProps<{
 .button:active { box-shadow: 0px 0px 10px -5px rgba(255,255,255,1); }
 
 .ButtonContent {
+  margin-right: 1rem;
   text-wrap: nowrap;
 }
 
