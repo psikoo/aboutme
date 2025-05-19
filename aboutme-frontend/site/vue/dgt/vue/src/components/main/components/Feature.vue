@@ -1,6 +1,4 @@
 <script setup lang="ts">
-
-import { useWindowSize } from '@vueuse/core';
 import { ref, type Ref } from 'vue';
 import Arrow from './Arrow.vue';
 import type { Camera } from '@/resources/types';
@@ -11,12 +9,10 @@ defineProps<{
   liveUpdate: boolean;
   camera: Camera
 }>()
-
-const { width, height } = useWindowSize()
 </script>
 
 <template>
-  <div :class="{feature: true, hidden: (width<=1000)}">
+  <div class="feature">
     <Arrow :updateAmount="-1" @updatePhotoArrayPos="(updateAmount) => $emit('updatePhotoArrayPos', updateAmount)" class="LArrow"><</Arrow>
     <img 
       @click="$emit('setZoom', true)"
@@ -38,32 +34,6 @@ const { width, height } = useWindowSize()
         <div class="ButtonContent">{{ camera.watch ? "Remove" : "Add" }}</div>
         <div class="icon">👁️</div>
       </div>
-    </div>
-  </div>
-  <!-- Phone only -->
-  <div :class="{feature: true, smallFeature: true, hidden: !(width<=1000)}">
-    <div class="buttons smallButtons">
-      <a :href="photoUrl" target="_blank" draggable="false" class="button">
-        <div class="ButtonContent">Download</div>
-        <div class="icon">⬇️</div>
-      </a>
-      <div @click="$emit('toggleLiveUpdate')" :class="{ active: liveUpdate, button: true }">
-        <div class="ButtonContent">Live Update</div>
-        <div class="icon">🔴</div>
-      </div>
-      <div @click="$emit('updateCameras', cameraId, camera.watch ? false : true)" class="button">
-        <div class="ButtonContent">{{ camera.watch ? "Remove" : "Add" }}</div>
-        <div class="icon">👁️</div>
-      </div>
-    </div>
-    <div class="feature">
-      <Arrow :updateAmount="-1" @updatePhotoArrayPos="(updateAmount) => $emit('updatePhotoArrayPos', updateAmount)" class="LArrow"><</Arrow>
-      <img 
-        @click="$emit('setZoom', true)"
-        :src="photoUrl" :alt="photoUrl" 
-        draggable="false"
-      />
-      <Arrow :updateAmount="1" @updatePhotoArrayPos="(updateAmount) => $emit('updatePhotoArrayPos', updateAmount)" class="RArrow">></Arrow>
     </div>
   </div>
 </template>

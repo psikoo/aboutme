@@ -2,10 +2,6 @@
 import { onMounted, ref, watchEffect, type Ref } from 'vue';
 import { type Camera, type Photo } from '@/resources/types';
 
-import Zoom from './components/Zoom.vue';
-import Feature from './components/Feature.vue';
-import Historical from './components/Historical.vue';
-
 const props = defineProps<{
   cameraId: number;
 }>()
@@ -113,16 +109,10 @@ watchEffect(() => {
 
 <template>
   <div class="main">
-    <Zoom @click="zoom = false" :class="{ hidden: !zoom }" :photoUrl/>
-
-    <Feature 
-      @setZoom="(state) => setZoom(state)" 
-      @updatePhotoArrayPos="(int) => updatePhotoArrayPos(int)" 
-      @toggleLiveUpdate="(state) => toggleLiveUpdate(state)"
-      @updateCameras="(cameraId, state) => $emit('updateCameras', cameraId, state)"
-      :photoUrl :cameraId="camera.id" :liveUpdate :camera
-    />
-    <Historical @setImage="(index) => setPhotoArrayIndex(index)" :cameraUrl :photos/>
+    <div class="historical">
+      <img :src="cameraUrl" :alt="cameraUrl" draggable="false"/>
+      <img v-for="photo in photos" :src="photo.url" :alt="photo.url" draggable="false"/>
+    </div>
   </div>
 </template>
 
@@ -131,10 +121,22 @@ watchEffect(() => {
   flex-grow: 1;
   padding: 0.5rem 1rem 0.5rem 1rem;
   height: calc(100% + 1rem);
-  width: 100%;
+  width: calc(100% - 2rem);
   display: flex;
   flex-direction: column;
   gap: 1rem;
   overflow-x: hidden;
+}
+
+.historical {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  overflow-x: scroll;
+  scrollbar-width: thin;
+}
+.historical>img {
+  border-radius: 25px;
+  user-select: none;
 }
 </style>
