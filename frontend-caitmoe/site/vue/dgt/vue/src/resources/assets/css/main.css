@@ -1,5 +1,11 @@
 @import './reset.css';
 
+@font-face {
+  font-family: atkinson;
+  font-display: swap;
+  src: url(../fonts/atkinson.ttf);
+}
+
 :root {
   --body-color: #35353E;
   --border-color: #EEEEEE;
@@ -7,6 +13,10 @@
   --text-color: #EEEEEE;
   --primary-color: #202035;
   --hover-color: #202035;
+}
+
+body {
+  font-family:atkinson,sans-serif;
 }
 
 #app {
