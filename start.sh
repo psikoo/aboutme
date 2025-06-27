@@ -42,7 +42,7 @@ echo "> blog"
 fileNum=$(sudo ls ./entries | wc -l)
 sudo echo $fileNum > ./entries/counter.txt
 
-cd $homeRepo/aboutme-docker
+cd $homeRepo/docker-caitmoe
 sudo docker compose down >/dev/null
 sudo docker compose up -d >/dev/null
 

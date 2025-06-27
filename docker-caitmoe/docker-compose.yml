@@ -34,11 +34,11 @@ services:
       - "3000:3000"
     volumes:
       - type: bind
-        source: /etc/letsencrypt/live/${URL1}/privkey.pem
-        target: /etc/letsencrypt/live/${URL1}/privkey.pem
+        source: /etc/letsencrypt/live/${URL}/privkey.pem
+        target: /etc/letsencrypt/live/${URL}/privkey.pem
       - type: bind
-        source: /etc/letsencrypt/live/${URL1}/cert.pem
-        target: /etc/letsencrypt/live/${URL1}/cert.pem
+        source: /etc/letsencrypt/live/${URL}/cert.pem
+        target: /etc/letsencrypt/live/${URL}/cert.pem
     links:
       - db
     depends_on:
