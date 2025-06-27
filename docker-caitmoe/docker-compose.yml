@@ -78,4 +78,8 @@ services:
 
 volumes:
   pgdata:
+    external: true
+    name: aboutme-docker_pgdata
   pgadmin:
+    external: true
+    name: aboutme-docker_pgadmin
