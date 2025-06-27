@@ -10,20 +10,16 @@ cd $varRepo
 sudo git stash >/dev/null
 sudo git pull >/dev/null
 
-echo "-- Test nginx --"
-sudo nginx -t >/dev/null
-sudo nginx -s reload >/dev/null
-
 echo "-- Building backend --"
 cd $homeRepo/aboutme-backend
 sudo docker build -t aboutme-backend:1 . >/dev/null
 
-cd $homeRepo/aboutme-java
+cd $homeRepo/java-caitmoe
 user=$(whoami)
 sudo mvn clean validate compile assembly:assembly -DdescriptorId=jar-with-dependencies &&
 sudo chown -R $user ./target &&
 cp ./target/autodownload-1-jar-with-dependencies.jar ./autodownload.jar
-sudo docker build -t aboutme-java:1 . >/dev/null
+sudo docker build -t java-caitmoe:1 . >/dev/null
 
 echo "-- Building the frontend --"
 cd $varRepo/aboutme-frontend/site/vue/y2k/vue

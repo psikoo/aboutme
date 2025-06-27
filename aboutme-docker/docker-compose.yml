@@ -66,9 +66,9 @@ services:
     depends_on:
       - db
 
-  aboutme-java:
-    container_name: aboutme-java
-    image: aboutme-java:1
+  java-caitmoe:
+    container_name: java-caitmoe
+    image: java-caitmoe:1
     restart: always
     depends_on:
       - db
