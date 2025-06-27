@@ -18,7 +18,7 @@ cd $homeRepo/java-caitmoe
 user=$(whoami)
 sudo mvn clean validate compile assembly:assembly -DdescriptorId=jar-with-dependencies &&
 sudo chown -R $user ./target &&
-cp ./target/autodownload-1-jar-with-dependencies.jar ./autodownload.jar
+sudo cp ./target/autodownload-1-jar-with-dependencies.jar ./autodownload.jar
 sudo docker build -t java-caitmoe:1 . >/dev/null
 
 echo "-- Building the frontend --"
@@ -39,8 +39,8 @@ sudo npm run build >/dev/null
 
 cd $varRepo/aboutme-frontend/site/html/blog
 echo "> blog"
-fileNum=$(ls ./entries | wc -l)
-echo $fileNum > ./entries/counter.txt
+fileNum=$(sudo ls ./entries | wc -l)
+sudo echo $fileNum > ./entries/counter.txt
 
 cd $homeRepo/aboutme-docker
 sudo docker compose down >/dev/null
