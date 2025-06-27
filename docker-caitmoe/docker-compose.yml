@@ -44,8 +44,8 @@ services:
     depends_on:
       - db
 
-  aboutme-nginx:
-    container_name: aboutme-nginx
+  nginx-caitmoe:
+    container_name: nginx-caitmoe
     image: nginx:1.27.4
     restart: always
     ports:
