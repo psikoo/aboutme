@@ -11,8 +11,8 @@ sudo git stash >/dev/null
 sudo git pull >/dev/null
 
 echo "-- Building backend --"
-cd $homeRepo/aboutme-backend
-sudo docker build -t aboutme-backend:1 . >/dev/null
+cd $homeRepo/nest-caitmoe
+sudo docker build -t nest-caitmoe:1 . >/dev/null
 
 cd $homeRepo/java-caitmoe
 user=$(whoami)

@@ -26,9 +26,9 @@ services:
     depends_on:
       - db
 
-  aboutme-backend:
-    container_name: aboutme-backend
-    image: aboutme-backend:1
+  nest-caitmoe:
+    container_name: nest-caitmoe
+    image: nest-caitmoe:1
     restart: always
     ports:
       - "3000:3000"
@@ -72,9 +72,9 @@ services:
     restart: always
     depends_on:
       - db
-      - aboutme-backend
+      - nest-caitmoe
     links:
-      - aboutme-backend
+      - nest-caitmoe
 
 volumes:
   pgdata:

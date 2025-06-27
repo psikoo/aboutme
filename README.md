@@ -13,7 +13,7 @@ There are README files inside most major folder further explaining their content
 │     # PostgreSQL database, Nest api, Vue frontend
 ├───> docker-caitmoe
 │     # Nest.js api for my sites:
-├───> aboutme-backend
+├───> nest-caitmoe
 │     # Vue projects and vanilla js sites:
 ├───> frontend-caitmoe
 │     # Java code to automate the download of dgt images:
