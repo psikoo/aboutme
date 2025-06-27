@@ -10,7 +10,7 @@
   <version> 1</version>
 
   <name>autodownload</name>
-  <description>A command line adventure rpg</description>
+  <description>autodownload images from dgt cameras</description>
   <url>https://github.com/psikoo</url>
 
   <properties>

@@ -1,4 +1,5 @@
 #!/bin/bash
+cd ..
 user=$(whoami)
 sudo mvn clean validate compile assembly:assembly -DdescriptorId=jar-with-dependencies &&
 sudo chown -R $user ./target &&
