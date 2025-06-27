@@ -22,22 +22,22 @@ sudo cp ./target/autodownload-1-jar-with-dependencies.jar ./autodownload.jar
 sudo docker build -t java-caitmoe:1 . >/dev/null
 
 echo "-- Building the frontend --"
-cd $varRepo/aboutme-frontend/site/vue/y2k/vue
+cd $varRepo/frontend-caitmoe/site/vue/y2k/vue
 echo "> y2k"
 sudo npm install >/dev/null
 sudo npm run build >/dev/null
 
-cd $varRepo/aboutme-frontend/site/vue/cv/vue
+cd $varRepo/frontend-caitmoe/site/vue/cv/vue
 echo "> cv"
 sudo npm install >/dev/null
 sudo npm run build >/dev/null
 
-cd $varRepo/aboutme-frontend/site/vue/dgt/vue
+cd $varRepo/frontend-caitmoe/site/vue/dgt/vue
 echo "> dgt"
 sudo npm install >/dev/null
 sudo npm run build >/dev/null
 
-cd $varRepo/aboutme-frontend/site/html/blog
+cd $varRepo/frontend-caitmoe/site/html/blog
 echo "> blog"
 fileNum=$(sudo ls ./entries | wc -l)
 sudo echo $fileNum > ./entries/counter.txt

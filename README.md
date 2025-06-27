@@ -1,6 +1,6 @@
 ## cait.moe
 
-> This is a Monorepo containing the code/infrastructure for all my sites.
+> This repo contains the code/infrastructure for all my sites.
 
 There are README files inside most major folder further explaining their content.
 
@@ -15,5 +15,7 @@ There are README files inside most major folder further explaining their content
 │     # Nest.js api for my sites:
 ├───> aboutme-backend
 │     # Vue projects and vanilla js sites:
-└───> aboutme-frontend
+├───> frontend-caitmoe
+│     # Java code to automate the download of dgt images:
+└───> java-caitmoe
 ```
