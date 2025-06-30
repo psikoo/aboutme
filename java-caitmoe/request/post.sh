@@ -7,6 +7,9 @@ api=$3
 apiKey=$4
 
 unix=$(date +%s)
+
+touch ./request/res$cameraName.json
+touch ./request/link$cameraName.txt
 #* Post to imgur
 curl -s --location 'https://api.imgur.com/3/image' \
      --header 'Authorization: Client-ID 546c25a59c58ad7' \
@@ -23,6 +26,7 @@ link=$(cat ./request/link$cameraName.txt) &&
 #* Get cameraId
 curl -s -k --location $api'/cameras/name/'$cameraName > ./request/res$cameraName.json &&
 sed -i 's/,/,\n/g' ./request/res$cameraName.json &&
+
 grep "id" ./request/res$cameraName.json > ./request/link$cameraName.txt &&
 sed -i 's/{"id"://g' ./request/link$cameraName.txt &&
 sed -i 's/,//g' ./request/link$cameraName.txt &&
