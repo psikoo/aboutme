@@ -10,7 +10,7 @@ unix=$(date +%s)
 
 echo "$(whoami) - post.sh"
 #* Post to imgur
-curl -s --location 'https://api.imgur.com/3/image' \
+curl --location 'https://api.imgur.com/3/image' \
      --header 'Authorization: Client-ID 546c25a59c58ad7' \
      --form 'image=@"'$imagePath'"' \
      --form 'type="image"' \
@@ -23,7 +23,7 @@ sed -i 's/",//g' ./request/link$cameraName.txt &&
 link=$(cat ./request/link$cameraName.txt) &&
 
 #* Get cameraId
-curl -s -k --location $api'/cameras/name/'$cameraName > ./request/res$cameraName.json &&
+curl -k --location $api'/cameras/name/'$cameraName > ./request/res$cameraName.json &&
 sed -i 's/,/,\n/g' ./request/res$cameraName.json &&
 
 grep "id" ./request/res$cameraName.json > ./request/link$cameraName.txt &&
@@ -33,7 +33,8 @@ cameraId=$(cat ./request/link$cameraName.txt) &&
 
 #* Post to nest
 data='{"url":"'$link'","time":'$unix',"cameraId":'$cameraId'}'
-curl -s -k --location $api'/photos' \
+echo $data
+curl -k --location $api'/photos' \
      --header 'apikey: '$apiKey \
      --header 'Content-Type: application/json' \
      --data $data
