@@ -7,10 +7,8 @@ api=$3
 apiKey=$4
 
 unix=$(date +%s)
-
-echo "$(whoami) - post.sh"
 #* Post to imgur
-curl --location 'https://api.imgur.com/3/image' \
+curl -s --location 'https://api.imgur.com/3/image' \
      --header 'Authorization: Client-ID 546c25a59c58ad7' \
      --form 'image=@"'$imagePath'"' \
      --form 'type="image"' \
@@ -33,7 +31,7 @@ cameraId=$(cat ./request/link$cameraName.txt) &&
 
 #* Post to nest
 data='{"url":"'$link'","time":'$unix',"cameraId":'$cameraId'}'
-echo "Data = $data"
+echo $data
 curl -s -k --location $api'/photos' \
      --header 'apikey: '$apiKey \
      --header 'Content-Type: application/json' \
