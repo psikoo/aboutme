@@ -32,7 +32,7 @@ public class Get {
   public static JsonNode getJsonFromURL(String uriString) throws URISyntaxException, IOException {
     String[] command = {"./request/get.sh"};
     Command.instance().executeCommand(command);
-    URL url = new File("./request/cams.json").toURI().toURL();
+    URL url = new File("request/cams.json").toURI().toURL();
     ObjectMapper mapper = new ObjectMapper();
     return mapper.readTree(url);
   }
