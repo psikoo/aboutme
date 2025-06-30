@@ -23,8 +23,7 @@ sed -i 's/",//g' ./request/link$cameraName.txt &&
 link=$(cat ./request/link$cameraName.txt) &&
 
 #* Get cameraId
-echo "TEST $api'/cameras/name/'$cameraName"
-curl -k --location $api'/cameras/name/'$cameraName > ./request/res$cameraName.json &&
+curl -s -k --location $api'/cameras/name/'$cameraName > ./request/res$cameraName.json &&
 sed -i 's/,/,\n/g' ./request/res$cameraName.json &&
 
 grep "id" ./request/res$cameraName.json > ./request/link$cameraName.txt &&
@@ -34,8 +33,8 @@ cameraId=$(cat ./request/link$cameraName.txt) &&
 
 #* Post to nest
 data='{"url":"'$link'","time":'$unix',"cameraId":'$cameraId'}'
-echo "$api'/photos'"
-curl -k --location $api'/photos' \
+echo "Data = $data"
+curl -s -k --location $api'/photos' \
      --header 'apikey: '$apiKey \
      --header 'Content-Type: application/json' \
      --data $data

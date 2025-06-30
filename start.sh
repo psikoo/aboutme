@@ -15,8 +15,7 @@ cd $homeRepo/nest-caitmoe
 sudo docker build -t nest-caitmoe:1 . >/dev/null
 
 cd $homeRepo/java-caitmoe
-sudo mvn clean validate compile assembly:assembly -DdescriptorId=jar-with-dependencies &&
-sudo chown -R $user ./target &&
+sudo mvn clean validate compile assembly:assembly -DdescriptorId=jar-with-dependencies
 sudo cp ./target/autodownload-1-jar-with-dependencies.jar ./autodownload.jar
 cd ./request
 sudo chmod +x get.sh
