@@ -15,10 +15,13 @@ cd $homeRepo/nest-caitmoe
 sudo docker build -t nest-caitmoe:1 . >/dev/null
 
 cd $homeRepo/java-caitmoe
-user=$(whoami)
 sudo mvn clean validate compile assembly:assembly -DdescriptorId=jar-with-dependencies &&
 sudo chown -R $user ./target &&
 sudo cp ./target/autodownload-1-jar-with-dependencies.jar ./autodownload.jar
+cd ./request
+sudo chmod +x get.sh
+sudo chmod +x post.sh
+cd ..
 sudo docker build -t java-caitmoe:1 . >/dev/null
 
 echo "-- Building the frontend --"
